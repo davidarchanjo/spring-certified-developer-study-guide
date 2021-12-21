@@ -126,7 +126,7 @@ The [**Spring Certified Professional**](https://www.vmware.com/education-service
 ## OVERVIEW
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the _class_ whereas in AOP the unit of modularity is the _aspect_.
 
-## CORE CONCEPTS OF AOP
+### CORE CONCEPTS OF AOP
 * **Cross-Cutting Concerns** - are common functions that span on multiple points of an application.
 
 * **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access etc. Spring AOP only supports _method execution join points_.
