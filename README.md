@@ -2,7 +2,7 @@
 ![banner](./assets/banner.jpg)
 
 # EXAM OVERVIEW
-The [**Spring Certified Professional**](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness. (In other words, you must answer 38 or more questions correctly.) Candidates are given 90 minutes to complete the exam. The exam covers the following topics:
+The [**Spring Certified Professional**](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. 38 or more questions must be answered correctly). The exam covers the following topics:
  - Container, Dependency, and IOC
  - Aspect-Oriented Programming (AOC)
  - Data Management: JDBC, Transactions
@@ -16,11 +16,12 @@ The [**Spring Certified Professional**](https://www.vmware.com/education-service
  - Spring Boot Actuator
  - Spring Boot Testing
 
+### EXAM INFO
 **Duration:** 90 Minutes
 
 **Number of Questions:** 50 Questions
 
-**Passing Score:** 76%
+**Passing Score:** 76% (38 out of 50)
 
 **Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
 
