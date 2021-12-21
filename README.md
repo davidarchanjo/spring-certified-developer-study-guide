@@ -1,8 +1,15 @@
 # SPRING CERTIFIED DEVELOPER STUDY GUIDE
 ![banner](./assets/banner.jpg)
 
+
+
+# INTRODUCTION
+This guide walks through providing technical and conceptual references on the Spring Framework, with a focus on the Spring Boot Framework, by serving as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge comes from my professional working experience of 12+ years as a Java Developer using the Spring Framework such that this guide served for organizing the sources of technical documentations which I considered relevant to help me get certified.
+
+
+
 # EXAM OVERVIEW
-The [**Spring Certified Professional**](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. 38 or more questions must be answered correctly). The exam covers the following topics:
+The [**Spring Certified Professional**](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. 38 or more questions must be answered correctly). This Spring Professional certification exam is designed to test and validate your understanding of and familiarity with core aspects of Spring and Spring Boot as follows:
  - Container, Dependency, and IOC
  - Aspect-Oriented Programming (AOC)
  - Data Management: JDBC, Transactions
@@ -269,6 +276,6 @@ RestTemplate -
 
 * `@MockBean` - annotation part of Spring Test Framework used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with `@SpringBootTest`, `@WebMvcTest` and so on).
 
-* `@Mock` - annotation part of Mockito Framework used to create a mock instance of the marked field, just like if we would be calling Mockito.mock() manually.
+* `@Mock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
 
-* `@InjectMock` - annotation part of Mockito Framework used to create a mock instance of the marked field and injects all dependencies annotated with `@Mock` into it.
+* `@InjectMock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field and injects all dependencies annotated with `@Mock` into it.
