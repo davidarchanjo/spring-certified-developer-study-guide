@@ -4,12 +4,12 @@
 
 
 # INTRODUCTION
-This guide walks through presenting technical and conceptual references on the Spring Framework, with a focus on the Spring Boot Framework, by serving as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge comes from [my professional working experience of 12+ years as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) using the Spring Framework such that this guide served to organize all the sources of technical documentations which I considered relevant to help me get certified.
+This guide walks through presenting some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, by serving as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge comes from [my professional working experience of 12+ years as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) using the Spring Framework such that this guide served to organize all the sources of technical documentations which I considered relevant to help me get certified.
 
 
 
 # EXAM OVERVIEW
-The [**Spring Certified Professional**](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. 38 or more questions must be answered correctly). This Spring Professional certification exam is designed to test and validate your understanding of and familiarity with core aspects of Spring and Spring Boot as follows:
+The [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. 38 or more questions must be answered correctly). This Spring Professional certification exam is designed to test and validate your understanding of and familiarity with core aspects of Spring and Spring Boot as follows:
  - Container, Dependency, and IOC
  - Aspect-Oriented Programming (AOC)
  - Data Management: JDBC, Transactions
@@ -46,13 +46,13 @@ The [**Spring Certified Professional**](https://www.vmware.com/education-service
 ## REFERENCES
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 - https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
+- https://www.journaldev.com/2410/spring-dependency-injection
 - https://www.baeldung.com/spring-bean
 - https://www.baeldung.com/spring-bean-scopes
 - https://dzone.com/articles/spring-bean-lifecycle
 - https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring
 - https://knpcode.com/spring/spring-bean-lifecycle-callback-methods
 - https://www.baeldung.com/spring-core-annotations
-- https://www.journaldev.com/2410/spring-dependency-injection
 - https://www.baeldung.com/spring-expression-language
 
 
