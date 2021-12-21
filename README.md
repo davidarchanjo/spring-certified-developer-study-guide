@@ -6,23 +6,23 @@
 - Spring IoC Container is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations : BeanFactory and ApplicationContext.
 - Inversion of Control is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to an IoC container.
 
-https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
-https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
+https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring </br>
+https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory </br>
 
-https://www.baeldung.com/spring-bean
-https://www.baeldung.com/spring-bean-scopes
-https://dzone.com/articles/spring-bean-lifecycle
-https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
-https://knpcode.com/spring/spring-bean-lifecycle-callback-methods/
+https://www.baeldung.com/spring-bean </br>
+https://www.baeldung.com/spring-bean-scopes </br>
+https://dzone.com/articles/spring-bean-lifecycle </br>
+https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring </br>
+https://knpcode.com/spring/spring-bean-lifecycle-callback-methods </br>
 
-https://www.baeldung.com/spring-core-annotations
-https://www.journaldev.com/2410/spring-dependency-injection
-https://www.baeldung.com/spring-expression-language
+https://www.baeldung.com/spring-core-annotations </br>
+https://www.journaldev.com/2410/spring-dependency-injection </br>
+https://www.baeldung.com/spring-expression-language </br>
 
 ## ANNOTATIONS
 * `@Bean` - used to mark a factory method which instantiates a Spring bean;
 
-* `@Scope` - used to indicate the scope to be used for instances of the annotated bean;
+* `@Scope` - used to indicate the scope for instances of the annotated bean;
 
 * `@Autowired` - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
 
