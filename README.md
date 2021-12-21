@@ -58,35 +58,35 @@ The [**Spring Certified Professional**](https://www.vmware.com/education-service
 
 
 ## KEY ANNOTATIONS
-* `@Bean` - used to mark a factory method which instantiates a Spring bean;
+`@Bean` - used to mark a factory method which instantiates a Spring bean;
 
-* `@Scope` - used to indicate the scope for instances of the annotated bean;
+`@Scope` - used to indicate the scope for instances of the annotated bean;
 
-* `@Autowired` - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
+`@Autowired` - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
 
-* `@Qualifier` - used to disambiguate bean references of the same type when Spring is otherwise unable to do so;
+`@Qualifier` - used to disambiguate bean references of the same type when Spring is otherwise unable to do so;
 
-* `@Primary` - used to indicate that a bean must have a higher preference when there are multiple beans of the same type;
+`@Primary` - used to indicate that a bean must have a higher preference when there are multiple beans of the same type;
 
-* `@Profile` - used to indicate that a component class or bean is registrable when the specified profile(s) are active;
+`@Profile` - used to indicate that a component class or bean is registrable when the specified profile(s) are active;
 
-* `@Component` - generic stereotype annotation used to indicate that a class is a managed component, registering as a bean;
+`@Component` - generic stereotype annotation used to indicate that a class is a managed component, registering as a bean;
 
-* `@Repository` - is a @Component stereotype annotation used to indicate that a class defines a data repository. Enables automatic translation of exceptions thrown from the underlying persistence layer;
+`@Repository` - is a @Component stereotype annotation used to indicate that a class defines a data repository. Enables automatic translation of exceptions thrown from the underlying persistence layer;
 
-* `@Service` - is a @Component stereotype annotation used to indicate that a class defines business logic;
+`@Service` - is a @Component stereotype annotation used to indicate that a class defines business logic;
 
-* `@Configuration` - used to tag a class as a source of bean definitions for Spring Boot to find it during scanning;
+`@Configuration` - used to tag a class as a source of bean definitions for Spring Boot to find it during scanning;
 
-* `@Import` - used to indicate one or more component classes to import — typically @Configuration classes.
+`@Import` - used to indicate one or more component classes to import — typically @Configuration classes.
 
-* `@Value` - used at the field or method/constructor parameter level to inject property value into beans;
+`@Value` - used at the field or method/constructor parameter level to inject property value into beans;
 
-* `@PropertySource` - used to load values from property files — the values can be accessed from [Environment](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html) or injected by the @Value annotation;
+`@PropertySource` - used to load values from property files — the values can be accessed from [Environment](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html) or injected by the @Value annotation;
 
-* `@ConfigurationProperties` - used to map resource files such as properties or YAML files to Java Bean object.
+`@ConfigurationProperties` - used to map resource files such as properties or YAML files to Java Bean object.
 
-* `@EnableConfigurationProperties` - enables support for `@ConfigurationProperties` annotated classes in our application.
+`@EnableConfigurationProperties` - enables support for `@ConfigurationProperties` annotated classes in our application.
 
 
 
@@ -99,19 +99,19 @@ The [**Spring Certified Professional**](https://www.vmware.com/education-service
 - https://zetcode.com/springboot/conditionalbeans/
 
 ## KEY ANNOTATIONS
-* `@SpringBootApplication` - is a combination of `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` annotations with their default attributes.
+`@SpringBootApplication` - is a combination of `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` annotations with their default attributes.
 
-* `@EnableAutoConfiguration` – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath.
+`@EnableAutoConfiguration` – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath.
 
-* `@ComponentScan` – tells Spring to look for other beans, components and configurations in the same package and below of the annotated class.
+`@ComponentScan` – tells Spring to look for other beans, components and configurations in the same package and below of the annotated class.
 
-* `@SpringBootConfiguration` - Indicates that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically.
+`@SpringBootConfiguration` - Indicates that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically.
 
-* `@Conditional` - 
+`@Conditional` - 
 
-* `@Import` - used to import a bean configuration class marked with `@Configuration` which contains custom bean definitions.
+`@Import` - used to import a bean configuration class marked with `@Configuration` which contains custom bean definitions.
 
-* `@ImportAutoConfiguration` - when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. only runs the configuration classes that you provided in the annotation. 
+`@ImportAutoConfiguration` - when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. only runs the configuration classes that you provided in the annotation. 
 
 
 
@@ -174,12 +174,12 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 ## KEY ANNOTATIONS
-* `@Entity` - 
-* `@Table` -
-* `@Id` -
-* `@GeneratedValue` -
-* `@Column` -
-* `@Transactional` -
+`@Entity` - 
+`@Table` -
+`@Id` -
+`@GeneratedValue` -
+`@Column` -
+`@Transactional` -
 
 
 
@@ -198,28 +198,28 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY ANNOTATIONS
-* `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the HTTP methods GET, POST, PUT, DELETE, and PATCH respectively. By default `@RequestMapping` maps all HTTP operations. 
+`@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the HTTP methods GET, POST, PUT, DELETE, and PATCH respectively. By default `@RequestMapping` maps all HTTP operations. 
 
-* `@PathVariable` - used to bind a named URI path parameter into a method argument.
+`@PathVariable` - used to bind a named URI path parameter into a method argument.
 
-* `@RequestParam` - used to bind a URI query parameter to a method argument.
+`@RequestParam` - used to bind a URI query parameter to a method argument.
 
-* `@RequestHeader` - used to bind a request header to a method parameter
+`@RequestHeader` - used to bind a request header to a method parameter
 
-* `@RequestPart` - used to associate a part of a multipart request with a method argument.
+`@RequestPart` - used to associate a part of a multipart request with a method argument.
 
-* `@CookieValue` - used to indicate that a method parameter is bound to an HTTP cookie.
+`@CookieValue` - used to indicate that a method parameter is bound to an HTTP cookie.
 
-* `@RequestBody` - used to bind the body of the request to a method argument (object).
+`@RequestBody` - used to bind the body of the request to a method argument (object).
 
-* `@ResponseBody` - used to indicate that the result of a request handler method is the response itself.
+`@ResponseBody` - used to indicate that the result of a request handler method is the response itself.
 If a class is annotated with `@ResponseBody`, all of its request handler methods will be functioning like that.
 
-* `@ResponseStatus` - used to specify the HTTP response status of a request handler method.
+`@ResponseStatus` - used to specify the HTTP response status of a request handler method.
 
-* `@Controller` - used to mark a class as a source of request method handlers.
+`@Controller` - used to mark a class as a source of request method handlers.
 
-* `@RestController` - combines the `@Controller` and `@ResponseBody` annotations, making all class request handler methods assumes `@ResponseBody` by default.
+`@RestController` - combines the `@Controller` and `@ResponseBody` annotations, making all class request handler methods assumes `@ResponseBody` by default.
 RestTemplate - 
 
 
@@ -240,10 +240,10 @@ RestTemplate -
 * mvcMatcher - 
 
 ## KEY ANNOTATIONS
-* `@EnableWebSecurity` - 
-* `@EnableMethodSecurity` - 
-* `@PreAuthorized` - 
-* `@RolesAllowed` - 
+`@EnableWebSecurity` - 
+`@EnableMethodSecurity` - 
+`@PreAuthorized` - 
+`@RolesAllowed` - 
 
 
 
@@ -266,16 +266,16 @@ RestTemplate -
 - https://newbedev.com/unit-test-or-integration-test-in-spring-boot
 
 ## KEY ANNOTATIONS
-* `@SpringBootTest` - used to bootstrap a complete application context for testing. `@SpringBootTest` by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with `@SpringBootConfiguration` from which it reads the configuration to create an application context. This class is usually the main application class since the `@SpringBootApplication` annotation includes the `@SpringBootConfiguration` annotation. It then creates an application context very similar to the one that would be started in a production environment.
+`@SpringBootTest` - used to bootstrap a complete application context for testing. `@SpringBootTest` by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with `@SpringBootConfiguration` from which it reads the configuration to create an application context. This class is usually the main application class since the `@SpringBootApplication` annotation includes the `@SpringBootConfiguration` annotation. It then creates an application context very similar to the one that would be started in a production environment.
 
-* `@WebMvcTest` - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
+`@WebMvcTest` - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
 
-* `@DataJpaTest` - used to set up an application context specificaly to test the **Persistence Layer**, by configuring entities, repositories as well as an embedded database.
+`@DataJpaTest` - used to set up an application context specificaly to test the **Persistence Layer**, by configuring entities, repositories as well as an embedded database.
 
-* `@TestConfiguration` - used to define additional beans or override existing beans in the Spring application context in order to add specialized configuration for testing. Configuration classes annotated with `@TestConfiguration` are excluded from component scanning. Configuration classes with bean definition annotated with `@TestConfiguration` can be imported by `@Import` or declared as static inner classes. It is required to set the property `spring.main.allow-bean-definition-overriding` to `true` in order to enable bean overriding feature during testing.
+`@TestConfiguration` - used to define additional beans or override existing beans in the Spring application context in order to add specialized configuration for testing. Configuration classes annotated with `@TestConfiguration` are excluded from component scanning. Configuration classes with bean definition annotated with `@TestConfiguration` can be imported by `@Import` or declared as static inner classes. It is required to set the property `spring.main.allow-bean-definition-overriding` to `true` in order to enable bean overriding feature during testing.
 
-* `@MockBean` - annotation part of Spring Test Framework used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with `@SpringBootTest`, `@WebMvcTest` and so on).
+`@MockBean` - annotation part of Spring Test Framework used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with `@SpringBootTest`, `@WebMvcTest` and so on).
 
-* `@Mock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
+`@Mock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
 
-* `@InjectMock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field and injects all dependencies annotated with `@Mock` into it.
+`@InjectMock` - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock instance of the marked field and injects all dependencies annotated with `@Mock` into it.
