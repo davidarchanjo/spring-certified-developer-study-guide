@@ -1,23 +1,48 @@
 # SPRING CERTIFIED DEVELOPER STUDY GUIDE
 ![banner](./assets/banner.jpg)
 
+# EXAM OVERVIEW
+The **Spring Certified Professional** certification is a 50-multiple-choice exam, with a passing score of 76% correctness. (In other words, you must answer 38 or more questions correctly.) Candidates are given 90 minutes to complete the exam. The exam covers the following topics:
+ - Container, Dependency, and IOC
+ - Aspect-Oriented Programming (AOC)
+ - Data Management: JDBC, Transactions
+ - Spring Data JPA
+ - Spring MVC Basics
+ - Spring MVC REST
+ - Security
+ - Testing 
+ - Spring Boot Basics
+ - Spring Boot Auto Configuration
+ - Spring Boot Actuator
+ - Spring Boot Testing
+
+**Duration:** 90 Minutes
+
+**Number of Questions:** 50 Questions
+
+**Passing Score:** 76%
+
+**Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
+
+
 
 # SPRING CORE CONCEPTS
-- Spring IoC Container is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations : BeanFactory and ApplicationContext.
-- Inversion of Control is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to an IoC container.
+- **Bean** is an object that is instantiated, assembled, and otherwise managed by the Spring IoC Container.
+- **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
+- **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to the IoC container.
+- **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injecting of an object's dependencies.
 
-https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring </br>
-https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory </br>
-
-https://www.baeldung.com/spring-bean </br>
-https://www.baeldung.com/spring-bean-scopes </br>
-https://dzone.com/articles/spring-bean-lifecycle </br>
-https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring </br>
-https://knpcode.com/spring/spring-bean-lifecycle-callback-methods </br>
-
-https://www.baeldung.com/spring-core-annotations </br>
-https://www.journaldev.com/2410/spring-dependency-injection </br>
-https://www.baeldung.com/spring-expression-language </br>
+## REFERENCES
+- https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
+- https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
+- https://www.baeldung.com/spring-bean
+- https://www.baeldung.com/spring-bean-scopes
+- https://dzone.com/articles/spring-bean-lifecycle
+- https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring
+- https://knpcode.com/spring/spring-bean-lifecycle-callback-methods
+- https://www.baeldung.com/spring-core-annotations
+- https://www.journaldev.com/2410/spring-dependency-injection
+- https://www.baeldung.com/spring-expression-language
 
 
 
@@ -55,11 +80,12 @@ https://www.baeldung.com/spring-expression-language </br>
 
 
 # SPRING BOOT BASICS AND AUTO CONFIGURATION
-https://www.baeldung.com/spring-boot-annotations
-https://www.marcobehler.com/guides/spring-boot
-https://www.baeldung.com/spring-component-scanning
-https://reflectoring.io/spring-boot-conditionals/
-https://zetcode.com/springboot/conditionalbeans/
+## REFERENCES
+- https://www.baeldung.com/spring-boot-annotations
+- https://www.marcobehler.com/guides/spring-boot
+- https://www.baeldung.com/spring-component-scanning
+- https://reflectoring.io/spring-boot-conditionals/
+- https://zetcode.com/springboot/conditionalbeans/
 
 ## KEY ANNOTATIONS
 * `@SpringBootApplication` - is a combination of `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` annotations with their default attributes.
@@ -79,11 +105,12 @@ https://zetcode.com/springboot/conditionalbeans/
 
 
 # ASPECT-ORIENTED PROGRAMMING
-https://www.javatpoint.com/spring-aop-tutorial
-https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
-https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop
-https://www.journaldev.com/2583/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations
-https://howtodoinjava.com/spring-aop-tutorial/
+## REFERENCES
+- https://www.javatpoint.com/spring-aop-tutorial
+- https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
+- https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop
+- https://www.journaldev.com/2583/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations
+- https://howtodoinjava.com/spring-aop-tutorial/
 
 ## OVERVIEW
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the _class_ whereas in AOP the unit of modularity is the _aspect_.
@@ -125,14 +152,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 # DATA MANAGEMENT: JDBC, TRANSACTIONS
-https://spring.io/guides/gs/accessing-data-jpa/
-https://spring.io/guides/gs/relational-data-access/
-https://spring.io/guides/gs/managing-transactions/
+## REFERENCES
+- https://spring.io/guides/gs/accessing-data-jpa/
+- https://spring.io/guides/gs/relational-data-access/
+- https://spring.io/guides/gs/managing-transactions/
 
-https://www.javainuse.com/spring/boot-transaction-propagation
-https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
-https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
-https://www.baeldung.com/spring-jdbc-jdbctemplate
+- https://www.javainuse.com/spring/boot-transaction-propagation
+- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
+- https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
+- https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 ## KEY ANNOTATIONS
 * `@Entity` - 
@@ -145,16 +173,18 @@ https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 
 # SPRING DATA JPA
-https://knpcode.com/spring/spring-data-tutorial/
-https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
+## REFERENCES
+- https://knpcode.com/spring/spring-data-tutorial/
+- https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 
 
 
 # SPRING MVC
-https://www.baeldung.com/spring-mvc-tutorial
-https://spring.io/guides/gs/serving-web-content/
-https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
-https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example/
+## REFERENCES
+- https://www.baeldung.com/spring-mvc-tutorial
+- https://spring.io/guides/gs/serving-web-content
+- https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
+- https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY ANNOTATIONS
 * `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the HTTP methods GET, POST, PUT, DELETE, and PATCH respectively. By default `@RequestMapping` maps all HTTP operations. 
@@ -184,17 +214,19 @@ RestTemplate -
 
 
 # SPRING SECURITY
-https://www.marcobehler.com/guides/spring-security
-https://spring.io/guides/topicals/spring-security-architecture/
-https://spring.io/guides/gs/securing-web/
-https://www.baeldung.com/spring-security-expressions
-https://www.section.io/engineering-education/springboot-antmatchers/
-https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
-https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
-https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
+## REFERENCES
+- https://www.marcobehler.com/guides/spring-security
+- https://spring.io/guides/topicals/spring-security-architecture/
+- https://spring.io/guides/gs/securing-web/
+- https://www.baeldung.com/spring-security-expressions
+- https://www.section.io/engineering-education/springboot-antmatchers/
+- https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
+- https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
+- https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
 
-antMatcher - 
-mvcMatcher - 
+## OVERVIEW
+* antMatcher - 
+* mvcMatcher - 
 
 ## KEY ANNOTATIONS
 * `@EnableWebSecurity` - 
@@ -205,20 +237,22 @@ mvcMatcher -
 
 
 # SPRING BOOT ACTUATOR
-https://www.baeldung.com/spring-boot-actuators
-https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
-https://spring.io/guides/gs/actuator-service/
+## REFERENCES
+- https://www.baeldung.com/spring-boot-actuators
+- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
+- https://spring.io/guides/gs/actuator-service/
 
 
 
 # SPRING BOOT TESTING
-https://spring.io/guides/gs/testing-web/
-https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
-https://howtodoinjava.com/spring-boot2/testing/junit5-with-spring-boot2/
-https://reflectoring.io/spring-boot-test/
-https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
-https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
-https://newbedev.com/unit-test-or-integration-test-in-spring-boot
+## REFERENCES
+- https://spring.io/guides/gs/testing-web/
+- https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
+- https://howtodoinjava.com/spring-boot2/testing/junit5-with-spring-boot2/
+- https://reflectoring.io/spring-boot-test/
+- https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
+- https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
+- https://newbedev.com/unit-test-or-integration-test-in-spring-boot
 
 ## KEY ANNOTATIONS
 * `@SpringBootTest` - used to bootstrap a complete application context for testing. `@SpringBootTest` by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with `@SpringBootConfiguration` from which it reads the configuration to create an application context. This class is usually the main application class since the `@SpringBootApplication` annotation includes the `@SpringBootConfiguration` annotation. It then creates an application context very similar to the one that would be started in a production environment.
