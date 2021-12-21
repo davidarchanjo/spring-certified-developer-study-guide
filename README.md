@@ -22,7 +22,7 @@ https://www.baeldung.com/spring-expression-language
 ## ANNOTATIONS
 * `@Bean` - used to mark a factory method which instantiates a Spring bean;
 
-* `@Scope` - used to indicate the scope to be used for instances of the annotated argument;
+* `@Scope` - used to indicate the scope to be used for instances of the annotated bean;
 
 * `@Autowired` - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
 
