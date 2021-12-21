@@ -4,7 +4,7 @@
 
 
 # INTRODUCTION
-This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience of Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served just to organize all the sources of technical documentations which I considered relevant to help me get certified. Hope it helps you in some way on your journey.
+This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served just to organize all the sources of technical documentations which I considered relevant to help me get certified. Hope it helps you in some way on your journey too.
 
 
 
