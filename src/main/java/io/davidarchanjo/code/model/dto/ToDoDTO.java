@@ -18,5 +18,12 @@ public class ToDoDTO {
 
     @NotNull(message = "Attribute 'completed' must not be null")
     private Boolean completed;
+    
+    public ToDoDTOBuilder toBuilder() {
+        return ToDoDTO.builder()
+            .id(this.getId())
+            .task(this.getTask())
+            .completed(this.getCompleted());
+    }
 
 }

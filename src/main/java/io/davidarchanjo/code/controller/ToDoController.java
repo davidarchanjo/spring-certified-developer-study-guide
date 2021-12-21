@@ -1,9 +1,7 @@
 package io.davidarchanjo.code.controller;
 
-import io.davidarchanjo.code.model.dto.ToDoDTO;
-import io.davidarchanjo.code.service.ToDoService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import javax.validation.Valid;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,25 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.validation.Valid;
+import io.davidarchanjo.code.model.dto.ToDoDTO;
+import io.davidarchanjo.code.service.ToDoService;
+import lombok.RequiredArgsConstructor;
 
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/todo")
+@RequestMapping("api/todos")
 public class ToDoController {
-
-    @Value("${foo}")
-    private String foo;
 
     private final ToDoService service;
     
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody ToDoDTO dto, UriComponentsBuilder uriComponentsBuilder) {
-        System.out.println(foo);
         final ToDoDTO todo = service.create(dto);
         final UriComponents uriComponents = uriComponentsBuilder
-            .path("/api/todo/{id}")
+            .path("/api/todos/{id}")
             .buildAndExpand(todo.getId());
         final HttpHeaders headers = new HttpHeaders();
         headers.setLocation(uriComponents.toUri());

@@ -19,7 +19,9 @@ https://www.baeldung.com/spring-core-annotations </br>
 https://www.journaldev.com/2410/spring-dependency-injection </br>
 https://www.baeldung.com/spring-expression-language </br>
 
-## ANNOTATIONS
+
+
+## KEY ANNOTATIONS
 * `@Bean` - used to mark a factory method which instantiates a Spring bean;
 
 * `@Scope` - used to indicate the scope for instances of the annotated bean;
@@ -32,8 +34,8 @@ https://www.baeldung.com/spring-expression-language </br>
 
 * `@Profile` - used to indicate that a component class or bean is registrable when the specified profile(s) are active;
 
-
 * `@Component` - generic stereotype annotation used to indicate that a class is a managed component, registering as a bean;
+
 * `@Repository` - is a @Component stereotype annotation used to indicate that a class defines a data repository. Enables automatic translation of exceptions thrown from the underlying persistence layer;
 
 * `@Service` - is a @Component stereotype annotation used to indicate that a class defines business logic;
@@ -46,6 +48,10 @@ https://www.baeldung.com/spring-expression-language </br>
 
 * `@PropertySource` - used to load values from property files — the values can be accessed from [Environment](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html) or injected by the @Value annotation;
 
+* `@ConfigurationProperties` - used to map resource files such as properties or YAML files to Java Bean object.
+
+* `@EnableConfigurationProperties` - enables support for `@ConfigurationProperties` annotated classes in our application.
+
 
 
 # SPRING BOOT BASICS AND AUTO CONFIGURATION
@@ -55,7 +61,7 @@ https://www.baeldung.com/spring-component-scanning
 https://reflectoring.io/spring-boot-conditionals/
 https://zetcode.com/springboot/conditionalbeans/
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 * `@SpringBootApplication` - is a combination of `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` annotations with their default attributes.
 
 * `@EnableAutoConfiguration` – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath.
@@ -103,7 +109,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP Framework performs weaving at runtime.
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 `@Aspect` - is used to indicate a marked `@Component` class as an aspect declaration.
 
 `@Before` - Executes before a Join Point.
@@ -128,7 +134,7 @@ https://www.marcobehler.com/guides/spring-transaction-management-transactional-i
 https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
 https://www.baeldung.com/spring-jdbc-jdbctemplate
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 * `@Entity` - 
 * `@Table` -
 * `@Id` -
@@ -150,7 +156,7 @@ https://spring.io/guides/gs/serving-web-content/
 https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example/
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 * `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the HTTP methods GET, POST, PUT, DELETE, and PATCH respectively. By default `@RequestMapping` maps all HTTP operations. 
 
 * `@PathVariable` - used to bind a named URI path parameter into a method argument.
@@ -190,7 +196,7 @@ https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
 antMatcher - 
 mvcMatcher - 
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 * `@EnableWebSecurity` - 
 * `@EnableMethodSecurity` - 
 * `@PreAuthorized` - 
@@ -214,7 +220,7 @@ https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
 https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
 https://newbedev.com/unit-test-or-integration-test-in-spring-boot
 
-## ANNOTATIONS
+## KEY ANNOTATIONS
 * `@SpringBootTest` - used to bootstrap a complete application context for testing. `@SpringBootTest` by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with `@SpringBootConfiguration` from which it reads the configuration to create an application context. This class is usually the main application class since the `@SpringBootApplication` annotation includes the `@SpringBootConfiguration` annotation. It then creates an application context very similar to the one that would be started in a production environment.
 
 * `@WebMvcTest` - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
