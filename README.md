@@ -36,7 +36,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 
-# SPRING CORE CONCEPTS
+# 1. SPRING CORE CONCEPTS
 - **Bean** is an object that is instantiated, assembled, and otherwise managed by the Spring IoC Container.
 - **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 - **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to the IoC container.
@@ -92,7 +92,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 
-# SPRING BOOT BASICS AND AUTO CONFIGURATION
+# 2. SPRING BOOT BASICS AND AUTO CONFIGURATION
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -118,7 +118,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 
-# ASPECT-ORIENTED PROGRAMMING
+# 3. ASPECT-ORIENTED PROGRAMMING
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -165,7 +165,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 
-# DATA MANAGEMENT: JDBC, TRANSACTIONS
+# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/relational-data-access/
@@ -186,14 +186,14 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 
-# SPRING DATA JPA
+# 5. SPRING DATA JPA
 ## REFERENCES
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 
 
 
-# SPRING MVC
+# 6. SPRING MVC
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
@@ -227,7 +227,7 @@ RestTemplate -
 
 
 
-# SPRING SECURITY
+# 7. SPRING SECURITY
 ## REFERENCES
 - https://www.marcobehler.com/guides/spring-security
 - https://spring.io/guides/topicals/spring-security-architecture/
@@ -250,7 +250,7 @@ RestTemplate -
 
 
 
-# SPRING BOOT ACTUATOR
+# 8. SPRING BOOT ACTUATOR
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
@@ -258,7 +258,7 @@ RestTemplate -
 
 
 
-# SPRING BOOT TESTING
+# 9. SPRING BOOT TESTING
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
