@@ -4,7 +4,7 @@
 
 
 # INTRODUCTION
-This guide walks through presenting some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, by serving as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge comes from [my professional working experience of 12+ years as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) using the Spring Framework such that this guide served to organize all the sources of technical documentations which I considered relevant to help me get certified.
+This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the mentioned exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience of Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served just to organize all the sources of technical documentations which I considered relevant to help me get certified. Hope it helps you in some way on your journey.
 
 
 
@@ -93,10 +93,11 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 # SPRING BOOT BASICS AND AUTO CONFIGURATION
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
+- https://www.baeldung.com/spring-conditional-annotations
 - https://www.marcobehler.com/guides/spring-boot
 - https://www.baeldung.com/spring-component-scanning
-- https://reflectoring.io/spring-boot-conditionals/
-- https://zetcode.com/springboot/conditionalbeans/
+- https://reflectoring.io/spring-boot-conditionals
+- https://zetcode.com/springboot/conditionalbeans
 
 ## KEY ANNOTATIONS
 `@SpringBootApplication` - is a combination of `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` annotations with their default attributes.
