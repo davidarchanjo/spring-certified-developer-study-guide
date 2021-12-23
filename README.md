@@ -68,7 +68,9 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 `@Qualifier` - used to disambiguate bean references of the same type when Spring is otherwise unable to do so;
 
-`@Primary` - used to indicate that a bean must have a higher preference when there are multiple beans of the same type;
+`@Primary` - used to indicate that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency;
+
+`@Lazy` - used to indicate whether a bean is to be lazily initialized, i.e. if present on a `@Component` or `@Bean` definition and set to <code>true</code>, the `@Bean` or `@Component` will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked `@Autowired`;
 
 `@Profile` - used to indicate that a component class or bean is registrable when the specified profile(s) are active;
 
