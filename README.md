@@ -36,19 +36,19 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 # TABLE OF CONTENTS
-1. <a href="#springcoreconcepts" id="1">SPRING CORE CONCEPTS</a>
-2. <a href="#springbootbasicsandautoconfiguration" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
-3. <a href="#aspectorientedprogramming" id="3">ASPECT-ORIENTED PROGRAMMING</a>
-4. <a href="#datamanagement" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
-5. <a href="#springdatajpa" id="5">SPRING DATA JPA</a>
-6. <a href="#springmvc" id="6">SPRING MVC</a>
-7. <a href="#springsecurity" id="7">SPRING SECURITY</a>
-8. <a href="#springbootactuator" id="8">SPRING BOOT ACTUATOR</a>
-9. <a href="#springboottesting" id="9">SPRING BOOT TESTING</a>
+1. <a href="#1-spring-core-concepts-" id="1">SPRING CORE CONCEPTS</a>
+2. <a href="#2-spring-boot-basics-and-auto-configuration-" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
+3. <a href="#3-aspect-oriented-programming-" id="3">ASPECT-ORIENTED PROGRAMMING</a>
+4. <a href="#4-data-management-jdbc-transactions-" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
+5. <a href="#5-spring-data-jpa-" id="5">SPRING DATA JPA</a>
+6. <a href="#6-spring-mvc-" id="6">SPRING MVC</a>
+7. <a href="#7-spring-security-" id="7">SPRING SECURITY</a>
+8. <a href="#8-spring-boot-actuator-" id="8">SPRING BOOT ACTUATOR</a>
+9. <a href="#9-spring-boot-testing-" id="9">SPRING BOOT TESTING</a>
 </br></br>
 
 
-# 1. SPRING CORE CONCEPTS <a id="springcoreconcepts" href="#1"></a>
+# 1. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#1"></a>
 - **Bean** is an object that is instantiated, assembled, and otherwise managed by the **Spring IoC Container**.
 - **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 - **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to the IoC container.
@@ -104,7 +104,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br>
 
 
-# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="springbootbasicsandautoconfiguration" href="#2"></a>
+# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="2-spring-boot-basics-and-auto-configuration-" href="#2"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -130,7 +130,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br>
 
 
-# 3. ASPECT-ORIENTED PROGRAMMING <a id="aspectorientedprogramming" href="#3"></a>
+# 3. ASPECT-ORIENTED PROGRAMMING <a id="3-aspect-oriented-programming-" href="#3"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -179,7 +179,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="datamanagement" href="#4"></a>
+# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/relational-data-access/
@@ -205,14 +205,14 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 5. SPRING DATA JPA <a id="springdatajpa" href="#5"></a>
+# 5. SPRING DATA JPA <a id="5-spring-data-jpa-" href="#5"></a>
 ## REFERENCES
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 </br></br>
 
 
-# 6. SPRING MVC <a id="springmvc" href="#6"></a>
+# 6. SPRING MVC <a id="6-spring-mvc-" href="#6"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
@@ -256,7 +256,7 @@ RestTemplate -
 </br></br>
 
 
-# 7. SPRING SECURITY <a id="springsecurity" href="#7"></a>
+# 7. SPRING SECURITY <a id="7-spring-security-" href="#7"></a>
 ## REFERENCES
 - https://www.marcobehler.com/guides/spring-security
 - https://spring.io/guides/topicals/spring-security-architecture/
@@ -283,7 +283,7 @@ RestTemplate -
 </br></br>
 
 
-# 8. SPRING BOOT ACTUATOR <a id="springbootactuator" href="#8"></a>
+# 8. SPRING BOOT ACTUATOR <a id="8-spring-boot-actuator-" href="#8"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
@@ -291,7 +291,7 @@ RestTemplate -
 </br></br>
 
 
-# 9. SPRING BOOT TESTING <a id="springboottesting" href="#9"></a>
+# 9. SPRING BOOT TESTING <a id="9-spring-boot-testing-" href="#9"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
