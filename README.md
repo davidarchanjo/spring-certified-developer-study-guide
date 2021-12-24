@@ -163,19 +163,17 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-`@EnableAspectJAutoProxy` - 
+[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect. </br>
 
-`@Aspect` - is used to mark a `@Component` class as an Aspect declaration.
+[@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - is used to mark a @Component class as an Aspect declaration. </br>
 
-`@Before` - Executes before a Join Point.
+[@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - Executes before a Join Point. </br>
 
-`@AfterReturning` - Executes after a Join Point completes normally.
+[@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - Executes after a Join Point completes normally. </br>
 
-`@AfterThrowing` - Executes if method exits by throwing an exception.
+[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - Executes if method exits by throwing an exception. </br>
 
-`@AfterFinally` - Executes regardless of the means by which a Joint Point exits (normal or exceptionally).
-
-`@Around` - Executes before and after a Joint Point.
+[@Around](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Around.html) - Executes before and after a Joint Point.
 </br></br>
 
 
