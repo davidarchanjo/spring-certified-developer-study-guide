@@ -34,16 +34,12 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 **Passing Score:** 76%
 
 **Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
-</br>
-</br>
-</br>
+</br></br></br>
 
 # TABLE OF CONTENTS
 1. <a href="#item01" id="item01ref">SPRING CORE CONCEPTS</a>
 2. <a href="#item02" id="item02ref">SPRING BOOT BASICS AND AUTO CONFIGURATION</a>
-</br>
-</br>
-</br>
+</br></br></br>
 
 # 1. SPRING CORE CONCEPTS <a id="item01" href="#item01ref"></a>
 - **Bean** is an object that is instantiated, assembled, and otherwise managed by the Spring IoC Container.
@@ -98,9 +94,8 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 `@ConfigurationProperties` - used to map resource files such as properties or YAML files to Java Bean object.
 
 `@EnableConfigurationProperties` - enables support for `@ConfigurationProperties` annotated classes in our application.
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="item02" href="#item02ref"></a>
 ## REFERENCES
@@ -125,9 +120,8 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 `@Import` - used to import a bean configuration class marked with `@Configuration` which contains custom bean definitions.
 
 `@ImportAutoConfiguration` - when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. only runs the configuration classes that you provided in the annotation. 
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 3. ASPECT-ORIENTED PROGRAMMING <a name="aop"></a>
 ## REFERENCES
@@ -175,9 +169,8 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 `@AfterFinally` - Executes regardless of the means by which a Joint Point exits (normal or exceptionally).
 
 `@Around` - Executes before and after a Joint Point.
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS
 ## REFERENCES
@@ -202,17 +195,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 `@Column` -
 
 `@Transactional` -
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 5. SPRING DATA JPA
 ## REFERENCES
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 6. SPRING MVC
 ## REFERENCES
@@ -255,9 +246,8 @@ If a class is annotated with `@ResponseBody`, all of its request handler methods
 
 `@RestController` - combines the `@Controller` and `@ResponseBody` annotations, making all class request handler methods assumes `@ResponseBody` by default.
 RestTemplate - 
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 7. SPRING SECURITY
 ## REFERENCES
@@ -277,21 +267,22 @@ RestTemplate -
 
 ## KEY ANNOTATIONS
 `@EnableWebSecurity` - 
+
 `@EnableMethodSecurity` - 
+
 `@PreAuthorized` - 
+
 `@RolesAllowed` - 
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 8. SPRING BOOT ACTUATOR
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
 - https://spring.io/guides/gs/actuator-service/
-</br>
-</br>
-</br>
+</br></br></br>
+
 
 # 9. SPRING BOOT TESTING
 ## REFERENCES
