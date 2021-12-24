@@ -1,19 +1,14 @@
 # SPRING CERTIFIED DEVELOPER STUDY GUIDE
 ![banner](./assets/banner.jpg)
-
-
-# TABLE OF CONTENTS
-1. <a href="#introduction" id="introductionref">INTRODUCTION</a>
-2. <a href="#introduction" id="introductionref">EXAM OVERVIEW</a>
-
-
-# INTRODUCTION<a id="introduction" href="#introductionref"></a>
+</br>
+</br>
+# INTRODUCTION
 This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served as way to organize sources of technical documentations which I considered relevant as well as to define a study planning to help me get certified.
 
 I hope this guide helps you in some way on your journey. Good luck 🤞🍀!
-
-
-
+</br>
+</br>
+</br>
 # EXAM OVERVIEW
 The [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring Professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot as follows:
  - Container, Dependency, and IOC
@@ -37,10 +32,16 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 **Passing Score:** 76%
 
 **Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
-
-
-
-# 1. SPRING CORE CONCEPTS
+</br>
+</br>
+</br>
+# TABLE OF CONTENTS
+1. <a href="#item01" id="item01ref">SPRING CORE CONCEPTS</a>
+2. <a href="#item02" id="item02ref">SPRING BOOT BASICS AND AUTO CONFIGURATION</a>
+</br>
+</br>
+</br>
+# 1. SPRING CORE CONCEPTS <a id="item01" href="#item01ref"></a>
 - **Bean** is an object that is instantiated, assembled, and otherwise managed by the Spring IoC Container.
 - **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 - **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to the IoC container.
@@ -60,9 +61,9 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 - https://knpcode.com/spring/spring-bean-lifecycle-callback-methods
 - https://www.baeldung.com/spring-core-annotations
 - https://www.baeldung.com/spring-expression-language
-
-
-
+</br>
+</br>
+</br>
 ## KEY ANNOTATIONS
 `@Bean` - used to mark a factory method which instantiates a Spring bean;
 
@@ -95,10 +96,10 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 `@ConfigurationProperties` - used to map resource files such as properties or YAML files to Java Bean object.
 
 `@EnableConfigurationProperties` - enables support for `@ConfigurationProperties` annotated classes in our application.
-
-
-
-# 2. SPRING BOOT BASICS AND AUTO CONFIGURATION
+</br>
+</br>
+</br>
+# 2. SPRING BOOT BASICS AND AUTO CONFIGURATION <a id="item02" href="#item02ref"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -121,9 +122,9 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 `@Import` - used to import a bean configuration class marked with `@Configuration` which contains custom bean definitions.
 
 `@ImportAutoConfiguration` - when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. only runs the configuration classes that you provided in the annotation. 
-
-
-
+</br>
+</br>
+</br>
 # 3. ASPECT-ORIENTED PROGRAMMING <a name="aop"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
@@ -170,9 +171,9 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 `@AfterFinally` - Executes regardless of the means by which a Joint Point exits (normal or exceptionally).
 
 `@Around` - Executes before and after a Joint Point.
-
-
-
+</br>
+</br>
+</br>
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
@@ -196,16 +197,16 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 `@Column` -
 
 `@Transactional` -
-
-
-
+</br>
+</br>
+</br>
 # 5. SPRING DATA JPA
 ## REFERENCES
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
-
-
-
+</br>
+</br>
+</br>
 # 6. SPRING MVC
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
@@ -247,9 +248,9 @@ If a class is annotated with `@ResponseBody`, all of its request handler methods
 
 `@RestController` - combines the `@Controller` and `@ResponseBody` annotations, making all class request handler methods assumes `@ResponseBody` by default.
 RestTemplate - 
-
-
-
+</br>
+</br>
+</br>
 # 7. SPRING SECURITY
 ## REFERENCES
 - https://www.marcobehler.com/guides/spring-security
@@ -271,17 +272,17 @@ RestTemplate -
 `@EnableMethodSecurity` - 
 `@PreAuthorized` - 
 `@RolesAllowed` - 
-
-
-
+</br>
+</br>
+</br>
 # 8. SPRING BOOT ACTUATOR
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
 - https://spring.io/guides/gs/actuator-service/
-
-
-
+</br>
+</br>
+</br>
 # 9. SPRING BOOT TESTING
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
