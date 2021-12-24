@@ -68,7 +68,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 `@Qualifier` - used to disambiguate bean references of the same type when Spring is otherwise unable to do so;
 
-`@Primary` - used to indicate that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency;
+`@Primary` - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to give higher preference to a bean when there are multiple beans of the same type.
 
 `@Lazy` - used to indicate whether a bean is to be lazily initialized, i.e. if present on a `@Component` or `@Bean` definition and set to <code>true</code>, the `@Bean` or `@Component` will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked `@Autowired`;
 
@@ -203,7 +203,17 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY ANNOTATIONS
-`@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the HTTP methods GET, POST, PUT, DELETE, and PATCH respectively. By default `@RequestMapping` maps all HTTP operations. 
+`@GetMapping` - used to map HTTP GET requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.GET)</code>;
+
+`@PostMapping` - used to map HTTP POST requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.POST)</code>;
+
+`@PutMapping` - used to map HTTP PUT requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.PUT)</code>;
+
+`@DeleteMapping` - used to map HTTP DELETE requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.DELETE)</code>;
+
+`@PatchMapping` - used to map HTTP PATCH requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.PATCH)</code>;
+
+`@RequestMapping` - used to map web requests onto methods in request-handling classes with flexible method signatures. `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are different variants of `@RequestMapping` for handling the specific HTTP operation by these annotations. By default `@RequestMapping` maps all HTTP operations.
 
 `@PathVariable` - used to bind a named URI path parameter into a method argument.
 
