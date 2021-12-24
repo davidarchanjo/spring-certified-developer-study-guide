@@ -1,15 +1,13 @@
 # SPRING CERTIFIED DEVELOPER STUDY GUIDE
 ![banner](./assets/banner.jpg)
-</br>
-</br>
+</br></br>
 
 # INTRODUCTION
 This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served as way to organize sources of technical documentations which I considered relevant as well as to define a study planning to help me get certified.
 
 I hope this guide helps you in some way on your journey. Good luck 🤞🍀!
-</br>
-</br>
-</br>
+</br></br>
+
 
 # EXAM OVERVIEW
 The [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring Professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot as follows:
@@ -38,7 +36,8 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 # TABLE OF CONTENTS
 1. <a href="#springcoreconcepts" id="1">SPRING CORE CONCEPTS</a>
-2. <a href="#springbootbasicsandautoconfiguration" id="2">SPRING BOOT BASICS AND AUTO CONFIGURATION</a>
+2. <a href="#springbootbasicsandautoconfiguration" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
+3. <a href="#aspectorientedprogramming" id="3">ASPECT-ORIENTED PROGRAMMING</a>
 </br></br>
 
 
@@ -124,7 +123,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br>
 
 
-# 3. ASPECT-ORIENTED PROGRAMMING <a name="aop"></a>
+# 3. ASPECT-ORIENTED PROGRAMMING <a id="aspectorientedprogramming" href="#3"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
