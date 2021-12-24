@@ -34,10 +34,17 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 **Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
 </br></br>
 
+
 # TABLE OF CONTENTS
 1. <a href="#springcoreconcepts" id="1">SPRING CORE CONCEPTS</a>
 2. <a href="#springbootbasicsandautoconfiguration" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
 3. <a href="#aspectorientedprogramming" id="3">ASPECT-ORIENTED PROGRAMMING</a>
+4. <a href="#datamanagement" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
+5. <a href="#springdatajpa" id="5">SPRING DATA JPA</a>
+6. <a href="#springmvc" id="6">SPRING MVC</a>
+7. <a href="#springsecurity" id="7">SPRING SECURITY</a>
+8. <a href="#springbootactuator" id="8">SPRING BOOT ACTUATOR</a>
+9. <a href="#springboottesting" id="9">SPRING BOOT TESTING</a>
 </br></br>
 
 
@@ -172,7 +179,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS
+# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="datamanagement" href="#4"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/relational-data-access/
@@ -198,14 +205,14 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 5. SPRING DATA JPA
+# 5. SPRING DATA JPA <a id="springdatajpa" href="#5"></a>
 ## REFERENCES
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 </br></br>
 
 
-# 6. SPRING MVC
+# 6. SPRING MVC <a id="springmvc" href="#6"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
@@ -249,7 +256,7 @@ RestTemplate -
 </br></br>
 
 
-# 7. SPRING SECURITY
+# 7. SPRING SECURITY <a id="springsecurity" href="#7"></a>
 ## REFERENCES
 - https://www.marcobehler.com/guides/spring-security
 - https://spring.io/guides/topicals/spring-security-architecture/
@@ -276,7 +283,7 @@ RestTemplate -
 </br></br>
 
 
-# 8. SPRING BOOT ACTUATOR
+# 8. SPRING BOOT ACTUATOR <a id="springbootactuator" href="#8"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
@@ -284,7 +291,7 @@ RestTemplate -
 </br></br>
 
 
-# 9. SPRING BOOT TESTING
+# 9. SPRING BOOT TESTING <a id="springboottesting" href="#9"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
