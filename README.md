@@ -37,11 +37,11 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br></br>
 
 # TABLE OF CONTENTS
-1. <a href="#item01" id="item01ref">SPRING CORE CONCEPTS</a>
-2. <a href="#item02" id="item02ref">SPRING BOOT BASICS AND AUTO CONFIGURATION</a>
+1. <a href="#springcoreconcepts" id="1">SPRING CORE CONCEPTS</a>
+2. <a href="#springbootbasicsandautoconfiguration" id="2">SPRING BOOT BASICS AND AUTO CONFIGURATION</a>
 </br></br></br>
 
-# 1. SPRING CORE CONCEPTS <a id="item01" href="#item01ref"></a>
+# 1. SPRING CORE CONCEPTS <a id="springcoreconcepts" href="#1"></a>
 - **Bean** is an object that is instantiated, assembled, and otherwise managed by the Spring IoC Container.
 - **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 - **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. This object delegates the job of constructing such dependencies to the IoC container.
@@ -97,7 +97,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br></br>
 
 
-# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="item02" href="#item02ref"></a>
+# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="springbootbasicsandautoconfiguration" href="#2"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
