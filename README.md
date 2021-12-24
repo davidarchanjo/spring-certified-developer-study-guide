@@ -163,15 +163,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect. </br>
+[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect.
 
-[@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - is used to mark a @Component class as an Aspect declaration. </br>
+[@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - is used to mark a @Component class as an aspect declaration.
 
-[@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - Executes before a Join Point. </br>
+[@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - Executes before a Join Point.
 
-[@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - Executes after a Join Point completes normally. </br>
+[@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - Executes after a Join Point completes normally.
 
-[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - Executes if method exits by throwing an exception. </br>
+[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - Executes if method exits by throwing an exception.
 
 [@Around](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Around.html) - Executes before and after a Joint Point.
 </br></br>
