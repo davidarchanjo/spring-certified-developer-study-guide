@@ -180,10 +180,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 ## KEY ANNOTATIONS
 `@Entity` - 
+
 `@Table` -
+
 `@Id` -
+
 `@GeneratedValue` -
+
 `@Column` -
+
 `@Transactional` -
 
 
