@@ -10,7 +10,8 @@
 
 	<groupId>io.davidarchanjo.code</groupId>
 	<artifactId>spring-certified-developer-study-guide</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
 	<description>Study Guide references for the Spring Certified Developer</description>
 
 	<properties>
@@ -118,5 +119,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<modules>
+        <module>aop</module>
+    </modules>
 
 </project>

@@ -2,8 +2,12 @@
 ![banner](./assets/banner.jpg)
 
 
+# TABLE OF CONTENTS
+1. <a href="#introduction" id="introductionref">INTRODUCTION</a>
+2. <a href="#introduction" id="introductionref">EXAM OVERVIEW</a>
 
-# INTRODUCTION
+
+# INTRODUCTION<a id="introduction" href="#introductionref"></a>
 This guide walks through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served as way to organize sources of technical documentations which I considered relevant as well as to define a study planning to help me get certified.
 
 I hope this guide helps you in some way on your journey. Good luck 🤞🍀!
@@ -120,7 +124,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 
-# 3. ASPECT-ORIENTED PROGRAMMING
+# 3. ASPECT-ORIENTED PROGRAMMING <a name="aop"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -132,28 +136,30 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the _class_ whereas in AOP the unit of modularity is the _aspect_.
 
 ### CORE CONCEPTS OF AOP
-* **Cross-Cutting Concerns** - are common functions that span on multiple points of an application.
+* **Cross-Cutting Concerns** - are common functions that span on multiple points of an application, such as logging, transaction management, data validation, etc;
 
-* **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access etc. Spring AOP only supports _method execution join points_.
+* **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access etc. In Spring AOP a join point is always the execution of a method;
 
-* **Advice** - represents an action(s) taken by an **Aspect** at a particular **Join Point**. There are five different types of Advices:
+* **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**. There are five different types of Advices;
 
-* **Pointcut** - is an expression language of AOP that matches **Joint Point**.
+* **Pointcut** - is an expression language of AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
 
-* **Introduction** - is a means to declare additional methods and fields for a type, allowing to introduce new interface to any advised object.
+* **Introduction** - is a means to declare additional methods and fields for a type, allowing to introduce new interface to any advised object;
 
-* **Target Object** - is the object being advised by one or more **Aspects**, i.e. the object on which advices are applied. It is known as proxied objects in Spring.
+* **Target Object** - is the object being advised by one or more **Aspects**, i.e. the object on which advices are applied. It is known as proxied objects in Spring;
 
-* **Aspect** - is a class that contains Advices, Join Points etc.
+* **Aspect** - is a class that contains Advices, Join Points etc;
 
-* **Interceptor** - is an Aspect that contains only one advice
+* **Interceptor** - is an Aspect that contains only one advice;
 
-* **AOP Proxy** - is an object created by the AOP framework in order to implement the aspect contracts. In the Spring Framework, an AOP proxy will be a _proxied object_.
+* **AOP Proxy** - is an object created by the AOP framework in order to implement the aspect contracts. In Spring, an AOP proxy will be a _proxied object_;
 
-* **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP Framework performs weaving at runtime.
+* **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-`@Aspect` - is used to indicate a marked `@Component` class as an aspect declaration.
+`@EnableAspectJAutoProxy` - 
+
+`@Aspect` - is used to mark a `@Component` class as an Aspect declaration.
 
 `@Before` - Executes before a Join Point.
 
