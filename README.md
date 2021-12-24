@@ -102,7 +102,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br>
 </br>
 
-# 2. SPRING BOOT BASICS AND AUTO CONFIGURATION <a id="item02" href="#item02ref"></a>
+# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="item02" href="#item02ref"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
