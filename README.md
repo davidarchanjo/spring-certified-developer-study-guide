@@ -30,7 +30,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 **Number of Questions:** 50 Questions
 
-**Passing Score:** 76% (38 out of 50)
+**Passing Score:** 76%
 
 **Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
 
