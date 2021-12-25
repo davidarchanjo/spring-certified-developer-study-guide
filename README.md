@@ -137,6 +137,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 - https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop
 - https://www.journaldev.com/2583/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations
 - https://howtodoinjava.com/spring-aop-tutorial/
+- https://www.baeldung.com/spring-aop-pointcut-tutorial
 
 ## OVERVIEW
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the _class_ whereas in AOP the unit of modularity is the _aspect_.
@@ -144,9 +145,9 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 ### CORE CONCEPTS OF AOP
 * **Cross-Cutting Concerns** - are common functions that span on multiple points of an application, such as logging, transaction management, data validation, etc;
 
-* **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access etc. In Spring AOP a join point is always the execution of a method;
+* **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access. In Spring AOP, a join point always represents a method execution;
 
-* **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**. There are five different types of Advices;
+* **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**; 
 
 * **Pointcut** - is an expression language of AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
 
@@ -163,17 +164,19 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect.
+[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect;
 
-[@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - is used to mark a @Component class as an aspect declaration.
+[@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - used to mark a @Component class as an aspect declaration;
 
-[@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - Executes before a Join Point.
+[@Pointcut](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Pointcut.html) - used in methods to declare pointcut, which can be used by advice annotations to refer to that pointcut;
 
-[@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - Executes after a Join Point completes normally.
+[@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - used to mark a method to be executed before the matching joint point;
 
-[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - Executes if method exits by throwing an exception.
+[@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - used to mark a method to be executed after the matching joint point completes, whether normally or by throwing an exception;
 
-[@Around](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Around.html) - Executes before and after a Joint Point.
+[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - used to mark a method to be executed after the matching join point exits by throwing an exception;
+
+[@Around](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Around.html) - used to mark a method to be executed before and after a Joint Point.
 </br></br>
 
 
