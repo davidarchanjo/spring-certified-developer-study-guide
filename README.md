@@ -191,6 +191,13 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 - https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
+</br></br>
+
+
+# 5. SPRING DATA JPA <a id="5-spring-data-jpa-" href="#5"></a>
+## REFERENCES
+- https://knpcode.com/spring/spring-data-tutorial/
+- https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 
 ## KEY ANNOTATIONS
 `@Entity` - 
@@ -204,13 +211,6 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 `@Column` -
 
 `@Transactional` -
-</br></br>
-
-
-# 5. SPRING DATA JPA <a id="5-spring-data-jpa-" href="#5"></a>
-## REFERENCES
-- https://knpcode.com/spring/spring-data-tutorial/
-- https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 </br></br>
 
 
