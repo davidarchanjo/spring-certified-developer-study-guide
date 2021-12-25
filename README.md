@@ -165,7 +165,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used on @Configuration classes to take effect;
+[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used in a @Configuration class to take effect;
 
 [@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - used to mark a @Component class as an aspect declaration;
 
