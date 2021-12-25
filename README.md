@@ -191,6 +191,9 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 - https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
+
+## KEY ANNOTATIONS
+`@Transactional` -
 </br></br>
 
 
