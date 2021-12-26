@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class AfterReturningAspect {
 
-    @AfterReturning("execution(* io.davidarchanjo.code.TodoComponent.do*(..))")
-    public void advice(final JoinPoint proceedingJoinPoint) {
+    @AfterReturning("execution(* io.davidarchanjo.code.SampleComponent.do*(..))")
+    public void advice(JoinPoint proceedingJoinPoint) {
         log.info("@AfterReturning Advice - {} {}", proceedingJoinPoint.getSignature().getName(), proceedingJoinPoint.getArgs());
     }
 

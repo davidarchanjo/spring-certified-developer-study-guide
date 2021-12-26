@@ -16,7 +16,7 @@ public class AroundAspect {
     public void methodsAnnotatedWithLogAccess() {}
 
     @Around(value = "methodsAnnotatedWithLogAccess() && args(name)", argNames = "name")
-    public Object advice(final ProceedingJoinPoint proceedingJoinPoint, String name) throws Throwable {
+    public Object advice(ProceedingJoinPoint proceedingJoinPoint, String name) throws Throwable {
         Object value = null;
 
         try {

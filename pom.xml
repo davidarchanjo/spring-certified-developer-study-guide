@@ -51,12 +51,6 @@
 <!--			<artifactId>spring-boot-starter-validation</artifactId>-->
 <!--		</dependency>-->
 
-<!--		&lt;!&ndash; security &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
-
 <!--		&lt;!&ndash; aop &ndash;&gt;-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
@@ -118,6 +112,7 @@
 	<modules>
         <module>spring-aop</module>
 		<module>spring-crud</module>
+		<module>spring-security</module>
     </modules>
 
 </project>

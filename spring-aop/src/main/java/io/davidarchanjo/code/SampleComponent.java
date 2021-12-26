@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class TodoComponent {
+public class SampleComponent {
 
     public void doSomething() {
         log.info("Doing something important!");
