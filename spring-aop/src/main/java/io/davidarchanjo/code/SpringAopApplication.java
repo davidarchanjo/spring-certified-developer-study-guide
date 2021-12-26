@@ -13,7 +13,7 @@ public class SpringAopApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext application = SpringApplication.run(SpringAopApplication.class, args);
-        SampleComponent component = application.getBean(SampleComponent.class);
+        DemoComponent component = application.getBean(DemoComponent.class);
         component.doSomething();
         String value = component.doReturnValue("David Archanjo");
         log.info("@Around Advice after return - changed output: {}", value);

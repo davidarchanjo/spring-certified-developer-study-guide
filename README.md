@@ -262,12 +262,26 @@ RestTemplate -
 
 
 # 7. SPRING SECURITY <a id="7-spring-security-" href="#7"></a>
+## OVERVIEW
+Spring Security configures by default out-of-the-box a basic authentication for all URLs, which is session-based.
+
+## CORE CONCEPTS
+* **Authentication** - refers to the process of verifying the identity of a user, based on provided credentials. A common example is entering a username and a password when you log in to a website. You can think of it as an answer to the question: _Who are you?_.
+
+* **Authorization** - refers to the process of determining if a user has proper permission to perform a particular action or access particular data, assuming that the user is successfully authenticated. You can think of it as an answer to the question: _Can a user do/access this?_.
+
+* **Principle** - refers to the currently authenticated user.
+
+* **Granted Authority** - refers to the permission of the authenticated user.
+
+* **Role** - refers to a group of permissions which the authenticated user have.
+
 ## REFERENCES
+- https://www.toptal.com/spring/spring-security-tutorial
+- https://spring.io/guides/topicals/spring-security-architecture
 - https://www.marcobehler.com/guides/spring-security
-- https://spring.io/guides/topicals/spring-security-architecture/
-- https://spring.io/guides/gs/securing-web/
 - https://www.baeldung.com/spring-security-expressions
-- https://www.section.io/engineering-education/springboot-antmatchers/
+- https://www.section.io/engineering-education/springboot-antmatchers
 - https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
 - https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
 - https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
