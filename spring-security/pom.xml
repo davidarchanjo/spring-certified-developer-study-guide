@@ -3,21 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.4.RELEASE</version>
-        <relativePath />
+        <groupId>io.davidarchanjo.code</groupId>
+        <artifactId>spring-certified-developer-study-guide</artifactId>
+        <version>0.0.1</version>
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>io.example</groupId>
-    <artifactId>java-spring-security-example</artifactId>
+    <artifactId>spring-security</artifactId>
     <version>0.0.1</version>
     <name>spring-security</name>
-    <description>Example project for Spring Security</description>
-
-    <properties>
-        <java.version>15</java.version>
-    </properties>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -36,23 +31,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- Jaxb for xml serialization/deserialization -->
@@ -94,6 +77,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

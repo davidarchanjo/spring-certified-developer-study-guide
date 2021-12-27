@@ -4,6 +4,7 @@ import static java.lang.String.format;
 
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,36 +27,31 @@ import io.example.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequiredArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
   securedEnabled = true,
   jsr250Enabled = true,
   prePostEnabled = true
 )
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     private final UserRepository userRepo;
     private final JwtTokenFilter jwtTokenFilter;
 
-    public SecurityConfig(UserRepository userRepo, JwtTokenFilter jwtTokenFilter) {
-        super();
-        this.userRepo = userRepo;
-        this.jwtTokenFilter = jwtTokenFilter;
-
-        // Inherit security context in async function calls
-        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
-    }
+//    public WebSecurityConfig(UserRepository userRepo, JwtTokenFilter jwtTokenFilter) {
+//        super();
+//        this.userRepo = userRepo;
+//        this.jwtTokenFilter = jwtTokenFilter;
+//
+//        // Inherit security context in async function calls
+//        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(username -> userRepo.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(format("User: %s, not found", username))));
-    }
-
-    // Set password encoding schema
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+            .orElseThrow(() -> new UsernameNotFoundException(format("User: %s, not found", username))));
     }
 
     @Override
@@ -87,7 +83,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/h2-console/**").permitAll()
             // Our public endpoints
             .antMatchers("/auth/**").permitAll()
-            .antMatchers(HttpMethod.GET, "/api/author/**").permitAll()
+            .antMatchers("/api/public/**").permitAll()
             .antMatchers(HttpMethod.POST, "/api/author/search").permitAll()
             .antMatchers(HttpMethod.GET, "/api/book/**").permitAll()
             .antMatchers(HttpMethod.POST, "/api/book/search").permitAll()
@@ -96,6 +92,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Add JWT token filter
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    // Set password encoding schema
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     // Used by spring security if CORS is enabled.

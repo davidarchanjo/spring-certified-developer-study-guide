@@ -263,7 +263,19 @@ RestTemplate -
 
 # 7. SPRING SECURITY <a id="7-spring-security-" href="#7"></a>
 ## OVERVIEW
-Spring Security configures by default out-of-the-box a basic authentication for all URLs, which is session-based.
+Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.
+
+* **Spring Security Filters Chain** - 
+
+* **AuthenticationManager** - works like a coordinator where authentication providers are registered.
+
+* **AuthenticationProvider** - processes specific types of authentication.
+
+* **UserDetailsService** - core interface that loads user-specific data in the Spring Security flow.
+
+* **antMatcher** - method used to configure access restrictions to URLs by [ant patterns](https://ant.apache.org/manual/dirtasks.html#patterns) to only be invoked when matching exactly the provided pattern.
+
+* **mvcMatcher** - works like antMatcher but is more general and can also handle some possible configuration mistakes.
 
 ## CORE CONCEPTS
 * **Authentication** - refers to the process of verifying the identity of a user, based on provided credentials. A common example is entering a username and a password when you log in to a website. You can think of it as an answer to the question: _Who are you?_.
@@ -287,18 +299,16 @@ Spring Security configures by default out-of-the-box a basic authentication for 
 - https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
 - https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
-## OVERVIEW
-* antMatcher - 
-* mvcMatcher - 
-
 ## KEY ANNOTATIONS
-`@EnableWebSecurity` - 
+[@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - 
 
-`@EnableMethodSecurity` - 
+[@EnableMethodSecurity]() - 
 
-`@PreAuthorized` - 
+[@EnableGlobalMethodSecurity]()
 
-`@RolesAllowed` - 
+[@PreAuthorized]() - 
+
+[@RolesAllowed]() - 
 </br></br>
 
 

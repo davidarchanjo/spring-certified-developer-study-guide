@@ -11,6 +11,7 @@
 
     <artifactId>spring-aop</artifactId>
     <version>0.0.1</version>
+    <name>spring-aop</name>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -33,6 +34,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
