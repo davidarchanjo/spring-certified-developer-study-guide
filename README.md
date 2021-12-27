@@ -240,7 +240,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 [@CookieValue](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/CookieValue.html) - used to indicate that a method parameter is bound to an HTTP cookie.
 
-[@RequestBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestBody.html) - used to bind the body of the request to a method argument (object).
+[@RequestBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestBody.html) - used to bind the payload body from the request onto a method argument.
 
 [@ResponseBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html) - used to indicate that the result of a request handler method is the response itself.
 If a class is annotated with @ResponseBody, all of its request handler methods will be functioning like that.
