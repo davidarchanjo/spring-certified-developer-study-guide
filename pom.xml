@@ -105,6 +105,7 @@
         <module>spring-aop</module>
 		<module>spring-crud</module>
 		<module>spring-security</module>
+		<module>spring-expression-language</module>
     </modules>
 
 </project>

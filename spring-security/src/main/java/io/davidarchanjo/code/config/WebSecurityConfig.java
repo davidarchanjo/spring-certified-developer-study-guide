@@ -27,9 +27,9 @@ import static java.lang.String.format;
 @Slf4j
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
-        securedEnabled = true,
-        jsr250Enabled = true,
-        prePostEnabled = true
+    securedEnabled = true,
+    jsr250Enabled = true,
+    prePostEnabled = true
 )
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -76,13 +76,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // H2 Console must be publicly accessible
                 .antMatchers("/").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
-                // Our public endpoints
-                .antMatchers("/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/author/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/author/search").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/book/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/book/search").permitAll()
-                // Our private endpoints
+                // public endpoints
+                .mvcMatchers("/api/auth/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/authors/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
+                // private endpoints
                 .anyRequest().authenticated();
 
         // Add JWT token filter

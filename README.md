@@ -76,7 +76,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 `@Autowired` - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
 
-`@Qualifier` - used to disambiguate bean references of the same type when Spring is otherwise unable to do so;
+`@Qualifier` - used to specify (by name) which bean have to be used for injection if more than one type is eligible for injection;
 
 `@Primary` - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to give higher preference to a bean when there are multiple beans of the same type.
 
@@ -274,9 +274,9 @@ RestTemplate -
 
 * **UserDetailsService** - core interface that loads user-specific data in the Spring Security flow.
 
-* **antMatcher()** - method used to configure URL access restrictions by using [ant patterns](https://ant.apache.org/manual/dirtasks.html#patterns) so that they are only invoked only if the given pattern matches.
+* **antMatcher()** - method used to configure URL access restrictions by using [ant patterns](https://ant.apache.org/manual/dirtasks.html#patterns) so that they are only invoked if the given pattern matches.
 
-* **mvcMatcher()** - works like antMatcher but is more secure and more general, and can also handle some possible configuration mistakes.
+* **mvcMatcher()** - serves for the same purpose as antMatcher but is designed to apply precisely to what the Spring MVC @RequestMapping and related annotations understand, e.g. <code>"mvcMatcher(/hello)"</code> will also match <code>/hello</code> and <code>/hello/</code>, while with antMatcher() only the former will match.
 
 ## CORE CONCEPTS
 * **Authentication** - refers to the process of verifying the identity of a user, based on provided credentials. A common example is entering a username and a password when you log in to a website. You can think of it as an answer to the question: _Who are you?_.
@@ -301,24 +301,29 @@ RestTemplate -
 - https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
 ## KEY ANNOTATIONS
-[@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class  as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) base class and overrides its methods for a more granular configuration;
+[@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) base class and overrides its methods for a more granular configuration;
 
-[@EnableMethodSecurity]() - 
+[@EnableGlobalMethodSecurity](https://docs.spring.io/spring-security/site/docs/5.6.0-M1/api/org/springframework/security/config/annotation/method/configuration/EnableGlobalMethodSecurity.html) / [@EnableMethodSecurity](https://docs.spring.io/spring-security/site/docs/5.6.0-M1/api/org/springframework/security/config/annotation/method/configuration/EnableMethodSecurity.html) - both are used to configure security on method level through annotations. They have the following attributes:
+<ol>
+<li><code>securedEnabled</code></li>
+  <span>If set to true enables @Secured annotation. Default is false</span>
+<li><code>jsr250Enabled</code></li>
+  <span>If set to true enables @RolesAllowed annotation. Default is false</span>
+<li><code>prePostEnabled</code></li>
+  <span>If set to true enables @PreAuthorize, @PostAuthorize, @PreFilter, @PostFilter annotations. Default is false</span>
+</ol>
 
-[@EnableGlobalMethodSecurity]()
+[@PreAuthorized](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PreAuthorize.html) - supports SpEL and is used to provide expression-based access control before executing the method;
 
+[@PostAuthorize](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PostAuthorize.html) - supports SpEL and is used to provide expression-based access control after executing the method and provides the ability to access/alter the method's result;
 
-[@PreAuthorized]() -
+[@PreFilter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PreFilter.html) - supports SpEL and is used to filter the collection or arrays before executing the method based on custom security rules we define;
 
-[@PostAuthorize]() - supports Spring Expression Language and is used to provide expression-based access control after executing the method (provides the ability to access the method result).
+[@PostFilter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PostFilter.html) - supports SpEL and is used to filter the returned collection or arrays after executing the method based on custom security rules we define (provides the ability to access the method result);
 
-[@PreFilter] - supports Spring Expression Language and is used to filter the collection or arrays before executing the method based on custom security rules we define.
+[@Secured](https://docs.spring.io/spring-security/site/docs/3.2.8.RELEASE/apidocs/org/springframework/security/access/annotation/Secured.html) - does not support SpEL and is used to specify a list of roles which the logged user must have in order to access the annotated method;
 
-[@PostFilter] - supports Spring Expression Language and is used to filter the returned collection or arrays after executing the method based on custom security rules we define (provides the ability to access the method result).
-
-[@Secured] - doesn’t support Spring Expression Language and is used to specify a list of roles on a method.
-
-[@RolesAllowed] - is the JSR 250’s equivalent annotation of the @Secured annotation.
+[@RolesAllowed](https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html) - does not support SpEL and is the [JSR 250](https://jcp.org/en/jsr/detail?id=250)’s equivalent annotation of the @Secured annotation;
 </br></br>
 
 

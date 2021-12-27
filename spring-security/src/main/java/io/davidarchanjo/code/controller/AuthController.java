@@ -19,7 +19,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("auth")
+@RequestMapping("api/auth")
 public class AuthController {
 
     private final JwtTokenUtil jwtTokenUtil;
