@@ -80,7 +80,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 `@Primary` - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to give higher preference to a bean when there are multiple beans of the same type.
 
-`@Lazy` - used to indicate whether a bean is to be lazily initialized, i.e. if present on a `@Component` or `@Bean` definition and set to <code>true</code>, the `@Bean` or `@Component` will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked `@Autowired`;
+`@Lazy` - used to indicate whether a bean is to be lazily initialized, i.e. if present on a `@Component` or `@Bean` definition and set to <code>true</code>, the `@Bean` or `@Component` will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked with `@Autowired`;
 
 `@Profile` - used to indicate that a component class or bean is registrable when the specified profile(s) are active;
 
@@ -90,9 +90,9 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 `@Service` - is a @Component stereotype annotation used to indicate that a class defines business logic;
 
-`@Configuration` - used to tag a class as a source of bean definitions for Spring Boot to find it during scanning;
+`@Configuration` - used to tag a class as a source of bean definitions;
 
-`@Import` - used to indicate one or more component classes to import — typically @Configuration classes.
+`@Import` - used to indicate one or more component class to import — typically @Configuration classes.
 
 `@Value` - used at the field or method/constructor parameter level to inject property value into beans;
 
