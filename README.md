@@ -263,9 +263,10 @@ RestTemplate -
 
 # 7. SPRING SECURITY <a id="7-spring-security-" href="#7"></a>
 ## OVERVIEW
-Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.
+<p>Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.</p> 
+<p>The Spring Security framework provides two options to set up authorization schema configuration: URL-based and Annotation-based.
 
-* **Spring Security Filters Chain** - 
+* **Security Filters Chain** - 
 
 * **AuthenticationManager** - works like a coordinator where authentication providers are registered.
 
@@ -273,9 +274,9 @@ Spring Security by default actives both HTTP security filters and the security f
 
 * **UserDetailsService** - core interface that loads user-specific data in the Spring Security flow.
 
-* **antMatcher** - method used to configure access restrictions to URLs by [ant patterns](https://ant.apache.org/manual/dirtasks.html#patterns) to only be invoked when matching exactly the provided pattern.
+* **antMatcher()** - method used to configure URL access restrictions by using [ant patterns](https://ant.apache.org/manual/dirtasks.html#patterns) so that they are only invoked only if the given pattern matches.
 
-* **mvcMatcher** - works like antMatcher but is more general and can also handle some possible configuration mistakes.
+* **mvcMatcher()** - works like antMatcher but is more secure and more general, and can also handle some possible configuration mistakes.
 
 ## CORE CONCEPTS
 * **Authentication** - refers to the process of verifying the identity of a user, based on provided credentials. A common example is entering a username and a password when you log in to a website. You can think of it as an answer to the question: _Who are you?_.
@@ -300,15 +301,24 @@ Spring Security by default actives both HTTP security filters and the security f
 - https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
 ## KEY ANNOTATIONS
-[@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - 
+[@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class  as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) base class and overrides its methods for a more granular configuration;
 
 [@EnableMethodSecurity]() - 
 
 [@EnableGlobalMethodSecurity]()
 
-[@PreAuthorized]() - 
 
-[@RolesAllowed]() - 
+[@PreAuthorized]() -
+
+[@PostAuthorize]() - supports Spring Expression Language and is used to provide expression-based access control after executing the method (provides the ability to access the method result).
+
+[@PreFilter] - supports Spring Expression Language and is used to filter the collection or arrays before executing the method based on custom security rules we define.
+
+[@PostFilter] - supports Spring Expression Language and is used to filter the returned collection or arrays after executing the method based on custom security rules we define (provides the ability to access the method result).
+
+[@Secured] - doesn’t support Spring Expression Language and is used to specify a list of roles on a method.
+
+[@RolesAllowed] - is the JSR 250’s equivalent annotation of the @Secured annotation.
 </br></br>
 
 
