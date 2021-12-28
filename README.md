@@ -113,15 +113,15 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 - https://zetcode.com/springboot/conditionalbeans
 
 ## KEY ANNOTATIONS
-[@SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) - is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
+[@SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) - is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes;
 
-[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath.
+[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath;
 
-[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – tells Spring to look for other beans, components and configurations in the same package and below of the annotated class.
+[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – indicates to Spring for looking for other beans, components and configurations in the same package and sub-packages of the annotated class;
 
-[@SpringBootConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringBootConfiguration.html) - Indicates that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically.
+[@SpringBootConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringBootConfiguration.html) - used to indicate that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically;
 
-[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - is used to indicate that a component is only eligible for registration when all specified conditions match.
+[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a component is only eligible for registration when all specified conditions match;
 </br></br>
 
 
@@ -213,9 +213,9 @@ repository methods to execute both JPQL or native SQL queries;
 
 [@Modifying](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Modifying.html) - used to indicate that a @Query annotated repository method executes a modifying JPQL or native SQL such as a INSERT, UPDATE, DELETE or DDL statement;
 
-[@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration class to indicate to Spring where is located entity classes when they are not placed in the main application package or its sub-packages;
+[@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration classes to indicate to Spring where is located entity classes when they are not placed in the main application package or its sub-packages;
 
-[@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration class to indicate to Spring where is located JPA repository classes when they are not placed in the main application package or its sub-packages;
+[@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration classes to indicate to Spring where is located JPA repository classes when they are not placed in the main application package or its sub-packages;
 </br></br>
 
 
