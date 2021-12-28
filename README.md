@@ -178,8 +178,6 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## REFERENCES
-- 
-
 - https://www.javainuse.com/spring/boot-transaction-propagation
 - https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
