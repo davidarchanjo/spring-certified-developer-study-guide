@@ -106,6 +106,7 @@
 		<module>spring-crud</module>
 		<module>spring-security</module>
 		<module>spring-expression-language</module>
+		<module>spring-jdbc</module>
     </modules>
 
 </project>

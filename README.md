@@ -3,15 +3,15 @@
 </br></br>
 
 # INTRODUCTION
-This guide walks you through some technical notes and references about the Spring Framework, with a focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served as a way to organize sources of technical documentations which I considered relevant as well as to define a study planning to help me get certified.
+This guide walks you through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, as a supporting material for whoever it is preparing to take the [VMware Spring Professional 2021](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. It is worthy to mention that much of my knowledge on the Spring Framework comes from [my professional working experience as a Java Developer](https://www.linkedin.com/in/davidarchanjo/) such that this guide served as a way to organize sources of technical documentations which I considered relevant as well as to define a study planning to drive me on my preparation for the exam.
 
-I hope this guide helps you in some way on your journey. Good luck 🤞🍀!
+I hope this guide helps you in some way on your studing. Good luck 🤞🍀!
 </br></br>
 
 
 # EXAM OVERVIEW
-The [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot as follows:
- - Container, Dependency, and IOC
+The [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot frameworks as follows:
+ - Container, Dependency, and IoC
  - Aspect-Oriented Programming (AOC)
  - Data Management: JDBC, Transactions
  - Spring Data JPA
@@ -178,35 +178,46 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## REFERENCES
-- https://spring.io/guides/gs/accessing-data-jpa/
-- https://spring.io/guides/gs/relational-data-access/
-- https://spring.io/guides/gs/managing-transactions/
+- 
 
 - https://www.javainuse.com/spring/boot-transaction-propagation
-- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 - https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
+- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 ## KEY ANNOTATIONS
-[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) -
+[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - meaning that any failure causes the entire operation to roll back to its previous state and to re-throw the original exception. 
+
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - 
 </br></br>
 
 
 # 5. SPRING DATA JPA <a id="5-spring-data-jpa-" href="#5"></a>
 ## REFERENCES
+- https://spring.io/guides/gs/accessing-data-jpa/
 - https://knpcode.com/spring/spring-data-tutorial/
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
+- https://www.baeldung.com/spring-data-jpa-query
 
 ## KEY ANNOTATIONS
-[@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - 
+[@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class is a (database) entity bean;
 
-[@Table](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Table.html) -
+[@Table](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Table.html) - used to specify the table that will map the entity in the database;
 
-[@Id](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Id.html) -
+[@Id](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Id.html) - used to mark a property in a entity class as the primary key. If no @Column annotation is specified, the primary key column name is assumed to be the name of the property;
 
-[@GeneratedValue](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html) -
+[@GeneratedValue](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html) - used to specify the primary key generation strategy which by default is autoincrement;
 
-[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) -
+[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) - used to specify the column to which a property will be mapped;
+
+[@Query](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Query.html) - used to declare custom queries on 
+repository methods to execute both JPQL or native SQL queries;
+
+[@Modifying](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Modifying.html) - used to indicate that a @Query annotated repository method executes a modifying JPQL or native SQL such as a INSERT, UPDATE, DELETE or DDL statement;
+
+[@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration class to indicate to Spring where is located entity classes when they are not placed in the main application package or its sub-packages;
+
+[@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration class to indicate to Spring where is located JPA repository classes when they are not placed in the main application package or its sub-packages;
 </br></br>
 
 
