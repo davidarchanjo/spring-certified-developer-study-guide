@@ -332,6 +332,12 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 ## OVERVIEW
 Spring Boot Actuator provides us with resources so we can monitor and manage our application's health and availability. Such functionalities are: monitoring, metrics, tracing and auditing.
 
+## REFERENCES
+- https://www.baeldung.com/spring-boot-actuators
+- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#
+- https://lightrun.com/best-practices/getting-started-with-spring-boot-actuator
+- https://www.javadevjournal.com/spring-boot/spring-boot-actuator-custom-endpoint
+
 ## KEY ENDPOINTS
 | API                | DESCRIPTION                                                                                                                                                                   |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -365,12 +371,6 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 [@WriteOperation](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/WriteOperation.html) – used to indicate a method on an @Endpoint component class as write operation (HTTP POST accessible);
 
 [@DeleteOperation](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/DeleteOperation.html) – used to indicate a method on an @Endpoint component class as delete operation (HTTP DELETE accessible);
-
-## REFERENCES
-- https://www.baeldung.com/spring-boot-actuators
-- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#
-- https://lightrun.com/best-practices/getting-started-with-spring-boot-actuator
-- https://www.javadevjournal.com/spring-boot/spring-boot-actuator-custom-endpoint
 </br></br>
 
 
