@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeforeAspect {
 
-    @Before("execution(* io.davidarchanjo.code.SampleComponent.doSomething(..))")
+    @Before("execution(* io.davidarchanjo.code.DemoComponent.doSomething(..))")
     public void advice(JoinPoint proceedingJoinPoint) {
         log.info("@Before Advice - {} {}", proceedingJoinPoint.getSignature().getName(), proceedingJoinPoint.getArgs());
     }

@@ -1,4 +1,4 @@
-# SPRING CERTIFIED DEVELOPER STUDY GUIDE
+# SPRING CERTIFIED DEVELOPER STUDY GUIDE 2021
 ![banner](./assets/banner.jpg)
 </br></br>
 
@@ -160,11 +160,11 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 * **Weaving** - is the process of linking aspects with other application types or objects to create an advised object. Weaving can be done at compile time, load time or runtime. Spring AOP performs weaving at runtime;
 
 ## KEY ANNOTATIONS
-[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used to enable support for handling component classes marked with @Aspect. Must be used in a @Configuration class to take effect;
+[@EnableAspectJAutoProxy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/EnableAspectJAutoProxy.html) - used on @Configuration classes to enable support for handling component classes annotated with @Aspect;
 
 [@Aspect](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html) - used to mark a @Component class as an aspect declaration;
 
-[@Pointcut](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Pointcut.html) - used in methods to declare pointcut, which can be used by advice annotations to refer to that pointcut;
+[@Pointcut](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Pointcut.html) - used in methods to declare pointcut, which can be availed by advice annotations on refering to that pointcut;
 
 [@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - used to mark a method to be executed before the matching joint point;
 
@@ -237,28 +237,28 @@ repository methods to execute both JPQL or native SQL queries;
 
 [@PatchMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PatchMapping.html) - used to map HTTP PATCH requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.PATCH)</code>;
 
-[@RequestMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html) - used to map web requests onto methods in request-handling classes with flexible method signatures. @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, and @PatchMapping are different variants of @RequestMapping for handling the specific HTTP operation by these annotations. By default @RequestMapping maps all HTTP operations.
+[@RequestMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html) - used to map web requests onto methods in request-handling classes with flexible method signatures. @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, and @PatchMapping are different variants of @RequestMapping for handling the specific HTTP operation by these annotations. By default @RequestMapping maps all HTTP operations;
 
-[@PathVariable](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PathVariable.html) - used to bind a named URI path parameter into a method argument.
+[@PathVariable](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PathVariable.html) - used to bind a named URI path parameter into a method argument;
 
-[@RequestParam](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html) - used to bind a URI query parameter to a method argument.
+[@RequestParam](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html) - used to bind a URI query parameter to a method argument;
 
-[@RequestHeader](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestHeader.html) - used to bind a request header to a method parameter
+[@RequestHeader](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestHeader.html) - used to bind a request header to a method parameter;
 
-[@RequestPart](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestPart.html) - used to associate a part of a multipart request with a method argument.
+[@RequestPart](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestPart.html) - used to associate a part of a multipart request with a method argument;
 
-[@CookieValue](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/CookieValue.html) - used to indicate that a method parameter is bound to an HTTP cookie.
+[@CookieValue](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/CookieValue.html) - used to indicate that a method parameter is bound to an HTTP cookie;
 
-[@RequestBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestBody.html) - used to bind the payload body from the request onto a method argument.
+[@RequestBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestBody.html) - used to bind the payload body from the request onto a method argument;
 
 [@ResponseBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html) - used to indicate that the result of a request handler method is the response itself.
-If a class is annotated with @ResponseBody, all of its request handler methods will be functioning like that.
+If a class is annotated with @ResponseBody, all of its request handler methods will be functioning like that;
 
-[@ResponseStatus](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html) - used to specify the HTTP response status of a request handler method.
+[@ResponseStatus](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html) - used to specify the HTTP response status of a request handler method;
 
-[@Controller](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html) - is a @Component stereotype annotation used to mark a class as a source of request method handlers.
+[@Controller](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html) - is a @Component stereotype annotation used to mark a class as a source of request method handlers;
 
-[@RestController](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html) - combines the @Controller and @ResponseBody annotations, making all class request handler methods assumes @ResponseBody by default.
+[@RestController](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html) - combines the @Controller and @ResponseBody annotations, making all class request handler methods assumes @ResponseBody by default;
 </br></br>
 
 
@@ -329,10 +329,48 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 
 # 8. SPRING BOOT ACTUATOR <a id="8-spring-boot-actuator-" href="#8"></a>
+## OVERVIEW
+Spring Boot Actuator provides us with resources so we can monitor and manage our application's health and availability. Such functionalities are: monitoring, metrics, tracing and auditing.
+
+## KEY ENDPOINTS
+| API                | DESCRIPTION                                                                                                                                                                   |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/auditevents`     | Returns audit event information for the current application                                                                                                                   |
+| `/beans`           | Returns a complete list of all Spring beans in the current application                                                                                                        |
+| `/caches`          | Returns available caches                                                                                                                                                      |
+| `/conditions`      | Returns a report of all conditions around autoconfiguration                                                                                                                   |
+| `/configprops`     | Returns a grouped list of all @ConfigurationProperties                                                                                                                        |
+| `/env`             | Returns the current environment properties from Spring’s ConfigurableEnvironment                                                                                              |
+| `/health`           | Returns application health information                                                                                                                                        |
+| `/httptrace`        | Returns HTTP trace informations (last 100 HTTP request-response exchanges by default)                                                                                         |
+| `/info`             | Returns arbitrary application information                                                                                                                                     |
+| `/integrationgraph` | Returns the Spring integration graph. Requires a spring-integration-core dependency                                                                                           |
+| `/loggers`          | Returns and modifies the configuration of loggers in the application                                                                                                          |
+| `/metrics`          | Returns metrics information for the current app                                                                                                                               |
+| `/mappings`         | Returns a grouped list of all your application's APIs                                                                                                                         |
+| `/scheduledtasks`   | Returns the tasks scheduled in your application                                                                                                                               |
+| `/sessions`         | Returns retrieval and deletion of user sessions from a Spring Session supported session store. Requires a Servlet-based web application using Spring Session                  |
+| `/shutdown`         | Returns you to be able to disable your application. It is disabled by default                                                                                                 |
+| `/startup`          | Returns the startup step data collected by ApplicationStartup                                                                                                                 |
+| `/threaddump`       | Performs a thread dump                                                                                                                                                        |
+## KEY ANNOTATIONS
+[@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;
+
+[@RestControllerEndpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/web/annotation/RestControllerEndpoint.html) - used to indicate a type as being a REST endpoint that is only exposed over Spring MVC or Spring WebFlux;
+
+[@Selector](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Selector.html) - works like @PathVariable annotation by binding a named URI actuator endpoint path parameter into an argument;
+
+[@ReadOperation](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/ReadOperation.html) – used to indicate a method on an @Endpoint component class as read operation (HTTP GET accessible);
+
+[@WriteOperation](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/WriteOperation.html) – used to indicate a method on an @Endpoint component class as write operation (HTTP POST accessible);
+
+[@DeleteOperation](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/DeleteOperation.html) – used to indicate a method on an @Endpoint component class as delete operation (HTTP DELETE accessible);
+
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-actuators
-- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator
-- https://spring.io/guides/gs/actuator-service/
+- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#
+- https://lightrun.com/best-practices/getting-started-with-spring-boot-actuator
+- https://www.javadevjournal.com/spring-boot/spring-boot-actuator-custom-endpoint
 </br></br>
 
 

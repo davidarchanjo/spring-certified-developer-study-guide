@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Bean;
 
 @Slf4j
 @SpringBootApplication
-public class Application {
+public class SpringCrudApplication {
 
 	@Value("0xFF")
 	private Long value;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(SpringCrudApplication.class, args);
 	}	
 
 	@Bean

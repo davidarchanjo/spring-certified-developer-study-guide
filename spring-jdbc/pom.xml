@@ -11,8 +11,8 @@
 
     <artifactId>spring-jdbc</artifactId>
     <version>0.0.1</version>
-    <name>spring-jdbc</name>
     <packaging>jar</packaging>
+    <name>spring-jdbc</name>
 
     <dependencies>
         <dependency>
@@ -24,12 +24,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
     </dependencies>
 
     <build>
@@ -38,7 +32,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

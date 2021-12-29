@@ -11,6 +11,7 @@
     <artifactId>spring-crud</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
+    <name>spring-crud</name>
 
     <dependencies>
         <!-- web -->
@@ -38,28 +39,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- h2 database -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- devtools -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <!-- model mapper -->
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -73,6 +52,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

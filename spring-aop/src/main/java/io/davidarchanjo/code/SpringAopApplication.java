@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class SpringAopApplication {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         ConfigurableApplicationContext application = SpringApplication.run(SpringAopApplication.class, args);
         DemoComponent component = application.getBean(DemoComponent.class);
         component.doSomething();

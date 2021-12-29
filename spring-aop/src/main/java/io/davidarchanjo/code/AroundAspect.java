@@ -26,7 +26,7 @@ public class AroundAspect {
             throw throwable;
         } finally {
             log.info("@Around Advice after proceeding and before return - output: {}", value);
-            value += ", @Around";
+            value += "@ Around Advice";
         }
 
         return value;
