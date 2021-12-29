@@ -133,6 +133,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 - https://www.journaldev.com/2583/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations
 - https://howtodoinjava.com/spring-aop-tutorial/
 - https://www.baeldung.com/spring-aop-pointcut-tutorial
+- https://www.tutorialandexample.com/spring-aop-pointcut-expressions/
 - https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/package-summary.html
 
 ## OVERVIEW
