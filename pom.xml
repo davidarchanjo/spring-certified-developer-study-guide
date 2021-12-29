@@ -67,6 +67,7 @@
 		<module>spring-jdbc</module>
 		<module>spring-data-jpa</module>
 		<module>spring-actuator</module>
+		<module>spring-transactional</module>
     </modules>
 
 </project>

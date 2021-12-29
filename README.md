@@ -178,15 +178,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## REFERENCES
-- https://www.javainuse.com/spring/boot-transaction-propagation
+- https://www.javainuse.com/spring/boot-transaction
 - https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 ## KEY ANNOTATIONS
-[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - meaning that any failure causes the entire operation to roll back to its previous state and to re-throw the original exception. 
+[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
 
-[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - 
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes;
 </br></br>
 
 
