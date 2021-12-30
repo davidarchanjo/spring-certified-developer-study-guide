@@ -60,13 +60,14 @@
     </build>
 	
 	<modules>
+		<module>spring-actuator</module>
         <module>spring-aop</module>
+		<module>spring-beans</module>
 		<module>spring-crud</module>
-		<module>spring-security</module>
+		<module>spring-data-jpa</module>
 		<module>spring-expression-language</module>
 		<module>spring-jdbc</module>
-		<module>spring-data-jpa</module>
-		<module>spring-actuator</module>
+		<module>spring-security</module>
 		<module>spring-transactional</module>
     </modules>
 
