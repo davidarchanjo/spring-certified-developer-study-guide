@@ -139,6 +139,10 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 ## OVERVIEW
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the _class_ whereas in AOP the unit of modularity is the _aspect_.
 
+[JoinPoint](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/aopalliance/intercept/Joinpoint.html) - 
+
+[ProceedingJoinPoint](https://www.javadoc.io/doc/org.aspectj/aspectjrt/latest/org/aspectj/lang/ProceedingJoinPoint.html) - 
+
 ### CORE CONCEPTS
 * **Cross-Cutting Concerns** - are common functions that span on multiple points of an application, such as logging, transaction management, data validation, etc;
 
@@ -179,10 +183,9 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## REFERENCES
-- https://www.javainuse.com/spring/boot-transaction
-- https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
+- https://dzone.com/articles/spring-boot-transactions-tutorial-understanding-tr
+- https://www.baeldung.com/spring-transactional-propagation-isolation
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
-- https://www.baeldung.com/spring-jdbc-jdbctemplate
 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
@@ -380,13 +383,18 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
 - https://howtodoinjava.com/spring-boot2/testing/junit5-with-spring-boot2/
-- https://reflectoring.io/spring-boot-test/
 - https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
 - https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
 - https://newbedev.com/unit-test-or-integration-test-in-spring-boot
+- https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html
+
+- https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
+- https://reflectoring.io/spring-boot-test/
 
 ## KEY ANNOTATIONS
 [@SpringBootTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html) - used to bootstrap a complete application context for testing. @SpringBootTest by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with @SpringBootConfiguration from which it reads the configuration to create an application context. This class is usually the main application class since the @SpringBootApplication annotation includes the @SpringBootConfiguration annotation. It then creates an application context very similar to the one that would be started in a production environment.
+
+[@ContextConfiguration]() - 
 
 [@WebMvcTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
 
