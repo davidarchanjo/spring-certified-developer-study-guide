@@ -182,6 +182,8 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
+## OVERVIEW
+A **Transaction** is a single logical unit of work which could be composed by one or many actions that pontentially modify the contents of a database, i.e. is a sequence of actions that are considered as a single logical unit by the application.
 ## REFERENCES
 - https://dzone.com/articles/spring-boot-transactions-tutorial-understanding-tr
 - https://www.baeldung.com/spring-transactional-propagation-isolation

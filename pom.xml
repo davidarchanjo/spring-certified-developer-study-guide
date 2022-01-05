@@ -8,7 +8,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>io.davidarchanjo.code</groupId>
+	<groupId>io.davidarchanjo</groupId>
 	<artifactId>spring-certified-developer-study-guide</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
@@ -68,8 +68,7 @@
 		<module>spring-data-jpa</module>
 		<module>spring-expression-language</module>
 		<module>spring-jdbc</module>
-		<module>spring-security</module>
-		<module>spring-transactional</module>
+		<module>spring-security</module>		
     </modules>
 
 </project>

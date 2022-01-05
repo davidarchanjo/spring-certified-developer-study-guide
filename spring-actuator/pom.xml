@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.davidarchanjo.code</groupId>
+        <groupId>io.davidarchanjo</groupId>
         <artifactId>spring-certified-developer-study-guide</artifactId>
         <version>0.0.1</version>
         <relativePath /> <!-- lookup parent from repository -->
