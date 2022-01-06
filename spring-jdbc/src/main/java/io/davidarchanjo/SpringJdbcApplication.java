@@ -3,6 +3,8 @@ package io.davidarchanjo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -10,7 +12,7 @@ import io.davidarchanjo.model.Employee;
 import io.davidarchanjo.model.EmployeeHealthInsurance;
 import io.davidarchanjo.service.OrganizationService;
 
-@SpringBootApplication
+@SpringBootApplication//(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class SpringJdbcApplication {
 
 	public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class SpringJdbcApplication {
 	@Bean
 	CommandLineRunner commandLineRunner(ApplicationContext context) {
 		return args -> {
-			OrganizationService organizationService = context.getBean(OrganizationService.class);
+			OrganizationService organizationService = context.getBean("organization-transactional-service", OrganizationService.class);
 
 			Employee emp = Employee.builder()
 				.empId("emp1")

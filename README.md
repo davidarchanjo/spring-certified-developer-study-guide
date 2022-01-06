@@ -183,7 +183,19 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 # 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
 ## OVERVIEW
-A **Transaction** is a single logical unit of work which could be composed by one or many actions that pontentially modify the contents of a database, i.e. is a sequence of actions that are considered as a single logical unit by the application.
+<p>A <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application.</p>
+<p>A <b>Transaction Propagation</b> indicates if a given service will or will not participate in a transaction and how it will behave if the calling service already has or doesn't a transaction in place.</p>
+
+| Propagation   | Behaviour |
+| :------------ | :-------- |
+| REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created |
+| REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one |
+| NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the sense that if there is an active transaction it will be created a sub-transaction by setting savepoints between nested invocations so that the sub-transaction may rollback independently of the outer (main) transaction |
+| SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context |
+| NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution |
+| NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+| MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+
 ## REFERENCES
 - https://dzone.com/articles/spring-boot-transactions-tutorial-understanding-tr
 - https://www.baeldung.com/spring-transactional-propagation-isolation
@@ -345,26 +357,27 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 - https://www.javadevjournal.com/spring-boot/spring-boot-actuator-custom-endpoint
 
 ## KEY ENDPOINTS
-| API                | DESCRIPTION                                                                                                                                                                   |
-| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/auditevents`     | Returns audit event information for the current application                                                                                                                   |
-| `/beans`           | Returns a complete list of all Spring beans in the current application                                                                                                        |
-| `/caches`          | Returns available caches                                                                                                                                                      |
-| `/conditions`      | Returns a report of all conditions around autoconfiguration                                                                                                                   |
-| `/configprops`     | Returns a grouped list of all @ConfigurationProperties                                                                                                                        |
-| `/env`             | Returns the current environment properties from Spring’s ConfigurableEnvironment                                                                                              |
-| `/health`           | Returns application health information                                                                                                                                        |
-| `/httptrace`        | Returns HTTP trace informations (last 100 HTTP request-response exchanges by default)                                                                                         |
-| `/info`             | Returns arbitrary application information                                                                                                                                     |
-| `/integrationgraph` | Returns the Spring integration graph. Requires a spring-integration-core dependency                                                                                           |
-| `/loggers`          | Returns and modifies the configuration of loggers in the application                                                                                                          |
-| `/metrics`          | Returns metrics information for the current app                                                                                                                               |
-| `/mappings`         | Returns a grouped list of all your application's APIs                                                                                                                         |
-| `/scheduledtasks`   | Returns the tasks scheduled in your application                                                                                                                               |
-| `/sessions`         | Returns retrieval and deletion of user sessions from a Spring Session supported session store. Requires a Servlet-based web application using Spring Session                  |
-| `/shutdown`         | Returns you to be able to disable your application. It is disabled by default                                                                                                 |
-| `/startup`          | Returns the startup step data collected by ApplicationStartup                                                                                                                 |
-| `/threaddump`       | Performs a thread dump                                                                                                                                                        |
+| API                 | DESCRIPTION |
+| :------------------ | :---------- |
+| `/auditevents`      | Returns audit event information for the current application |
+| `/beans`            | Returns a complete list of all Spring beans in the current application |
+| `/caches`           | Returns available caches |
+| `/conditions`       | Returns a report of all conditions around autoconfiguration |
+| `/configprops`      | Returns a grouped list of all @ConfigurationProperties |
+| `/env`              | Returns the current environment properties from Spring’s ConfigurableEnvironment |
+| `/health`           | Returns application health information |
+| `/httptrace`        | Returns HTTP trace informations (last 100 HTTP request-response exchanges by default) |
+| `/info`             | Returns arbitrary application information |
+| `/integrationgraph` | Returns the Spring integration graph. Requires a spring-integration-core dependency |
+| `/loggers`          | Returns and modifies the configuration of loggers in the application |
+| `/metrics`          | Returns metrics information for the current app |
+| `/mappings`         | Returns a grouped list of all your application's APIs |
+| `/scheduledtasks`   | Returns the tasks scheduled in your application |
+| `/sessions`         | Returns retrieval and deletion of user sessions from a Spring Session supported session store. Requires a Servlet-based web application using Spring Session |
+| `/shutdown`         | Returns you to be able to disable your application. It is disabled by default |
+| `/startup`          | Returns the startup step data collected by ApplicationStartup |
+| `/threaddump`       | Performs a thread dump |
+
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;
 
