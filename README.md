@@ -199,7 +199,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   <b>Transaction Isolation Level</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
 </p>
 
-- Following are the supported Transaction Propagation:
+- Types of Transaction Propagation:
 
   | Propagation   | Behaviour |
   | :------------ | :-------- |
@@ -211,7 +211,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
   | MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
 
-- Following are the supported transaction propagation:
+- Types of Transaction Isolation Level:
 
   | Isolation        | Behaviour |
   | :--------------- | :-------- |
