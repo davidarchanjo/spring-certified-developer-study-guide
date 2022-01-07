@@ -201,7 +201,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | :------------ | :-------- |
   | REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created |
   | REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one |
-  | NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the sense that if there is an active transaction it will be created a _sub-transaction_ by setting savepoints between nested invocations so that this _sub-transaction_ may rollback independently of the outer (main) transaction |
+  | NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the way that if there is an active transaction it will be created a _sub-transaction_ by setting savepoints between nested invocations so that this _sub-transaction_ may rollback independently of the outer (main) transaction |
   | SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context |
   | NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution |
   | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
