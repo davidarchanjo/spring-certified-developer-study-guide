@@ -188,7 +188,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 # 5. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="5-data-management-jdbc-transactions-" href="#5"></a>
 ## OVERVIEW
 <p>
-  <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. Is worthy to mention that the only exception types that set a transaction to roll back by default are unchecked exceptions (RuntimeException and its subclasses). To make a transaction roll back when a given checked exception occurs we have to specify it on the @Transaction's rollbakFor parameter.
+  <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. Is worthy to mention that the only exception types that set a transaction to roll back by default are unchecked exceptions (RuntimeException and its subclasses). To make a transaction roll back when a given checked exception occurs we have to specify it on the @Transaction's <code>rollbakFor</code> parameter.
 </p>
 
 <p>
