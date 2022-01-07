@@ -195,10 +195,6 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   <b>Transaction Propagation</b> is a mechanism used to indicate if a given action will or will not participate in a transactional context as well as how it will behave when called from a service which already has or not a transaction in place.
 </p>
 
-<p>
-  <b>Transaction Isolation Level</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
-</p>
-
 - Types of Transaction Propagation:
 
   | Propagation   | Behaviour |
@@ -211,15 +207,19 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
   | MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
 
+<p>
+  <b>Transaction Isolation Level</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
+</p>
+
 - Types of Transaction Isolation Level:
 
   | Isolation        | Behaviour |
   | :--------------- | :-------- |
-  | DEFAULT          | Indicates that the default isolation level of the underlying RDBMS will be used |
-  | READ_COMMITTED   | Indicates that a transaction can not read data that is not yet committed by other transactions |
-  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other transactions |
+  | DEFAULT          | Indicates that for any transaction the default isolation level of the underlying RDBMS will be used |
+  | READ_COMMITTED   | Indicates that a transaction can not read data that is not yet committed by other concurrent transactions |
+  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other concurrent transactions |
   | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
-  | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they appear as if they were executed in a serialized way, i.e. concurrent execution of a group of serializable transactions has the same result as executing them in serial. |
+  | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
 
 
 ## REFERENCES
