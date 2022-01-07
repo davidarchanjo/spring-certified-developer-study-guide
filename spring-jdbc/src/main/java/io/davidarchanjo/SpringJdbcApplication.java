@@ -3,16 +3,15 @@ package io.davidarchanjo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import io.davidarchanjo.model.Employee;
 import io.davidarchanjo.model.EmployeeHealthInsurance;
+import io.davidarchanjo.service.EmployeeService;
 import io.davidarchanjo.service.OrganizationService;
 
-@SpringBootApplication//(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication
 public class SpringJdbcApplication {
 
 	public static void main(String[] args) {
@@ -23,8 +22,9 @@ public class SpringJdbcApplication {
 	CommandLineRunner commandLineRunner(ApplicationContext context) {
 		return args -> {
 			OrganizationService organizationService = context.getBean("organization-transactional-service", OrganizationService.class);
+			EmployeeService employeeService = context.getBean(EmployeeService.class);
 
-			Employee emp = Employee.builder()
+			Employee employee = Employee.builder()
 				.empId("emp1")
 				.empName("emp1")
 				.build();
@@ -35,7 +35,11 @@ public class SpringJdbcApplication {
 				.coverageAmount(20000)
 				.build();
 
-			organizationService.joinOrganization(emp, employeeHealthInsurance);
+			try {
+				organizationService.joinOrganization(employee, employeeHealthInsurance);
+			} catch (Exception ex) {}
+
+			employeeService.insertEmployee(employee);
 		};
 	}
 }

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("organization-transactional-service")
 public class OrganizationTransactionalServiceImpl implements OrganizationService {
 
-	private final EmployeeService employeeService;	
+	private final EmployeeService employeeService;
 	private final HealthInsuranceService healthInsuranceService;
 
 	@Override

@@ -36,20 +36,24 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 
 
 # TABLE OF CONTENTS
-1. <a href="#1-spring-core-concepts-" id="1">SPRING CORE CONCEPTS</a>
-2. <a href="#2-spring-boot-basics-and-auto-configuration-" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
-3. <a href="#3-aspect-oriented-programming-" id="3">ASPECT-ORIENTED PROGRAMMING</a>
-4. <a href="#4-data-management-jdbc-transactions-" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
-5. <a href="#5-spring-data-jpa-" id="5">SPRING DATA JPA</a>
-6. <a href="#6-spring-mvc-" id="6">SPRING MVC</a>
-7. <a href="#7-spring-security-" id="7">SPRING SECURITY</a>
-8. <a href="#8-spring-boot-actuator-" id="8">SPRING BOOT ACTUATOR</a>
-9. <a href="#9-spring-boot-testing-" id="9">SPRING BOOT TESTING</a>
+1. <a href="#1-rest-concepts-" id="1">REST CONCEPTS</a>
+2. <a href="#2-spring-core-concepts-" id="1">SPRING CORE CONCEPTS</a>
+3. <a href="#3-spring-boot-basics-and-auto-configuration-" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
+4. <a href="#4-aspect-oriented-programming-" id="3">ASPECT-ORIENTED PROGRAMMING</a>
+5. <a href="#5-data-management-jdbc-transactions-" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
+6. <a href="#6-spring-data-jpa-" id="5">SPRING DATA JPA</a>
+7. <a href="#7-spring-mvc-" id="6">SPRING MVC</a>
+8. <a href="#8-spring-security-" id="7">SPRING SECURITY</a>
+9. <a href="#9-spring-boot-actuator-" id="8">SPRING BOOT ACTUATOR</a>
+10. <a href="#10-spring-boot-testing-" id="9">SPRING BOOT TESTING</a>
 </br></br>
 
 
-# 1. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#1"></a>
-- **Bean** is an object that is instantiated, assembled, and otherwise managed by the **Spring IoC Container**.
+# 1. REST CONCEPTS <a id="1-rest-concepts-" href="#1"></a>
+
+
+# 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
+- **Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
 - **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 - **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. The object delegates the job of construction its dependencies to the IoC container.
 - **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
@@ -103,7 +107,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br>
 
 
-# 2. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="2-spring-boot-basics-and-auto-configuration-" href="#2"></a>
+# 3. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="3-spring-boot-basics-and-auto-configuration-" href="#3"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -125,7 +129,7 @@ The [Spring Certified Professional](https://www.vmware.com/education-services/ce
 </br></br>
 
 
-# 3. ASPECT-ORIENTED PROGRAMMING <a id="3-aspect-oriented-programming-" href="#3"></a>
+# 4. ASPECT-ORIENTED PROGRAMMING <a id="4-aspect-oriented-programming-" href="#4"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -181,34 +185,58 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 4. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="4-data-management-jdbc-transactions-" href="#4"></a>
+# 5. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="5-data-management-jdbc-transactions-" href="#5"></a>
 ## OVERVIEW
-<p>A <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application.</p>
-<p>A <b>Transaction Propagation</b> indicates if a given service will or will not participate in a transaction and how it will behave if the calling service already has or doesn't a transaction in place.</p>
+<p>
+  <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application.
+</p>
 
-| Propagation   | Behaviour |
-| :------------ | :-------- |
-| REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created |
-| REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one |
-| NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the sense that if there is an active transaction it will be created a sub-transaction by setting savepoints between nested invocations so that the sub-transaction may rollback independently of the outer (main) transaction |
-| SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context |
-| NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution |
-| NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
-| MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+<p>
+  <b>Transaction Propagation</b> is a mechanism used to indicate if a given action will or will not participate in a transactional context as well as how it will behave when called from a service which already has or not a transaction in place.
+</p>
+
+<p>
+  <b>Transaction Isolation Level</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
+</p>
+
+- Following are the supported Transaction Propagation:
+
+  | Propagation   | Behaviour |
+  | :------------ | :-------- |
+  | REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created |
+  | REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one |
+  | NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the sense that if there is an active transaction it will be created a _sub-transaction_ by setting savepoints between nested invocations so that this _sub-transaction_ may rollback independently of the outer (main) transaction |
+  | SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context |
+  | NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution |
+  | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+  | MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+
+- Following are the supported transaction propagation:
+
+  | Isolation        | Behaviour |
+  | :--------------- | :-------- |
+  | DEFAULT          | Indicates that the default isolation level of the underlying RDBMS will be used |
+  | READ_COMMITTED   | Indicates that a transaction can not read data that is not yet committed by other transactions |
+  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other transactions |
+  | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
+  | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they appear as if they were executed in a serialized way, i.e. concurrent execution of a group of serializable transactions has the same result as executing them in serial. |
+
 
 ## REFERENCES
-- https://dzone.com/articles/spring-boot-transactions-tutorial-understanding-tr
+- https://www.javainuse.com/spring/boot-transaction
 - https://www.baeldung.com/spring-transactional-propagation-isolation
 - https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
+- https://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
+- https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
 
-[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes;
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes. @EnableTransactionManagement is **optional** in Spring Boot as long as one of spring-data modules is configured;
 </br></br>
 
 
-# 5. SPRING DATA JPA <a id="5-spring-data-jpa-" href="#5"></a>
+# 6. SPRING DATA JPA <a id="6-spring-data-jpa-" href="#6"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://knpcode.com/spring/spring-data-tutorial/
@@ -237,7 +265,7 @@ repository methods to execute both JPQL or native SQL queries;
 </br></br>
 
 
-# 6. SPRING MVC <a id="6-spring-mvc-" href="#6"></a>
+# 7. SPRING MVC <a id="7-spring-mvc-" href="#7"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
@@ -280,7 +308,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 </br></br>
 
 
-# 7. SPRING SECURITY <a id="7-spring-security-" href="#7"></a>
+# 8. SPRING SECURITY <a id="8-spring-security-" href="#8"></a>
 ## OVERVIEW
 <p>Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.</p> 
 <p>The Spring Security framework provides two options to set up authorization schema configuration: URL-based and Annotation-based.
@@ -346,7 +374,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 </br></br>
 
 
-# 8. SPRING BOOT ACTUATOR <a id="8-spring-boot-actuator-" href="#8"></a>
+# 9. SPRING BOOT ACTUATOR <a id="9-spring-boot-actuator-" href="#9"></a>
 ## OVERVIEW
 Spring Boot Actuator provides us with resources so we can monitor and manage our application's health and availability. Such functionalities are: monitoring, metrics, tracing and auditing.
 
@@ -393,7 +421,7 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 </br></br>
 
 
-# 9. SPRING BOOT TESTING <a id="9-spring-boot-testing-" href="#9"></a>
+# 10. SPRING BOOT TESTING <a id="10-spring-boot-testing-" href="#10"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
