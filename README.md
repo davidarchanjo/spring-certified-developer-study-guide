@@ -1,4 +1,3 @@
-# SPRING CERTIFIED DEVELOPER STUDY GUIDE
 ![banner](./assets/banner.jpg)
 </br></br>
 
