@@ -37,15 +37,15 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 
 # TABLE OF CONTENTS
 1. <a href="#1-rest-concepts-" id="1">REST CONCEPTS</a>
-2. <a href="#2-spring-core-concepts-" id="1">SPRING CORE CONCEPTS</a>
-3. <a href="#3-spring-boot-basics-and-auto-configuration-" id="2">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
-4. <a href="#4-aspect-oriented-programming-" id="3">ASPECT-ORIENTED PROGRAMMING</a>
-5. <a href="#5-data-management-jdbc-transactions-" id="4">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
-6. <a href="#6-spring-data-jpa-" id="5">SPRING DATA JPA</a>
-7. <a href="#7-spring-mvc-" id="6">SPRING MVC</a>
-8. <a href="#8-spring-security-" id="7">SPRING SECURITY</a>
-9. <a href="#9-spring-boot-actuator-" id="8">SPRING BOOT ACTUATOR</a>
-10. <a href="#10-spring-boot-testing-" id="9">SPRING BOOT TESTING</a>
+2. <a href="#2-spring-core-concepts-" id="2">SPRING CORE CONCEPTS</a>
+3. <a href="#3-spring-boot-basics-and-auto-configuration-" id="3">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
+4. <a href="#4-aspect-oriented-programming-" id="4">ASPECT-ORIENTED PROGRAMMING</a>
+5. <a href="#5-data-management-jdbc-transactions-" id="5">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
+6. <a href="#6-spring-data-jpa-" id="6">SPRING DATA JPA</a>
+7. <a href="#7-spring-mvc-" id="7">SPRING MVC</a>
+8. <a href="#8-spring-security-" id="8">SPRING SECURITY</a>
+9. <a href="#9-spring-boot-actuator-" id="9">SPRING BOOT ACTUATOR</a>
+10. <a href="#10-spring-boot-testing-" id="10">SPRING BOOT TESTING</a>
 </br></br>
 
 
