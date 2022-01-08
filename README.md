@@ -50,7 +50,26 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 
 
 # 1. REST CONCEPTS <a id="1-rest-concepts-" href="#1"></a>
+## REFERENCES
+- https://restfulapi.net
+- https://www.restapitutorial.com
 
+## OVERVIEW
+REST stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style created by Roy Fielding in 2000 to guide the design of architecture for the web. 
+
+Any web API that conforms to the REST principles is referred to be **RESTful**.
+
+Data and its functionalities provided by a RESTful API are considered _resources_ and are accessed using **Uniform Resource Identifiers**.
+
+REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to create, read, update, and delete operations. Those actions are commonlly known by the **CRUD** acronym.
+
+The following table summarises the use of those HTTP methods:
+| Method | Action |
+| :----- | :----- |
+| POST   | Create a REST API resource |
+| GET    | Retrieve information about a specific REST API resource or a collection |
+| PUT    | Update a REST API resource |
+| DELETE | Delete a REST API resource or related component |
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
 - **Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
@@ -71,7 +90,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 - https://www.baeldung.com/spring-expression-language
 
 ## KEY ANNOTATIONS
-[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used to mark a factory method which will have the produced object added to the Spring context;
+[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that their produced object will be managed by the Spring container;
 
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
