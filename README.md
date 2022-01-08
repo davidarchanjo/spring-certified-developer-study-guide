@@ -59,11 +59,11 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 
 Any web API that conforms to the REST principles is referred to be **RESTful**.
 
-Data and its functionalities provided by a RESTful API are considered _resources_ and are accessed using **Uniform Resource Identifiers**.
+Data and its functionalities provided by a RESTful API are considered _resources_ and are accessed through **Uniform Resource Identifiers**.
 
 REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to create, read, update, and delete operations. Those actions are commonlly known by the **CRUD** acronym.
 
-The following table summarises the use of those HTTP methods:
+The following summarises the use of those HTTP methods:
 | Method | Action |
 | :----- | :----- |
 | POST   | Create a REST API resource |
