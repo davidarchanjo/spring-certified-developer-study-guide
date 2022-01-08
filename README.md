@@ -55,7 +55,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 - https://www.restapitutorial.com
 
 ## OVERVIEW
-REST stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style created by Roy Fielding in 2000 to guide the design of architecture for the web. 
+**REST** stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style created by Roy Fielding in 2000 to guide the design of architecture for the web. 
 
 Any web API that conforms to the REST principles is referred to be **RESTful**.
 
