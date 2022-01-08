@@ -256,7 +256,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
 
-[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes. @EnableTransactionManagement is **optional** in Spring Boot as long as one of spring-data modules is configured;
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes. @EnableTransactionManagement is **optional** in Spring Boot application as long as one of spring-data-* modules is configured on the project;
 </br></br>
 
 
