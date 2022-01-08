@@ -64,12 +64,12 @@ Data and its functionalities provided by a RESTful API are considered _resources
 REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to create, read, update, and delete operations. Those actions are commonlly known by the **CRUD** acronym.
 
 The following summarises the use of those HTTP methods:
-| Method | Action |
-| :----- | :----- |
-| POST   | Create a REST API resource |
-| GET    | Retrieve information about a specific REST API resource or a collection |
-| PUT    | Update a REST API resource |
-| DELETE | Delete a REST API resource or related component |
+  | Method | Action |
+  | :----- | :----- |
+  | POST   | Create a REST API resource |
+  | GET    | Retrieve information about a specific REST API resource or a collection |
+  | PUT    | Update a REST API resource |
+  | DELETE | Delete a REST API resource or related component |
 </br></br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
