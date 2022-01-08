@@ -71,7 +71,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 - https://www.baeldung.com/spring-expression-language
 
 ## KEY ANNOTATIONS
-[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used to mark a factory method which instantiates a Spring bean;
+[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used to mark a factory method which will have the produced object added to the Spring context;
 
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
@@ -244,7 +244,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.baeldung.com/spring-data-jpa-query
 
 ## KEY ANNOTATIONS
-[@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class maps a database entity. If forget to mark a domain class that will map a database entity with @Entity annotation, we will get an IllegalArgumentException since Spring will not be able to invocate the init method in a not managed type;
+[@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class maps a database entity. If we forget to mark a domain class that will map a database entity with @Entity annotation, we will get an IllegalArgumentException since Spring will not be able to invocate the init method in a not managed type;
 
 [@Table](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Table.html) - used to specify the table that will map the entity in the database;
 
@@ -252,7 +252,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 [@GeneratedValue](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html) - used to specify the primary key generation strategy which by default is autoincrement;
 
-[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) - used to specify the column to which a property will be mapped;
+[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) - used to specify the database column details like name, constraint etc to which a property will be mapped. If no @Column annotation is specified, then the field name will be used for mapping;
 
 [@Query](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Query.html) - used to declare custom queries on 
 repository methods to execute both JPQL or native SQL queries;
@@ -261,7 +261,7 @@ repository methods to execute both JPQL or native SQL queries;
 
 [@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration classes to indicate to Spring where is located entity classes when they are not placed in the main application package or its sub-packages;
 
-[@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration classes to indicate to Spring where is located JPA repository classes when they are not placed in the main application package or its sub-packages;
+[@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration classes to indicate to Spring where is located JPA repository classes when they are not placed in the same package of the main application class or under its sub-packages;
 </br></br>
 
 
@@ -273,15 +273,15 @@ repository methods to execute both JPQL or native SQL queries;
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY ANNOTATIONS
-[@GetMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html) - used to map HTTP GET requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.GET)</code>;
+[@GetMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html) - used to map HTTP GET requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.GET)</code>;
 
-[@PostMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html) - used to map HTTP POST requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.POST)</code>;
+[@PostMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html) - used to map HTTP POST requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.POST)</code>;
 
-[@PutMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PutMapping.html) - used to map HTTP PUT requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.PUT)</code>;
+[@PutMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PutMapping.html) - used to map HTTP PUT requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.PUT)</code>;
 
-[@DeleteMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/DeleteMapping.html) - used to map HTTP DELETE requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.DELETE)</code>;
+[@DeleteMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/DeleteMapping.html) - used to map HTTP DELETE requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.DELETE)</code>;
 
-[@PatchMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PatchMapping.html) - used to map HTTP PATCH requests onto specific handler method. It is a composed annotation that acts as a shortcut for <code>@RequestMapping(method = RequestMethod.PATCH)</code>;
+[@PatchMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PatchMapping.html) - used to map HTTP PATCH requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.PATCH)</code>;
 
 [@RequestMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html) - used to map web requests onto methods in request-handling classes with flexible method signatures. @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, and @PatchMapping are different variants of @RequestMapping for handling the specific HTTP operation by these annotations. By default @RequestMapping maps all HTTP operations;
 
@@ -304,7 +304,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 [@Controller](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html) - is a @Component stereotype annotation used to mark a class as a source of request method handlers;
 
-[@RestController](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html) - combines the @Controller and @ResponseBody annotations, making all class request handler methods assumes @ResponseBody by default;
+[@RestController](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html) - combines the @Controller and @ResponseBody annotations, making all request handler methods in the annotated class assumes @ResponseBody by default;
 </br></br>
 
 
