@@ -461,7 +461,7 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 ## KEY ANNOTATIONS
 [@SpringBootTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html) - used to bootstrap a complete application context for testing. @SpringBootTest by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with @SpringBootConfiguration from which it reads the configuration to create an application context. This class is usually the main application class since the @SpringBootApplication annotation includes the @SpringBootConfiguration annotation. It then creates an application context very similar to the one that would be started in a production environment.
 
-[@ContextConfiguration]() - 
+[@ContextConfiguration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/ContextConfiguration.html) - used to load <ins>component classes</ins><a href="#note1" id="note1ref"><sup>1</sup></a> in order to configure an ApplicationContext for integration test. @ContextConfiguration can load ApplicationContext using XML resource or the JavaConfig annotated with @Configuration. The @ContextConfiguration annotation can also load a component annotated with @Component, @Service, @Repository etc.
 
 [@WebMvcTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
 
@@ -474,3 +474,7 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 [@Mock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock for the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
 
 [@InjectMock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/InjectMocks.html) - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock for the marked field and injects all dependencies annotated with @Mock into it.
+</br></br>
+
+
+<a id="note1" href="#note1ref"><sup>1</sup></a> <ins>component classes</ins> - is any class annotated with @Configuration or @Component (including any of its stereotype variants like @Service, @Repository etc) as well as any JSR-330 compliant class that is annotated with javax.inject annotations.
