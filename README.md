@@ -70,13 +70,9 @@ The following summarises the use of those HTTP methods:
 | GET    | Retrieve information about a specific REST API resource or a collection |
 | PUT    | Update a REST API resource |
 | DELETE | Delete a REST API resource or related component |
+</br></br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
-- **Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
-- **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
-- **Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. The object delegates the job of construction its dependencies to the IoC container.
-- **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
-
 ## REFERENCES
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 - https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
@@ -88,6 +84,15 @@ The following summarises the use of those HTTP methods:
 - https://knpcode.com/spring/spring-bean-lifecycle-callback-methods
 - https://www.baeldung.com/spring-core-annotations
 - https://www.baeldung.com/spring-expression-language
+
+## OVERVIEW
+**Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
+
+**Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
+
+**Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. The object delegates the job of construction its dependencies to the IoC container.
+
+**Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that their produced object will be managed by the Spring container;
