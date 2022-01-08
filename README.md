@@ -71,7 +71,7 @@ The following summarises the use of those HTTP methods:
 | PUT    | Update a REST API resource |
 | DELETE | Delete a REST API resource or related component |
 
-</br></br>
+</br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
 ## REFERENCES
