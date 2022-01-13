@@ -3,16 +3,17 @@
 * types of rollback
 
 # 2. SPRING DATA JPA
+* overview
 
-# 3. SPRING BEANS
-* @qualifier, @primary
-
-# 4. SPRING BOOT TESTING
-* @contextconfiguration vs @springboottest
-
-# 5. SPRING JDBCTEMPLATE
+# 3. SPRING JDBCTEMPLATE
 * datasource
 * rowmapper
+
+# 4. SPRING BEANS
+* @qualifier, @primary
+
+# 5. SPRING BOOT TESTING
+* @contextconfiguration vs @springboottest
 
 # 6. SECURITY 
 * most specific to least specific??
@@ -22,6 +23,6 @@
 # 7. SPRING MVC
 * Model View Controller (oldschool)
 
-# SPRING ACTUATOR
+# 8. SPRING ACTUATOR
 * Health Indicator
 * Health Indicator statuses 
