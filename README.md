@@ -73,6 +73,15 @@ The following summarises the use of those HTTP methods:
 | DELETE | Delete a REST API resource or related component |
 
 ## HTTP STATUS
+In REST APIs, HTTP status codes are used to inform the consumer about the request's result. The status codes are divided into five categories:
+| Category | Description |
+| :------- | :------------ |
+| 1xx Status | Communicates transfer protocol-level information |
+| 2xx Status | Indicates that the client’s request was accepted successfully |
+| 3xx Status | Indicates that the client must take some additional action in order to complete their request |
+| 4xx Status | Indicates that the client's request contains erros or bad syntax |
+| 5xx Status | Indicates that the client's request was unable to be performed due to a server-side error |
+
 </br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
