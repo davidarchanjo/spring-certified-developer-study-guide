@@ -78,7 +78,7 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 | :------- | :------------ |
 | 1xx Status | Communicates transfer protocol-level information |
 | 2xx Status | Indicates that the client’s request was accepted successfully |
-| 3xx Status | Indicates that the client must take some additional action in order to complete their request |
+| 3xx Status | Indicates that the client must take some additional action in order to complete the request |
 | 4xx Status | Indicates that the client's request contains erros or bad syntax |
 | 5xx Status | Indicates that the client's request was unable to be performed due to a server-side error |
 
