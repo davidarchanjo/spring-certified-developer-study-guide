@@ -35,7 +35,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 
 
 # TABLE OF CONTENTS
-1. <a href="#1-rest-concepts-" id="1">REST CONCEPTS</a>
+1. <a href="#1-rest-concepts-" id="1">REST BASICS</a>
 2. <a href="#2-spring-core-concepts-" id="2">SPRING CORE CONCEPTS</a>
 3. <a href="#3-spring-boot-basics-and-auto-configuration-" id="3">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
 4. <a href="#4-aspect-oriented-programming-" id="4">ASPECT-ORIENTED PROGRAMMING</a>
@@ -48,7 +48,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 </br></br>
 
 
-# 1. REST CONCEPTS <a id="1-rest-concepts-" href="#1"></a>
+# 1. REST BASICS <a id="1-rest-concepts-" href="#1"></a>
 ## REFERENCES
 - https://restfulapi.net
 - https://www.restapitutorial.com
@@ -62,7 +62,7 @@ Data and its functionalities provided by a RESTful API are considered _resources
 
 
 ## HTTP METHODS
-REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to create, read, update, and delete operations and those actions are commonlly referred by the **CRUD** acronym.
+REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to **C**reate, **R**ead, **U**pdate, and **D**elete operations and those actions are commonlly referred by the **CRUD** acronym.
 
 The following summarises the use of those HTTP methods:
 | Method | Action |
