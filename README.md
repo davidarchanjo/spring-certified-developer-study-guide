@@ -2,7 +2,7 @@
 </br></br>
 
 # INTRODUCTION
-This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a supporting material for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that they alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation for this exam.
+This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a supporting material for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation for this exam.
 
 I hope this guide and its content be useful for you in some way. Good luck 🤞🍀!
 </br></br>
@@ -60,6 +60,8 @@ Any web API that conforms to the REST principles is referred to be **RESTful**.
 
 Data and its functionalities provided by a RESTful API are considered _resources_ and are accessed through **Uniform Resource Identifiers**.
 
+
+## HTTP METHODS
 REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to create, read, update, and delete operations and those actions are commonlly referred by the **CRUD** acronym.
 
 The following summarises the use of those HTTP methods:
@@ -70,6 +72,7 @@ The following summarises the use of those HTTP methods:
 | PUT    | Update a REST API resource |
 | DELETE | Delete a REST API resource or related component |
 
+## HTTP STATUS
 </br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
