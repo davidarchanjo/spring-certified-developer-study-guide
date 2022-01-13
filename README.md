@@ -74,8 +74,8 @@ The following summarises the use of those HTTP methods:
 
 ## HTTP STATUS
 In REST APIs, HTTP status codes are used to inform the consumer about the request's result. The status codes are divided into five categories:
-| Category | Description |
-| :------- | :------------ |
+| Category   | Description |
+| :--------- | :---------- |
 | 1xx Status | Indicates that the server received the request and is continuing the process |
 | 2xx Status | Indicates that the client’s request was accepted successfully |
 | 3xx Status | Indicates that the client must take some additional action in order to complete the request |
