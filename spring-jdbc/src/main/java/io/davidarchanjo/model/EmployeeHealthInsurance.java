@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class EmployeeHealthInsurance {    
+public class EmployeeHealthInsurance {
+
     private String empId;
 	private String healthInsuranceSchemeName;
 	private int coverageAmount;

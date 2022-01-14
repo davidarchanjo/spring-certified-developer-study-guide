@@ -10,7 +10,9 @@ import io.davidarchanjo.model.Employee;
 import io.davidarchanjo.model.EmployeeHealthInsurance;
 import io.davidarchanjo.service.EmployeeService;
 import io.davidarchanjo.service.OrganizationService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SpringBootApplication
 public class SpringJdbcApplication {
 
@@ -21,25 +23,28 @@ public class SpringJdbcApplication {
 	@Bean
 	CommandLineRunner commandLineRunner(ApplicationContext context) {
 		return args -> {
-			OrganizationService organizationService = context.getBean("organization-transactional-service", OrganizationService.class);
-			EmployeeService employeeService = context.getBean(EmployeeService.class);
-
-			Employee employee = Employee.builder()
-				.empId("emp1")
-				.empName("emp1")
-				.build();
-
-			EmployeeHealthInsurance employeeHealthInsurance = EmployeeHealthInsurance.builder()
-				.empId("emp1")
-				.healthInsuranceSchemeName("premium")
-				.coverageAmount(20000)
-				.build();
-
 			try {
-				organizationService.joinOrganization(employee, employeeHealthInsurance);
-			} catch (Exception ex) {}
+				OrganizationService organizationService = context.getBean("organization-transactional-service", OrganizationService.class);
 
-			employeeService.insertEmployee(employee);
+				EmployeeService employeeService = context.getBean(EmployeeService.class);
+
+				Employee employee = Employee.builder()
+					.empId("emp1")
+					.empName("emp1")
+					.build();
+
+				EmployeeHealthInsurance employeeHealthInsurance = EmployeeHealthInsurance.builder()
+					.empId("emp1")
+					.healthInsuranceSchemeName("premium")
+					.coverageAmount(20000)
+					.build();
+
+				organizationService.joinOrganization(employee, employeeHealthInsurance);
+
+				employeeService.insertEmployee(employee);
+			} catch (Exception ex) {
+				log.error(ex.getMessage(), ex);
+			}
 		};
 	}
 }
