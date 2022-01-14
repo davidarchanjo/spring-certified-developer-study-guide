@@ -19,7 +19,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao {
 	private final JdbcTemplate jdbcTemplate;
 	
 	@PostConstruct
-	private void initialize(){
+	private void initialize() {
 		setDataSource(dataSource);
 	}
 	
