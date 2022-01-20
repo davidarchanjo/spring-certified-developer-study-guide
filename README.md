@@ -84,7 +84,7 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 ## API DESIGN & CONVENTIONS
 The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performes a specific operation.
 
-The API functionalities related to _resources_ are exposed via URLs on which the resources should be referred as **nouns** and **in plural**. The operations made available via URLs should be mapped to HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
+The functionalities provided by a API, which are related to _resources_, are exposed via URLs on which the resources are referred as **nouns** and **in plural**. The operations made available via URLs should be mapped to HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
 | HTTP Method | URL | Operation | HTTP Status |
 | :---------- | :-- | :-------- | :---------: |
 | GET         | `/todos` | Retrieves a list of todos | 200
