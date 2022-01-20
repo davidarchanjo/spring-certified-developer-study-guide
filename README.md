@@ -2,7 +2,7 @@
 </br></br>
 
 # INTRODUCTION
-This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a supporting material for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation for this exam.
+This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a _supporting material_ for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation.
 
 I hope this guide and its content be useful for you in some way. Good luck 🤞🍀!
 </br></br>
@@ -51,15 +51,14 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 # 1. REST BASICS <a id="1-rest-concepts-" href="#1"></a>
 ## REFERENCES
 - https://restfulapi.net
-- https://www.restapitutorial.com
+- https://restapitutorial.com
 
 ## OVERVIEW
-**REST** stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style created by Roy Fielding in 2000 to guide the design of architecture for the web. 
+**REST** stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style introduced by [Roy Fielding](https://en.wikipedia.org/wiki/Roy_Fielding) in 2000 to guide the design of architecture for the web.
 
-Any web API that conforms to the REST principles is referred to be **RESTful**.
+Any web API that conforms to [The REST Principles](https://en.wikipedia.org/wiki/Representational_state_transfer) is classified as **RESTful**.
 
-Data and its functionalities provided by a RESTful API are considered _resources_ and are accessed through **Uniform Resource Identifiers**.
-
+The data and its functionalities provided by a RESTful API are referred _resources_ and are accessed through **Uniform Resource Identifiers**.
 
 ## HTTP METHODS
 REST API resources are manipulated by HTTP methods and the most-commonly-used HTTP methods are POST, GET, PUT and DELETE. These methods correspond, respectively, to **C**reate, **R**ead, **U**pdate, and **D**elete operations and those actions are commonlly referred by the **CRUD** acronym.
@@ -73,7 +72,7 @@ The following summarises the use of those HTTP methods:
 | DELETE | Delete a REST API resource or related component |
 
 ## HTTP STATUS
-In REST APIs, HTTP status codes are used to inform the consumer about the request's result. The status codes are divided into five categories:
+In REST APIs, HTTP status codes are used to inform the consumer about the request's result. The status codes are divided into five categories:</br>
 | Category   | Description |
 | :--------- | :---------- |
 | 1xx Status | Indicates that the server received the request and is continuing the process |
@@ -81,6 +80,19 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 | 3xx Status | Indicates that the client must take some additional action in order to complete the request |
 | 4xx Status | Indicates that the client's request contains erros or bad syntax |
 | 5xx Status | Indicates that the client's request was unable to be performed due to a server-side error |
+
+## REST API DESIGN & CONVENTIONS
+The key principles of REST involves separating the API into _logical resources_ having those resources manipulated through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performing a specific operation.
+
+By convention, the _resources_ must be defined in URLs, through which API functionalities are exposed, as **nouns** and **in plural**, and the operations in the API made available via URLs for the resources should be mapped to a HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
+| HTTP Method | URL | Operation | HTTP Status |
+| :---------- | :-- | :-------- | :---------: |
+| GET         | `/todos` | Retrieves a list of todos | 200
+| GET         | `/todos/1` | Retrieves a specific todo | 200
+| POST        | `/todos` | Creates a new todo | 201
+| PUT         | `/todos/1` | Fully updates todo referenced by #1 | 204
+| PATCH       | `/todos/1` | Partially updates todo referenced by #1 | 204
+| DELETE      | `/todos/1` | Deletes todo referenced by #1 | 204
 
 </br>
 

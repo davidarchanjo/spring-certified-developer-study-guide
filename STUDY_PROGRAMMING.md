@@ -2,28 +2,28 @@
 * types of propagation
 * types of rollback
 
-# 2. SPRING JDBCTEMPLATE (13,14)
+# 2. SPRING JDBCTEMPLATE (20)
 * datasource
 * rowmapper
 
-# 3. SPRING DATA JPA (15,16)
+# 3. SPRING DATA JPA (21)
 * overview
 
-# 4. SPRING BEANS (17,18)
+# 4. SPRING BEANS (22)
 * @qualifier, @primary
 
-# 5. SPRING BOOT TESTING (19,20)
+# 5. SPRING BOOT TESTING (23)
 * @contextconfiguration vs @springboottest
 
-# 6. SECURITY (21,22)
+# 6. SECURITY (24)
 * most specific to least specific??
 * antMatcher
 * mvcMatcher
 
-# 7. SPRING MVC (23,24)
+# 7. SPRING MVC (25)
 * Model View Controller (oldschool)
 
-# 8. SPRING ACTUATOR (25,26)
+# 8. SPRING ACTUATOR (26)
 * Health Indicator
 * Health Indicator statuses
 
