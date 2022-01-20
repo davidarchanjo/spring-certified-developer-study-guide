@@ -8,10 +8,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>spring-jdbc</artifactId>
+	<artifactId>spring-transaction</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
-	<name>spring-jdbc</name>
+	<name>spring-transaction</name>
 
 	<dependencies>
 		<dependency>

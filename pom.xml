@@ -67,9 +67,9 @@
 		<module>spring-crud</module>
 		<module>spring-data-jpa</module>
 		<module>spring-expression-language</module>
-		<module>spring-jdbc</module>
 		<module>spring-jdbctemplate</module>
 		<module>spring-security</module>		
+		<module>spring-transaction</module>
     </modules>
 
 </project>
