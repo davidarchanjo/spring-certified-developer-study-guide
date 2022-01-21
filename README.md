@@ -54,7 +54,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 - https://restapitutorial.com
 
 ## OVERVIEW
-**REST** stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style introduced by [Roy Fielding](https://en.wikipedia.org/wiki/Roy_Fielding) in 2000 to guide the design of architecture for the web.
+**REST** stands for **RE**presentational **S**tate **T**ransfer and it is a software architectural style introduced by [Roy Fielding](https://en.wikipedia.org/wiki/Roy_Fielding) on 2000 as a design guide to the WEB on its early days.
 
 Any web API that conforms to [The REST Principles](https://en.wikipedia.org/wiki/Representational_state_transfer) is classified as **RESTful**.
 
@@ -82,7 +82,7 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 | 5xx Status | Indicates that the client's request was unable to be performed due to a server-side error |
 
 ## API DESIGN & CONVENTIONS
-The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performes a specific operation.
+The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performs a specific operation.
 
 The functionalities provided by an API, which are related to _resources_, are exposed via URLs on which the resources are referred as **nouns** and **in plural**. The operations made available via URLs should be mapped to HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
 | HTTP Method | URL        | Operation | HTTP Status |
@@ -234,7 +234,14 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 # 5. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="5-data-management-jdbc-transactions-" href="#5"></a>
-## OVERVIEW
+## REFERENCES
+- https://www.javainuse.com/spring/boot-transaction
+- https://www.baeldung.com/spring-transactional-propagation-isolation
+- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
+- https://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
+- https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
+
+## OVERVIEW 
 <p>
   <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. Is worthy to mention that the only exception types that set a transaction to roll back by default are unchecked exceptions (RuntimeException and its subclasses). To make a transaction roll back when a given checked exception occurs we have to specify it on the @Transaction's <code>rollbakFor</code> parameter.
 </p>
@@ -245,15 +252,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 - Types of Transaction Propagation:
 
-  | Propagation   | Behaviour |
-  | :------------ | :-------- |
-  | REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created |
-  | REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one |
-  | NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the way that if there is an active transaction it will be created a _sub-transaction_ by setting savepoints between nested invocations so that this _sub-transaction_ may rollback independently of the outer (main) transaction |
-  | SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context |
-  | NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution |
-  | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
-  | MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown |
+  | Propagation   | Behaviour                                                                                                                                                                                                                                                                                                            |
+  |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :-------- |
+  | REQUIRED      | Always executes in a transaction and if there is an active transaction it is used otherwise a new one is created                                                                                                                                                                                                     |
+  | REQUIRES_NEW  | Always executes in a new transaction and if there is an active transaction it gets suspended before stars a new one                                                                                                                                                                                                  |
+  | NESTED        | Like REQUIRES_NEW always executes in a new transaction but differs in the way that if there is an active transaction it will be created a _sub-transaction_ by setting savepoints between nested invocations so that this _sub-transaction_ may rollback independently of the outer (main) transaction in case of failure |
+  | SUPPORTS      | If a transaction exists then it makes use of it but if none exits the method will execute in a non-transactional context                                                                                                                                                                                             |
+  | NOT_SUPPORTED | Always executes without a transaction and if there is an active transaction it gets suspended until the end of the method execution                                                                                                                                                                                  |
+  | NEVER         | Always executes without a transaction but if there is an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown                                                  |
+  | MANDATORY     | Always executes in a transaction and if there is an active transaction it is used. If does not exist an active transaction an [IllegalTransactionStateException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/IllegalTransactionStateException.html) is thrown   |
 
 <p>
   <b>Transaction Isolation Level</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
@@ -268,14 +275,6 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other concurrent transactions |
   | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
   | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
-
-
-## REFERENCES
-- https://www.javainuse.com/spring/boot-transaction
-- https://www.baeldung.com/spring-transactional-propagation-isolation
-- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
-- https://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
-- https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
