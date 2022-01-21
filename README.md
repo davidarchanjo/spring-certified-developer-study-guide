@@ -87,14 +87,14 @@ The key principles of REST involves separating the API into _logical resources_ 
 The functionalities provided by an API are related to _resources_ and by convention the resources are represented on URIs as **nouns in the plural**. All operation made available via URI should be mapped to a HTTP method that corresponds to the action is intended to be carried out. 
 
 Follows some common examples of mapping correspondence among the HTTP method, operation type and URI format:</br>
-| Method | URL        | Operation | Status |
-| :----- | :--------- | :-------- | :---------: |
-| GET    | `/todos`   | Retrieves a list of all todos | 200 |
-| GET    | `/todos/1` | Retrieves a specific todo | 200 |
-| POST   | `/todos`   | Creates a new todo | 201 |
-| PUT    | `/todos/1` | Fully updates todo referenced by #1 | 204 |
-| PATCH  | `/todos/1` | Partially updates todo referenced by #1 | 204 |
-| DELETE | `/todos/1` | Deletes todo referenced by #1 | 204 |
+| Method | URL        | Operation |
+| :----- | :--------- | :-------- |
+| GET    | `/todos`   | Retrieves a list of all todos
+| GET    | `/todos/1` | Retrieves a specific todo
+| POST   | `/todos`   | Creates a new todo
+| PUT    | `/todos/1` | Fully updates todo referenced by #1
+| PATCH  | `/todos/1` | Partially updates todo referenced by #1
+| DELETE | `/todos/1` | Deletes todo referenced by #1
 
 </br>
 
