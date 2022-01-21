@@ -121,7 +121,7 @@ Follows some common examples of mapping correspondence among the HTTP method, op
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## KEY ANNOTATIONS
-[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that their produced object will be managed by the Spring container;
+[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced/returned object will be managed by the Spring container;
 
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
