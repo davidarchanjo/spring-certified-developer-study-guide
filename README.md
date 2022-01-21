@@ -94,7 +94,7 @@ The functionalities provided by a API, which are related to _resources_, are exp
 | PATCH       | `/todos/1` | Partially updates todo referenced by #1 | 204 |
 | DELETE      | `/todos/1` | Deletes todo referenced by #1 | 204 |
 
-
+</br>
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
 ## REFERENCES
