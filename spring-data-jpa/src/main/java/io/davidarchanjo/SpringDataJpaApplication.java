@@ -5,7 +5,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,20 +16,19 @@ public class SpringDataJpaApplication {
 		SpringApplication.run(SpringDataJpaApplication.class, args);
 	}
 
-	@Order(2000)
 	@Bean
-	ApplicationRunner init() {
-		return args -> {
-			log.info("running from Application Runner");
-		};
+	CommandLineRunner commandLineRunner() {
+		return args -> log.info("running from CommandLineRunner");
+	}	
+	
+	@Bean
+	ApplicationRunner applicationRunner2() {
+		return args -> log.info("running from applicationRunner2");
 	}
-
-	@Order(1000)
+	
 	@Bean
-	ApplicationRunner init2() {
-		return args -> {
-			log.info("running from CommandLineRunner");
-		};
+	ApplicationRunner applicationRunner1() {
+		return args -> log.info("running from applicationRunner1");
 	}
 
 }

@@ -7,12 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Employee {
-	private String empId;
-	private String empName;	
+
+	private int id;  
+	private String name;  
+	private float salary;  
 
 	@Builder
-	public Employee(String empId, String empName) {
-		this.empId = empId;
-		this.empName = empName;
+	public Employee(int id, String name, float salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
 	}
 }
