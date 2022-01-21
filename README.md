@@ -96,7 +96,7 @@ The functionalities provided by an API are related to _resources_ and by convent
 
 </br>
 
-# 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
+# 2. SPRING CORE CONCEPTS <a id="2-spring-core-concepts-" href="#2"></a>
 ## REFERENCES
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 - https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
