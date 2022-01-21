@@ -85,16 +85,16 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performes a specific operation.
 
 The functionalities provided by a API, which are related to _resources_, are exposed via URLs on which the resources are referred as **nouns** and **in plural**. The operations made available via URLs should be mapped to HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
-| HTTP Method | URL | Operation | HTTP Status |
-| :---------- | :-- | :-------- | :---------: |
-| GET         | `/todos` | Retrieves a list of todos | 200
-| GET         | `/todos/1` | Retrieves a specific todo | 200
-| POST        | `/todos` | Creates a new todo | 201
-| PUT         | `/todos/1` | Fully updates todo referenced by #1 | 204
-| PATCH       | `/todos/1` | Partially updates todo referenced by #1 | 204
-| DELETE      | `/todos/1` | Deletes todo referenced by #1 | 204
+| HTTP Method | URL        | Operation | HTTP Status |
+| :---------- | :--------- | :-------- | :---------: |
+| GET         | `/todos`   | Retrieves a list of todos | 200 |
+| GET         | `/todos/1` | Retrieves a specific todo | 200 |
+| POST        | `/todos`   | Creates a new todo | 201 |
+| PUT         | `/todos/1` | Fully updates todo referenced by #1 | 204 |
+| PATCH       | `/todos/1` | Partially updates todo referenced by #1 | 204 |
+| DELETE      | `/todos/1` | Deletes todo referenced by #1 | 204 |
 
-</br>
+
 
 # 2. SPRING CORE CONCEPTS <a id="1-spring-core-concepts-" href="#2"></a>
 ## REFERENCES

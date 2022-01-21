@@ -29,4 +29,8 @@ public class EmployeeDao {
 		return jdbcTemplate.update(query);
 	}
 
+	public Employee queryEmployee() {
+		return Employee.builder().build();
+	}
+
 }
