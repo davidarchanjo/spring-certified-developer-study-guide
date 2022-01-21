@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SpringJdbcTemplateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJdbcTemplateApplication.class, args);		
+		SpringApplication.run(SpringJdbcTemplateApplication.class, args);
 	}
 
 	@Bean
@@ -46,6 +46,15 @@ public class SpringJdbcTemplateApplication {
 				log.error(ex.getMessage(), ex);
 			}
 		};
+	}
+}
+
+@RestController
+class Hello {
+
+	@RequestMapping("/")
+	public String hello() {
+		return "Hello World!";
 	}
 }
 // docker run --name spring-jdbc-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:14.1-alpine
