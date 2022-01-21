@@ -84,15 +84,15 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 ## API DESIGN & CONVENTIONS
 The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performs a specific operation.
 
-The functionalities provided by an API, which are related to _resources_, are exposed via URLs on which the resources are referred as **nouns** and **in plural**. The operations made available via URLs should be mapped to HTTP method type corresponding to the action that is intended to be carried out. The URL mapping goes as follows:</br>
-| HTTP Method | URL        | Operation | HTTP Status |
-| :---------- | :--------- | :-------- | :---------: |
-| GET         | `/todos`   | Retrieves a list of todos | 200 |
-| GET         | `/todos/1` | Retrieves a specific todo | 200 |
-| POST        | `/todos`   | Creates a new todo | 201 |
-| PUT         | `/todos/1` | Fully updates todo referenced by #1 | 204 |
-| PATCH       | `/todos/1` | Partially updates todo referenced by #1 | 204 |
-| DELETE      | `/todos/1` | Deletes todo referenced by #1 | 204 |
+The functionalities provided by an API are related to _resources_ and by convention the resources are represented on URIs as **nouns in the plural**. The operation(s) made available via URI should be mapped to a HTTP method that corresponds to the action is intended to be carried out. The mapping rules goes as follows:</br>
+| Method | URL        | Operation | Status |
+| :----- | :--------- | :-------- | :---------: |
+| GET    | `/todos`   | Retrieves a list of todos | 200 |
+| GET    | `/todos/1` | Retrieves a specific todo | 200 |
+| POST   | `/todos`   | Creates a new todo | 201 |
+| PUT    | `/todos/1` | Fully updates todo referenced by #1 | 204 |
+| PATCH  | `/todos/1` | Partially updates todo referenced by #1 | 204 |
+| DELETE | `/todos/1` | Deletes todo referenced by #1 | 204 |
 
 </br>
 
