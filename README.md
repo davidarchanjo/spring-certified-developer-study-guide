@@ -1,6 +1,22 @@
 ![banner](./assets/banner.jpg)
 </br></br>
 
+# TABLE OF CONTENTS
+1. <a href="#1-introduction-" id="1">INTRODUCTION</a>
+2. <a href="#2-exam-overview-" id="2">EXAM OVERVIEW</a>
+3. <a href="#3-rest-concepts-" id="3">REST BASICS</a>
+4. <a href="#4-spring-core-concepts-" id="4">SPRING CORE CONCEPTS</a>
+5. <a href="#5-spring-boot-basics-and-auto-configuration-" id="5">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
+6. <a href="#6-aspect-oriented-programming-" id="6">ASPECT-ORIENTED PROGRAMMING</a>
+7. <a href="#7-data-management-jdbc-transactions-" id="7">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
+8. <a href="#8-spring-data-jpa-" id="8">SPRING DATA JPA</a>
+9. <a href="#9-spring-mvc-" id="9">SPRING MVC</a>
+10. <a href="#10-spring-security-" id="10">SPRING SECURITY</a>
+11. <a href="#11-spring-boot-actuator-" id="11">SPRING BOOT ACTUATOR</a>
+12. <a href="#12-spring-boot-testing-" id="12">SPRING BOOT TESTING</a>
+</br></br>
+
+
 # INTRODUCTION
 This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a _supporting material_ for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation.
 
@@ -34,21 +50,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 </br></br>
 
 
-# TABLE OF CONTENTS
-1. <a href="#1-rest-concepts-" id="1">REST BASICS</a>
-2. <a href="#2-spring-core-concepts-" id="2">SPRING CORE CONCEPTS</a>
-3. <a href="#3-spring-boot-basics-and-auto-configuration-" id="3">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
-4. <a href="#4-aspect-oriented-programming-" id="4">ASPECT-ORIENTED PROGRAMMING</a>
-5. <a href="#5-data-management-jdbc-transactions-" id="5">DATA MANAGEMENT: JDBC, TRANSACTIONS</a>
-6. <a href="#6-spring-data-jpa-" id="6">SPRING DATA JPA</a>
-7. <a href="#7-spring-mvc-" id="7">SPRING MVC</a>
-8. <a href="#8-spring-security-" id="8">SPRING SECURITY</a>
-9. <a href="#9-spring-boot-actuator-" id="9">SPRING BOOT ACTUATOR</a>
-10. <a href="#10-spring-boot-testing-" id="10">SPRING BOOT TESTING</a>
-</br></br>
-
-
-# 1. REST BASICS <a id="1-rest-concepts-" href="#1"></a>
+# 3. REST BASICS <a id="3-rest-concepts-" href="#3"></a>
 ## REFERENCES
 - https://restfulapi.net
 - https://restapitutorial.com
@@ -98,7 +100,7 @@ Follows some common examples of mapping correspondence among the HTTP method, op
 
 </br>
 
-# 2. SPRING CORE CONCEPTS <a id="2-spring-core-concepts-" href="#2"></a>
+# 4. SPRING CORE CONCEPTS <a id="4-spring-core-concepts-" href="#4"></a>
 ## REFERENCES
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 - https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
@@ -157,7 +159,7 @@ Follows some common examples of mapping correspondence among the HTTP method, op
 </br></br>
 
 
-# 3. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="3-spring-boot-basics-and-auto-configuration-" href="#3"></a>
+# 5. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="5-spring-boot-basics-and-auto-configuration-" href="#5"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -179,7 +181,7 @@ Follows some common examples of mapping correspondence among the HTTP method, op
 </br></br>
 
 
-# 4. ASPECT-ORIENTED PROGRAMMING <a id="4-aspect-oriented-programming-" href="#4"></a>
+# 6. ASPECT-ORIENTED PROGRAMMING <a id="6-aspect-oriented-programming-" href="#6"></a>
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -235,7 +237,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 5. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="5-data-management-jdbc-transactions-" href="#5"></a>
+# 7. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="7-data-management-jdbc-transactions-" href="#7"></a>
 ## REFERENCES
 - https://www.javainuse.com/spring/boot-transaction
 - https://www.baeldung.com/spring-transactional-propagation-isolation
@@ -285,7 +287,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 </br></br>
 
 
-# 6. SPRING DATA JPA <a id="6-spring-data-jpa-" href="#6"></a>
+# 8. SPRING DATA JPA <a id="8-spring-data-jpa-" href="#8"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://knpcode.com/spring/spring-data-tutorial/
@@ -314,7 +316,7 @@ repository methods to execute both JPQL or native SQL queries;
 </br></br>
 
 
-# 7. SPRING MVC <a id="7-spring-mvc-" href="#7"></a>
+# 9. SPRING MVC <a id="9-spring-mvc-" href="#9"></a>
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
@@ -357,7 +359,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 </br></br>
 
 
-# 8. SPRING SECURITY <a id="8-spring-security-" href="#8"></a>
+# 10. SPRING SECURITY <a id="10-spring-security-" href="#10"></a>
 ## OVERVIEW
 <p>Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.</p> 
 <p>The Spring Security framework provides two options to set up authorization schema configuration: URL-based and Annotation-based.
@@ -423,7 +425,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 </br></br>
 
 
-# 9. SPRING BOOT ACTUATOR <a id="9-spring-boot-actuator-" href="#9"></a>
+# 11. SPRING BOOT ACTUATOR <a id="11-spring-boot-actuator-" href="#11"></a>
 ## OVERVIEW
 Spring Boot Actuator provides us with resources so we can monitor and manage our application's health and availability. Such functionalities are: monitoring, metrics, tracing and auditing.
 
@@ -470,7 +472,7 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 </br></br>
 
 
-# 10. SPRING BOOT TESTING <a id="10-spring-boot-testing-" href="#10"></a>
+# 12. SPRING BOOT TESTING <a id="12-spring-boot-testing-" href="#12"></a>
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
