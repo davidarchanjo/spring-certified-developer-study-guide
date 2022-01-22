@@ -497,11 +497,11 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 
 [@TestConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/TestConfiguration.html) - used to define additional beans or override existing beans in the Spring application context in order to add specialized configuration for testing. Configuration classes annotated with @TestConfiguration are excluded from component scanning. Configuration classes with bean definition annotated with @TestConfiguration can be imported by @Import or declared as static inner classes. It is required to set the property <code>spring.main.allow-bean-definition-overriding=true</code> in order to enable bean overriding feature during testing.
 
-[@MockBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html) - annotation part of Spring Test Framework used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with @SpringBootTest, @WebMvcTest and so on).
+[@MockBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html) - is part of the Spring Test Framework and used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with @SpringBootTest, @WebMvcTest and so on).
 
-[@Mock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock for the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
+[@Mock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) - is part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
 
-[@InjectMock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/InjectMocks.html) - annotation part of [Mockito Framework](https://site.mockito.org) used to create a mock for the marked field and injects all dependencies annotated with @Mock into it.
+[@InjectMock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/InjectMocks.html) - is part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for the marked field and injects all dependencies annotated with @Mock into it.
 </br></br>
 
 
