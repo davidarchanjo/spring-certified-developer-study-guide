@@ -4,7 +4,7 @@
 # TABLE OF CONTENTS
 1. <a href="#1-introduction-" id="1">INTRODUCTION</a>
 2. <a href="#2-exam-overview-" id="2">EXAM OVERVIEW</a>
-3. <a href="#3-rest-concepts-" id="3">REST BASICS</a>
+3. <a href="#3-rest-concepts-" id="3">REST CONCEPTS</a>
 4. <a href="#4-spring-core-concepts-" id="4">SPRING CORE CONCEPTS</a>
 5. <a href="#5-spring-boot-basics-and-auto-configuration-" id="5">SPRING BOOT BASICS AND AUTO-CONFIGURATION</a>
 6. <a href="#6-aspect-oriented-programming-" id="6">ASPECT-ORIENTED PROGRAMMING</a>
@@ -50,7 +50,7 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 </br></br>
 
 
-# 3. REST BASICS <a id="3-rest-concepts-" href="#3"></a>
+# 3. REST CONCEPTS <a id="3-rest-concepts-" href="#3"></a>
 ## REFERENCES
 - https://restfulapi.net
 - https://restapitutorial.com
