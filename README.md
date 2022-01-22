@@ -17,14 +17,14 @@
 </br></br>
 
 
-# INTRODUCTION
+# 1. INTRODUCTION <a id="1-introduction-" href="#1"></a>
 This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a _supporting material_ for whoever it is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. The content in this guide are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind. This guide is accompanied by many sources of relevant technical documentations and tutorials, and supplies a well structured and concise study planning to help you on your preparation.
 
 I hope this guide and its content be useful for you in some way. Good luck 🤞🍀!
 </br></br>
 
 
-# EXAM OVERVIEW
+# 2. EXAM OVERVIEW <a id="2-exam-overview-" href="#2"></a>
 The **Spring Certified Professional** certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot frameworks as follows:
  - Container, Dependency, and IoC
  - Aspect-Oriented Programming (AOC)
