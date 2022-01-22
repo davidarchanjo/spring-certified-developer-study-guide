@@ -81,7 +81,7 @@ In REST APIs, HTTP status codes are used to inform the consumer about the reques
 | 4xx Status | Indicates that the client's request contains erros or bad syntax |
 | 5xx Status | Indicates that the client's request was unable to be performed due to a server-side error |
 
-## API DESIGN & CONVENTIONS
+## API CONVENTIONS
 The key principles of REST involves separating the API into _logical resources_ and manipulate them through HTTP requests where every HTTP method (GET, POST, PUT, DELETE etc) performs a specific operation.
 
 The functionalities provided by an API are related to _resources_ and by convention the resources are represented on URIs as **nouns in the plural**. All operation made available via URI should be mapped to a HTTP method that corresponds to the action is intended to be carried out. 
