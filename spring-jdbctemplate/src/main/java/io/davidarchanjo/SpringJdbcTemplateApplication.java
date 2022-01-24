@@ -3,10 +3,15 @@ package io.davidarchanjo;
 import io.davidarchanjo.dao.EmployeeDao;
 import io.davidarchanjo.model.Employee;
 import lombok.extern.slf4j.Slf4j;
+import org.jeasy.random.EasyRandom;
+import org.jeasy.random.EasyRandomParameters;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 @Slf4j
 @SpringBootApplication
@@ -17,28 +22,32 @@ public class SpringJdbcTemplateApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(EmployeeDao dao) {
+	EasyRandom easyRandom() {
+		EasyRandomParameters parameters = new EasyRandomParameters();
+		parameters.randomize(Integer.class, () -> ThreadLocalRandom.current().nextInt(1, 100));
+		return new EasyRandom(parameters);
+	}
+
+	@Bean
+	CommandLineRunner commandLineRunner(EmployeeDao dao, EasyRandom easyRandom) {
 		return args -> {
 			try {
-				int status = dao.saveEmployee(Employee.builder()
-					.id(1)
-					.name("Foo")
-					.salary(35000)
-					.build());
-				log.info("Save Status: {}", status);
-				
-				Employee emp = dao.queryEmployee(1);
-				log.info("Query Status: {}", emp);
-					
-//				status = dao.updateEmployee(Employee.builder()
-//					.id(1)
-//					.name("Bar")
-//					.salary(15000)
-//					.build());
-//				log.info("Update Status: {}", status);
-//
-//				status = dao.deleteEmployee(emp);
-//				log.info("Delete Status: {}", status);
+				dao.createTable();
+
+				final Employee emp = easyRandom.nextObject(Employee.class);
+				dao.saveEmployee(emp);
+				log.info("Save: {}", dao.queryEmployee(emp.getId()));
+
+				log.info("Query By Id: {}", dao.queryEmployee(emp.getId()));
+
+				IntStream.rangeClosed(1, 5).forEach(o -> dao.saveEmployee(easyRandom.nextObject(Employee.class)));
+				log.info("Query All: {}", dao.queryEmployees());
+
+				log.info("Update Before: {}", dao.queryEmployee(emp.getId()));
+				dao.updateEmployee(emp.toBuilder().name("David Archanjo").build());
+				log.info("Update After: {}", dao.queryEmployee(emp.getId()));
+
+				log.info("Delete Status: {}", dao.deleteEmployee(emp));
 			} catch (Exception ex) {
 				log.error(ex.getMessage(), ex);
 			}

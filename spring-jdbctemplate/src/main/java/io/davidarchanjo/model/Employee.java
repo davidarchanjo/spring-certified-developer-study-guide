@@ -18,4 +18,11 @@ public class Employee {
 		this.name = name;
 		this.salary = salary;
 	}
+
+	public EmployeeBuilder toBuilder() {
+		return Employee.builder()
+			.id(this.id)
+			.name(this.name)
+			.salary(this.salary);
+	}
 }

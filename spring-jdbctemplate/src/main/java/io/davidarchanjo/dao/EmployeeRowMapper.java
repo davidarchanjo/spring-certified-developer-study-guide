@@ -1,11 +1,13 @@
 package io.davidarchanjo.dao;
 
 import io.davidarchanjo.model.Employee;
+import lombok.Builder;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Builder
 public class EmployeeRowMapper implements RowMapper<Employee> {
 
     @Override

@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import static java.lang.String.format;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -13,24 +13,38 @@ public class EmployeeDao {
 
 	private final JdbcTemplate jdbcTemplate;
 
-	public int saveEmployee(Employee e) {
-		final String query = "INSERT INTO employee VALUES (?, ?, ?)";
-		return jdbcTemplate.update(query, e.getId(), e.getName(), e.getSalary());
+	/**
+	 * NOTE: We could have leveraged of the mechanism of script-based
+	 * initialization (via schema.sql) to create the table
+	 */
+	public void createTable() {
+		final String sql = "CREATE TABLE employee ( id NUMBER NOT NULL, name VARCHAR(100) NOT NULL, salary NUMBER NOT NULL);";
+		jdbcTemplate.execute(sql);
 	}
 
-	public int updateEmployee(Employee e) {
-		final String query = "UPDATE employee SET name = ?, salary = ? WHERE id = ?";
-		return jdbcTemplate.update(query, e.getName(), e.getSalary(), e.getId());
+	public int saveEmployee(Employee emp) {
+		final String sql = "INSERT INTO employee VALUES (?, ?, ?)";
+		return jdbcTemplate.update(sql, emp.getId(), emp.getName(), emp.getSalary());
 	}
 
-	public int deleteEmployee(Employee e) {
-		final String query = "DELETE FROM employee WHERE id = ?";
-		return jdbcTemplate.update(query, e.getId());
+	public int updateEmployee(Employee emp) {
+		final String sql = "UPDATE employee SET name = ?, salary = ? WHERE id = ?";
+		return jdbcTemplate.update(sql, emp.getName(), emp.getSalary(), emp.getId());
+	}
+
+	public int deleteEmployee(Employee emp) {
+		final String sql = "DELETE FROM employee WHERE id = ?";
+		return jdbcTemplate.update(sql, emp.getId());
 	}
 
 	public Employee queryEmployee(long id) {
 		final String query = "SELECT * FROM employee WHERE id = ?";
-		return jdbcTemplate.queryForObject(query, new EmployeeRowMapper(), id);
+		return jdbcTemplate.queryForObject(query, EmployeeRowMapper.builder().build(), id);
+	}
+
+	public List<Employee> queryEmployees() {
+		final String query = "SELECT * FROM employee";
+		return jdbcTemplate.query(query, EmployeeRowMapper.builder().build());
 	}
 
 }

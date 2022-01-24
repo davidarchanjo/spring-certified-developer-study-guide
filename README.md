@@ -278,14 +278,14 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
 
 ## KEY INTERFACES
-[ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access table of data produced from the execution of database queries. Provides getter methods (getBoolean, getLong, and so on) for retrieving column values from the current row.
+[ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access data produced by the execution of database queries. It provides getter methods (getBoolean, getLong, and so on) for retrieving column values (by name or column's index) from the current row.
 
-[RowMapper](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html) - is used by JdbcTemplate for mapping rows of a ResultSet to Java object.
+[RowMapper](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html) - is used by JdbcTemplate for mapping rows of a ResultSet to Java object _on a per-row basis_.
 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
 
-[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used to enable the Spring's annotation-driven declarative transaction management capabilities. Must be used on @Configuration classes. @EnableTransactionManagement is **optional** in Spring Boot application as long as one of spring-data-* modules is configured on the project;
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used on @Configuration classes to enable the Spring's annotation-driven declarative transaction management capabilities. This annotation is **optional** in Spring Boot application as long as one of spring-data-* modules is configured on the project;
 </br></br>
 
 
