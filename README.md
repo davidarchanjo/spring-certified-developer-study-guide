@@ -85,7 +85,7 @@ The key principles of REST involves separating the API into _logical resources_ 
 
 The functionalities provided by an API are related to _resources_ and by convention the resources are represented on URIs as **nouns in the plural**. All operation made available via URI should be mapped to a HTTP method that corresponds to the action is intended to be carried out. 
 
-Follows some common examples of mapping correspondence among the HTTP method, operation type and URI format:</br>
+Follows some common examples of mapping correspondence between the HTTP method, operation type and URI format:</br>
 | Method | URL        | Operation |
 | :----- | :--------- | :-------- |
 | GET    | `/todos`   | Retrieves a list of all todos
