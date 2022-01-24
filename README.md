@@ -18,7 +18,7 @@
 
 
 # 1. INTRODUCTION <a id="1-introduction-" href="#1"></a>
-This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, providing a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide with the intention of consolidating my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam with peace of mind — remenber that knowledge is of no value unless you put it into practice. Anyway this guide contains many sources for relevant technical documentations and tutorials, and ultimately offers a structured and concise study planning to help on your preparation.
+This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide with the intention of consolidating my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared — remenber that knowledge is of no value unless you put it into practice. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
 
 I hope you find something useful. Good luck 🤞🍀!
 </br></br>
@@ -39,14 +39,11 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
  - Spring Boot Actuator
  - Spring Boot Testing
 
-### EXAM INFO
-**Duration:** 90 Minutes
-
-**Number of Questions:** 50 Questions
-
-**Passing Score:** 76%
-
-**Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
+## EXAM INFO
+**Duration:** 90 Minutes </br>
+**Number of Questions:** 50 Questions </br>
+**Passing Score:** 76% </br>
+**Format:** Multiple Choice
 </br></br>
 
 
@@ -279,6 +276,11 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other concurrent transactions |
   | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
   | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
+
+## KEY INTERFACES
+[ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access table of data produced from the execution of database queries. Provides getter methods (getBoolean, getLong, and so on) for retrieving column values from the current row.
+
+[RowMapper](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html) - is used by JdbcTemplate for mapping rows of a ResultSet to Java object.
 
 ## KEY ANNOTATIONS
 [@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;

@@ -1,16 +1,12 @@
 package io.davidarchanjo;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import io.davidarchanjo.dao.EmployeeDao;
 import io.davidarchanjo.model.Employee;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @Slf4j
 @SpringBootApplication
@@ -21,40 +17,32 @@ public class SpringJdbcTemplateApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(ApplicationContext context, EmployeeDao dao) {
+	CommandLineRunner commandLineRunner(EmployeeDao dao) {
 		return args -> {
 			try {
-				// EmployeeDao dao = context.getBean(EmployeeDao.class);
-
-				Employee emp = Employee.builder()
-					.id(102)
-					.name("Amit")
+				int status = dao.saveEmployee(Employee.builder()
+					.id(1)
+					.name("Foo")
 					.salary(35000)
-					.build();
-
-				int status = dao.saveEmployee(emp);  
-				log.info("{}", status);  
+					.build());
+				log.info("Save Status: {}", status);
+				
+				Employee emp = dao.queryEmployee(1);
+				log.info("Query Status: {}", emp);
 					
-				// int status=dao.updateEmployee(new Employee(102,"Sonoo",15000)); 
-				// log.info("{}", status);
-					
-				// Employee e=new Employee();
-				// e.setId(102);
-				// int status=dao.deleteEmployee(e);
-				// log.info("{}", status);
+//				status = dao.updateEmployee(Employee.builder()
+//					.id(1)
+//					.name("Bar")
+//					.salary(15000)
+//					.build());
+//				log.info("Update Status: {}", status);
+//
+//				status = dao.deleteEmployee(emp);
+//				log.info("Delete Status: {}", status);
 			} catch (Exception ex) {
 				log.error(ex.getMessage(), ex);
 			}
 		};
-	}
-}
-
-@RestController
-class Hello {
-
-	@RequestMapping("/")
-	public String hello() {
-		return "Hello World!";
 	}
 }
 // docker run --name spring-jdbc-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:14.1-alpine
