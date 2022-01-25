@@ -6,22 +6,22 @@
 * datasource
 * rowmapper
 
-# 3. SPRING DATA JPA (22)
+# 3. SPRING DATA JPA (25)
 * overview
 
-# 4. SPRING BOOT TESTING (23,24)
+# 4. SPRING BOOT TESTING (26)
 * @contextconfiguration vs @springboottest
 
-# 5. SECURITY (25)
+# 5. SECURITY (27)
 * most specific to least specific??
 * antMatcher
 * mvcMatcher
 
-# 6. SPRING MVC (26)
+# 6. SPRING MVC (28)
 * Model View Controller (oldschool)
 
-# 7. SPRING ACTUATOR (27)
+# 7. SPRING ACTUATOR (29)
 * Health Indicator
 * Health Indicator statuses
 
-# WRAP UP (28,29,30,31)
+# WRAP UP (30,31)

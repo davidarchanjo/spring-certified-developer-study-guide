@@ -13,7 +13,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @SneakyThrows
     public void configure(HttpSecurity http) {
         http.authorizeRequests()
-            .antMatchers("/**").permitAll()
-            ;
+            .antMatchers("/**").permitAll();
     }
 }
