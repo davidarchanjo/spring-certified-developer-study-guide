@@ -1,8 +1,6 @@
 package io.davidarchanjo;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
@@ -10,7 +8,8 @@ import org.springframework.boot.actuate.endpoint.annotation.Selector;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Slf4j
 @Component

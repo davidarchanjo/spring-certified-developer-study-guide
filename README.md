@@ -242,7 +242,17 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
 - https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
 
-## OVERVIEW 
+## KEY INTERFACES
+[ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access data produced by the execution of database queries. It provides getter methods (getBoolean, getLong, and so on) for retrieving column values (by name or column's index) from the current row.
+
+[RowMapper](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html) - is used by JdbcTemplate for mapping rows of a ResultSet to Java object _on a per-row basis_.
+
+## KEY ANNOTATIONS
+[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
+
+[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used on @Configuration classes to enable the Spring's annotation-driven declarative transaction management capabilities. This annotation is **optional** in Spring Boot application as long as one of spring-data-* modules is configured on the project;
+
+## TRANSACTIONS 
 <p>
   <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the contents of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. Is worthy to mention that the only exception types that set a transaction to roll back by default are unchecked exceptions (RuntimeException and its subclasses). To make a transaction roll back when a given checked exception occurs we have to specify it on the @Transaction's <code>rollbakFor</code> parameter.
 </p>
@@ -272,20 +282,10 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   | Isolation        | Behaviour |
   | :--------------- | :-------- |
   | DEFAULT          | Indicates that for any transaction the default isolation level of the underlying RDBMS will be used |
-  | READ_COMMITTED   | Indicates that a transaction can not read data that is not yet committed by other concurrent transactions |
-  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by other concurrent transactions |
+  | READ_COMMITTED   | Indicates that a transaction can only read data that is committed by concurrent transactions |
+  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by concurrent transactions |
   | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
   | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
-
-## KEY INTERFACES
-[ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access data produced by the execution of database queries. It provides getter methods (getBoolean, getLong, and so on) for retrieving column values (by name or column's index) from the current row.
-
-[RowMapper](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html) - is used by JdbcTemplate for mapping rows of a ResultSet to Java object _on a per-row basis_.
-
-## KEY ANNOTATIONS
-[@Transactional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html) - used to indicate declaratively control over transaction boundaries on managed beans, usually for @Service classes which contain business logic;
-
-[@EnableTransactionManagement](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html) - used on @Configuration classes to enable the Spring's annotation-driven declarative transaction management capabilities. This annotation is **optional** in Spring Boot application as long as one of spring-data-* modules is configured on the project;
 </br></br>
 
 
