@@ -47,7 +47,7 @@ public class SpringJdbcTemplateApplication {
 				dao.updateEmployee(emp.toBuilder().name("David Archanjo").build());
 				log.info("Update After: {}", dao.queryEmployee(emp.getId()));
 
-				log.info("Delete Status: {}", dao.deleteEmployee(emp));
+				log.info("Delete Status: {}", dao.deleteEmployee(emp.getId()));
 			} catch (Exception ex) {
 				log.error(ex.getMessage(), ex);
 			}

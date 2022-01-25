@@ -32,9 +32,9 @@ public class EmployeeDao {
 		return jdbcTemplate.update(sql, emp.getName(), emp.getSalary(), emp.getId());
 	}
 
-	public int deleteEmployee(Employee emp) {
+	public int deleteEmployee(long id) {
 		final String sql = "DELETE FROM employee WHERE id = ?";
-		return jdbcTemplate.update(sql, emp.getId());
+		return jdbcTemplate.update(sql, id);
 	}
 
 	public Employee queryEmployee(long id) {
