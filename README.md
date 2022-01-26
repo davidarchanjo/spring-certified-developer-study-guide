@@ -296,6 +296,18 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
 - https://www.baeldung.com/spring-data-jpa-query
 
+## OVERVIEW
+Spring Boot configures Hibernate as the default JPA provider, and auto-configures the DataSource bean if there's in-memory database dependency of type H2, HSQLDB or Derby present on the classpath. Spring Boot applications may be configured with mutiple databases of different types. For that it is necessary to create a @Configuration class containing bean definition for each database and mark one of them with the @Primary annotation so it can be autowired by default, avoiding a [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) exception to be thrown.
+
+Spring Boot allows to configure DataSource in two ways: programmatically via a @Configuration class or from properties configuration file.
+
+## KEY INTERFACES
+[CrudRepository](http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) - provides CRUD operations on a repository
+
+[PagingAndSortingRepository](http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) - extends from CrudRepository and provides methods for pagination and sorting records
+
+[JpaRepository](http://static.springsource.org/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html) - extends from PagingAndSortingRepository and additionally provides JPA related methods such as flushing the persistence context and delete records in a batch
+
 ## KEY ANNOTATIONS
 [@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class maps a database entity. If we forget to mark a domain class that will map a database entity with @Entity annotation, we will get an IllegalArgumentException since Spring will not be able to invocate the init method in a not managed type;
 

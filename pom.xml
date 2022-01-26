@@ -66,6 +66,7 @@
 		<module>spring-beans</module>
 		<module>spring-crud</module>
 		<module>spring-data-jpa</module>
+		<module>spring-datasource</module>
 		<module>spring-expression-language</module>
 		<module>spring-jdbctemplate</module>
 		<module>spring-security</module>		
