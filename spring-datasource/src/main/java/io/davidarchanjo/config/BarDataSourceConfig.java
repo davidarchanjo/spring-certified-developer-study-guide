@@ -1,7 +1,7 @@
 package io.davidarchanjo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -28,19 +28,17 @@ import javax.sql.DataSource;
 )
 public class BarDataSourceConfig {
 
+    @Autowired
+    private BarProperties barProperties;
+
     @Bean
-    public DataSource barDataSource(
-        @Value("${bar.datasource.url}") String url,
-        @Value("${bar.datasource.username}") String username,
-        @Value("${bar.datasource.password}") String password,
-        @Value("${bar.datasource.driver-class-name}") String driverClassName
-    ) {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url(url);
-        dataSourceBuilder.username(username);
-        dataSourceBuilder.password(password);
-        dataSourceBuilder.driverClassName(driverClassName);
-        DataSource dataSource = dataSourceBuilder.build();
+    public DataSource barDataSource() {
+        DataSource dataSource = DataSourceBuilder.create()
+            .url(barProperties.getUrl())
+            .username(barProperties.getUsername())
+            .password(barProperties.getPassword())
+            .driverClassName(barProperties.getDriverClassName())
+            .build();
 
         Resource initSchema = new ClassPathResource("schema-hsqldb.sql");
         Resource initData = new ClassPathResource("data-hsqldb.sql");

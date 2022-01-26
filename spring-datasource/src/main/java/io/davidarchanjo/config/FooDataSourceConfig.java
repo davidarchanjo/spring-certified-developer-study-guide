@@ -1,6 +1,6 @@
 package io.davidarchanjo.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,25 +23,22 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    entityManagerFactoryRef = "entityManagerFactory",
     basePackages = { "io.davidarchanjo.foo.repo" }
 )
+@RequiredArgsConstructor
 public class FooDataSourceConfig {
+
+    private final FooProperties fooProperties;
 
     @Primary
     @Bean
-    public DataSource dataSource(
-        @Value("${foo.datasource.url}") String url,
-        @Value("${foo.datasource.username}") String username,
-        @Value("${foo.datasource.password}") String password,
-        @Value("${foo.datasource.driver-class-name}") String driverClassName
-    ) {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url(url);
-        dataSourceBuilder.username(username);
-        dataSourceBuilder.password(password);
-        dataSourceBuilder.driverClassName(driverClassName);
-        DataSource dataSource = dataSourceBuilder.build();
+    public DataSource dataSource() {
+        DataSource dataSource = DataSourceBuilder.create()
+            .url(fooProperties.getUrl())
+            .username(fooProperties.getUsername())
+            .password(fooProperties.getPassword())
+            .driverClassName(fooProperties.getDriverClassName())
+            .build();
 
         Resource initSchema = new ClassPathResource("schema-h2.sql");
         Resource initData = new ClassPathResource("data-h2.sql");
