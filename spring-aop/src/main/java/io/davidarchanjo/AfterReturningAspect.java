@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class AfterReturningAspect {
 
     @AfterReturning("execution(* io.davidarchanjo.DemoComponent.do*(..))")
-    public void advice(JoinPoint proceedingJoinPoint) {
-        log.info("@AfterReturning Advice - {} {}", proceedingJoinPoint.getSignature().getName(), proceedingJoinPoint.getArgs());
+    public void advice(JoinPoint joinPoint) {
+        log.info("@AfterReturning Advice - {} {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 
 }

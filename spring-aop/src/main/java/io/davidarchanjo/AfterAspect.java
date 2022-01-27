@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class AfterAspect {
 
     @After("execution(* io.davidarchanjo.DemoComponent.doSomething())")
-    public void advice(JoinPoint proceedingJoinPoint) {
-        log.info("@After Advice - {} {}", proceedingJoinPoint.getSignature().getName(), proceedingJoinPoint.getArgs());
+    public void advice(JoinPoint joinPoint) {
+        log.info("@After Advice - {} {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 
 }
