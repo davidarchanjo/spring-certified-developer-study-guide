@@ -63,7 +63,7 @@
 	<modules>
 		<module>spring-actuator</module>
         <module>spring-aop</module>
-		<module>spring-beans</module>
+		<module>spring-bean</module>
 		<module>spring-crud</module>
 		<module>spring-data-jpa</module>
 		<module>spring-datasource</module>

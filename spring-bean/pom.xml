@@ -9,10 +9,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-beans</artifactId>
+    <artifactId>spring-bean</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>spring-beans</name>
+    <name>spring-bean</name>
 
     <dependencies>
         <!-- <dependency>

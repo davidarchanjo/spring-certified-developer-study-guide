@@ -1,19 +1,18 @@
 package io.davidarchanjo;
 
-import java.util.List;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 @Slf4j
 @Configuration
 @ComponentScan(basePackages = { "io.davidarchanjo" })
-public class SpringBeansApplication {
+public class SpringBeanApplication {
 
     @Bean
     public ToDo fooToDo(@Qualifier("foo") ToDoable todoable) {
@@ -26,10 +25,13 @@ public class SpringBeansApplication {
     }
 
     public static void main(String[] args) {        
-        try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringBeansApplication.class)) {
+        try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringBeanApplication.class)) {
             log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
             log.info("{}", ctx.getBean("fooToDo", ToDo.class));
             log.info("{}", ctx.getBean("barToDo", ToDo.class));
+
+            TheClientBean theClientBean = ctx.getBean(TheClientBean.class);
+            log.info("{}", theClientBean.getTheBean().getName());
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
         }
