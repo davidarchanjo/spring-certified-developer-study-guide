@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class AfterThrowingAspect {
 
     @AfterThrowing("execution(* io.davidarchanjo.DemoComponent.do*(..))")
-    public void logAfterExection(JoinPoint proceedingJoinPoint) {
-        log.info("@AfterThrowing Advice - {} {}", proceedingJoinPoint.getSignature().getName(), proceedingJoinPoint.getArgs());
+    public void logAfterExection(JoinPoint joinPoint) {
+        log.info("@AfterThrowing Advice - {} {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 
 }

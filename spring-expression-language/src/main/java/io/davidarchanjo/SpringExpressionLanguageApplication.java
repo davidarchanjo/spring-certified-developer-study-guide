@@ -8,16 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 @ComponentScan(basePackages = { "io.davidarchanjo" })
-public class SpringExpressionLanguageApplication {    
-
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringExpressionLanguageApplication.class);
-        System.out.println(List.of(ctx.getBeanNamesForType(Driver.class)));
-        Driver mercedesBean = ctx.getBean("mercedesDriver", Driver.class);
-        Driver bmwBean = ctx.getBean("bmwDriver", Driver.class);
-    }
+public class SpringExpressionLanguageApplication {
 
     @Bean
     public Driver mercedesDriver(@Qualifier("mercedes") Drivable drivable) {
@@ -28,5 +24,14 @@ public class SpringExpressionLanguageApplication {
     public Driver bmwDriver(@Qualifier("bmw") Drivable drivable) {
         return new Driver(drivable);
     }
-    
+
+    public static void main(String[] args) {        
+        try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringExpressionLanguageApplication.class)) {
+            log.info("{}", List.of(ctx.getBeanNamesForType(Driver.class)));
+            log.info("{}", ctx.getBean("bmwDriver", Driver.class));
+            log.info("{}", ctx.getBean("mercedesDriver", Driver.class));
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+        }
+    }
 }

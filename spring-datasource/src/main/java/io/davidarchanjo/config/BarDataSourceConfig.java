@@ -1,6 +1,8 @@
 package io.davidarchanjo.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -17,8 +19,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableTransactionManagement
@@ -26,10 +27,10 @@ import javax.sql.DataSource;
     entityManagerFactoryRef = "barEntityManagerFactory",
     basePackages = { "io.davidarchanjo.bar.repo" }
 )
+@RequiredArgsConstructor
 public class BarDataSourceConfig {
-
-    @Autowired
-    private BarProperties barProperties;
+    
+    private final BarProperties barProperties;
 
     @Bean
     public DataSource barDataSource() {

@@ -1,32 +1,37 @@
 package io.davidarchanjo;
 
-import java.util.Arrays;
+import java.util.List;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@SpringBootApplication
+@Configuration
+@ComponentScan(basePackages = { "io.davidarchanjo" })
 public class SpringBeansApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(SpringBeansApplication.class, args);
-        // https://www.baeldung.com/spring-application-context
+    @Bean
+    public ToDo fooToDo(@Qualifier("foo") ToDoable todoable) {
+        return new ToDo(todoable);
     }
 
     @Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
-			log.info("Let's list all the beans provided by Spring Boot:");
-            Arrays.stream(ctx.getBeanDefinitionNames())
-                .sorted()
-                .forEach(System.out::println);
-		};
-	}
+    public ToDo barToDo(@Qualifier("bar") ToDoable todoable) {
+        return new ToDo(todoable);
+    }
 
+    public static void main(String[] args) {        
+        try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringBeansApplication.class)) {
+            log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
+            log.info("{}", ctx.getBean("fooToDo", ToDo.class));
+            log.info("{}", ctx.getBean("barToDo", ToDo.class));
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+        }
+    }
 }

@@ -22,9 +22,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(
-    basePackages = { "io.davidarchanjo.foo.repo" }
-)
+@EnableJpaRepositories( basePackages = { "io.davidarchanjo.foo.repo" } )
 @RequiredArgsConstructor
 public class FooDataSourceConfig {
 

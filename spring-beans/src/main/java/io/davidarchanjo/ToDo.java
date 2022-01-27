@@ -5,19 +5,19 @@ import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
-interface Drivable {
+interface ToDoable {
 }
 
 @Component
-class Bmw implements Drivable {
+class Foo implements ToDoable {
 }
 
 @Component
-class Mercedes implements Drivable {
+class Bar implements ToDoable {
 }
 
 @ToString
 @AllArgsConstructor
-public class Driver {
-    private Drivable drivable;
+public class ToDo {
+    private ToDoable todoable;
 }
