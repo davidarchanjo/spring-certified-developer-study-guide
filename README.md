@@ -436,13 +436,13 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 [@RolesAllowed](https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html) - does not support SpEL and is the [JSR-250](https://jcp.org/en/jsr/detail?id=250)’s equivalent annotation of the @Secured annotation;
 
-[@WithMockUser]() - can be added to a test method to emulate running with a mocked user;
+[@WithMockUser](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/test/context/support/WithMockUser.html) - can be added to a test method to emulate running with a mocked user;
 
-[@WithUserDetails]() - used to emulate an UserDetails instance which is returned from the UserDetailsService according to the given username;
+[@WithUserDetails](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/test/context/support/WithUserDetails.html) - can be added to a test to emulate a UserDetails instance which is returned from the UserDetailsService according to the given username;
 
-[@WithAnonymousUser]() - can be added to a test method to emulate running with an anonymous user. This is useful when a user wants to run a majority of tests as a specific user and override a few methods to be anonymous;
+[@WithAnonymousUser](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/test/context/support/WithAnonymousUser.html) - can be added to a test method to emulate running with an anonymous user. This is useful when a user wants to run a majority of tests as a specific user and override a few methods to be anonymous;
 
-[@WithSecurityContext]() - determines what SecurityContext to use, and all three annotations described above are based on it. If we have a specific use case, we can create our own annotation that uses @WithSecurityContext to create any SecurityContext we want. Its discussion is outside the scope of our article, and please refer to the Spring Security documentation for further details.
+[@WithSecurityContext](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/test/context/support/WithSecurityContext.html) - determines what SecurityContext to use, and all three annotations described above are based on it. If we have a specific use case, we can create our own annotation that uses @WithSecurityContext to create any SecurityContext we want;
 </br></br>
 
 
