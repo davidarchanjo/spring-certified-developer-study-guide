@@ -21,6 +21,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import io.davidarchanjo.enums.Roles;
 import io.davidarchanjo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,8 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Set session management to stateless
         http = http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and();
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and();
 
         // Set unauthorized requests exception handler
         http = http
@@ -62,15 +63,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Set permissions on endpoints
         http.authorizeRequests()
-                // H2 Console must be publicly accessible
-                .antMatchers("/").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
-                // public endpoints
-                .mvcMatchers("/api/auth/login").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/authors/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
-                // private endpoints
-                .anyRequest().authenticated();
+            // H2 Console must be publicly accessible
+            .mvcMatchers("/").permitAll()            
+            .antMatchers("/greeting").permitAll()
+            .antMatchers("/h2-console/**").permitAll()
+            // public endpoints
+            .mvcMatchers("/api/auth/login").permitAll()
+            .antMatchers(HttpMethod.GET, "/api/authors/**").permitAll()
+            .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
+            // private endpoints
+            .mvcMatchers(HttpMethod.GET, "/api/public/**").permitAll()
+            // .mvcMatchers("/api/public/user").hasRole(Roles.AUTHOR_ADMIN)
+            .anyRequest().authenticated();
 
         // Add JWT token filter
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -79,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(username -> userRepo.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(format("User: %s, not found", username))));
+            .orElseThrow(() -> new UsernameNotFoundException(format("User: %s, not found", username))));
     }
 
     // Set password encoding schema

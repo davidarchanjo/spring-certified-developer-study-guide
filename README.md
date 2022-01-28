@@ -375,11 +375,20 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 
 # 10. SPRING SECURITY <a id="10-spring-security-" href="#10"></a>
-## OVERVIEW
-<p>Spring Security by default actives both HTTP security filters and the security filter chain and configures/enforces basic authentication for all URLs, which is session-based.</p> 
-<p>The Spring Security framework provides two options to set up authorization schema configuration: URL-based and Annotation-based.
+## REFERENCES
+- https://www.toptal.com/spring/spring-security-tutorial
+- https://spring.io/guides/topicals/spring-security-architecture
+- https://www.marcobehler.com/guides/spring-security
+- https://www.baeldung.com/spring-security-expressions
+- https://www.section.io/engineering-education/springboot-antmatchers
+- https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
+- https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
+- https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
+- https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
-* **Security Filters Chain** - 
+## OVERVIEW
+<p>Spring Security by default actives both HTTP security filters and the Security Filter Chain and configures/enforces session-based basic authentication for all URLs.</p> 
+<p>The Spring Security framework provides two options to set up authorization schema configuration: URL-based and Annotation-based.
 
 * **AuthenticationManager** - works like a coordinator where authentication providers are registered.
 
@@ -402,17 +411,6 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 * **Role** - refers to a group of permissions which the authenticated user have.
 
-## REFERENCES
-- https://www.toptal.com/spring/spring-security-tutorial
-- https://spring.io/guides/topicals/spring-security-architecture
-- https://www.marcobehler.com/guides/spring-security
-- https://www.baeldung.com/spring-security-expressions
-- https://www.section.io/engineering-education/springboot-antmatchers
-- https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
-- https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
-- https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
-- https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
-
 ## KEY ANNOTATIONS
 [@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) base class and overrides its methods for a more granular configuration;
 
@@ -426,7 +424,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
   <span>If set to true enables @PreAuthorize, @PostAuthorize, @PreFilter, @PostFilter annotations. Default is false</span>
 </ol>
 
-[@PreAuthorized](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PreAuthorize.html) - supports SpEL and is used to provide expression-based access control before executing the method;
+[@PreAuthorize](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PreAuthorize.html) - supports SpEL and is used to provide expression-based access control before executing the method;
 
 [@PostAuthorize](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/access/prepost/PostAuthorize.html) - supports SpEL and is used to provide expression-based access control after executing the method and provides the ability to access/alter the method's result;
 
@@ -436,7 +434,15 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 [@Secured](https://docs.spring.io/spring-security/site/docs/3.2.8.RELEASE/apidocs/org/springframework/security/access/annotation/Secured.html) - does not support SpEL and is used to specify a list of roles which the logged user must have in order to access the annotated method;
 
-[@RolesAllowed](https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html) - does not support SpEL and is the [JSR 250](https://jcp.org/en/jsr/detail?id=250)’s equivalent annotation of the @Secured annotation;
+[@RolesAllowed](https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html) - does not support SpEL and is the [JSR-250](https://jcp.org/en/jsr/detail?id=250)’s equivalent annotation of the @Secured annotation;
+
+[@WithMockUser]() - can be added to a test method to emulate running with a mocked user;
+
+[@WithUserDetails]() - used to emulate an UserDetails instance which is returned from the UserDetailsService according to the given username;
+
+[@WithAnonymousUser]() - can be added to a test method to emulate running with an anonymous user. This is useful when a user wants to run a majority of tests as a specific user and override a few methods to be anonymous;
+
+[@WithSecurityContext]() - determines what SecurityContext to use, and all three annotations described above are based on it. If we have a specific use case, we can create our own annotation that uses @WithSecurityContext to create any SecurityContext we want. Its discussion is outside the scope of our article, and please refer to the Spring Security documentation for further details.
 </br></br>
 
 

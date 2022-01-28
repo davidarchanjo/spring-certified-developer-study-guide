@@ -18,7 +18,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class JwtTokenUtil {
 
-    private static final String JWT_SECRET = "zdtlD3JK56m6wTTgsNFhqzjqP";
+    private static final String JWT_SECRET = "abcdefghijklmnopqrstuvwxyz1234567890";
     private static final String JWT_ISSUER = "io.davidarchanjo";
 
     public String generateAccessToken(UserDTO user) {

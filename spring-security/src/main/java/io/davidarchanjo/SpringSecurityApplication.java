@@ -24,25 +24,25 @@ public class SpringSecurityApplication {
     CommandLineRunner commandLineRunner(UserService userService, RoleService roleService) {
         return args -> {
             List<String> usernames = List.of(
-                "david.pereira@btgpactual.com",
-                "alan.turing@btgpactual.com",
-                "dennis.ritchie@nix.io"
+                "david.archanjo@acme.com",
+                "elon.musk@acme.com",
+                "bill.gates@acme.com"
             );
             List<String> fullNames = List.of(
-                "David Pereira",
-                "Alan Turing",
-                "Dennis Ritchie"
+                "David Archanjo",
+                "Elon Musk",
+                "Bill Gates"
             );
             List<String> roles = List.of(
                 Roles.USER_ADMIN,
                 Roles.AUTHOR_ADMIN,
                 Roles.BOOK_ADMIN
             );
-            roles.stream().forEach(roleService::create);
+            roles.forEach(roleService::create);
             IntStream.range(0, 3).forEach(i -> userService.upsert(CreateUserDTO.builder()
                .username(usernames.get(i))
                .fullName(fullNames.get(i))
-               .password("248569ybr")
+               .password("12345abc")
                .authorities(List.of(roles.get(i)))                    
                .build()));
         };
