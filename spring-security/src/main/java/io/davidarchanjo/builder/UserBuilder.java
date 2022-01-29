@@ -19,10 +19,10 @@ import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Component
-public class UserMapper {
+public class UserBuilder {
 
+    private final RoleBuilder roleBuilder;
     private final UserRepository userRepo;
-    private final RoleMapper roleMapper;
     private final PasswordEncoder passwordEncoder;
 
     public User create(CreateUserDTO request) {
@@ -34,7 +34,7 @@ public class UserMapper {
                 .map(CreateUserDTO::getAuthorities)
                 .filter(Objects::nonNull)
                 .flatMap(Collection::stream)
-                .map(roleMapper::build)
+                .map(roleBuilder::build)
                 .collect(Collectors.toSet()))
             .enabled(true)
             .build();
@@ -44,7 +44,7 @@ public class UserMapper {
         Optional.ofNullable(request.getAuthorities())
             .ifPresent(o -> user.toBuilder()
                 .authorities(o.stream()
-                    .map(roleMapper::build)
+                    .map(roleBuilder::build)
                     .collect(Collectors.toSet())));
 
         Optional.ofNullable(request.getFullName())

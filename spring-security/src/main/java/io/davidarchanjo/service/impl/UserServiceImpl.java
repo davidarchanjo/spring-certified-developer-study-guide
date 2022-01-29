@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.builder.UserMapper;
+import io.davidarchanjo.builder.UserBuilder;
 import io.davidarchanjo.model.dto.CreateUserDTO;
 import io.davidarchanjo.model.dto.UpdateUserDTO;
 import io.davidarchanjo.model.dto.UserDTO;
@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepo;
-    private final UserMapper userMapper;
+    private final UserBuilder userBuilder;
 
     @Override
     @Transactional
@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
             throw new ValidationException(String.format("Username with name - %s, already exists", createUserDTO.getUsername()));
         }
         return Optional.of(createUserDTO)
-            .map(userMapper::create)
+            .map(userBuilder::create)
             .map(userRepo::save)
-            .map(userMapper::build)
+            .map(userBuilder::build)
             .get();
     }
 
@@ -40,9 +40,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDTO update(Long userId, UpdateUserDTO updateUserDTO) {
         return userRepo.findById(userId)
-            .map(o -> userMapper.build(updateUserDTO, o))
+            .map(o -> userBuilder.build(updateUserDTO, o))
             .map(userRepo::save)
-            .map(userMapper::build)
+            .map(userBuilder::build)
             .orElseThrow(() -> new UsernameNotFoundException(String.format("User with id - %s, not found", userId)));
     }
 
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
                 .enabled(false)
                 .build())
             .map(userRepo::save)
-            .map(userMapper::build)
+            .map(userBuilder::build)
             .orElseThrow(() -> new UsernameNotFoundException(String.format("User with id - %s, not found", userId)));
     }
 
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUser(Long userId) {
         return userRepo.findById(userId)
-            .map(userMapper::build)
+            .map(userBuilder::build)
             .orElseThrow(() -> new UsernameNotFoundException(String.format("User with id - %s, not found", userId)));
     }
 

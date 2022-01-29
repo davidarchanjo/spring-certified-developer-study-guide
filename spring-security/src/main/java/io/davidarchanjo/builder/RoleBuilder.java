@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class RoleMapper {
+public class RoleBuilder {
 
     private final RoleService roleService;
 

@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.builder.UserMapper;
+import io.davidarchanjo.builder.UserBuilder;
 import io.davidarchanjo.model.dto.UserDTO;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class AuthServiceImpl implements AuthService {
 
-    private final UserMapper userMapper;
+    private final UserBuilder userBuilder;
     private final AuthenticationManager authManager;
 
     @Override
@@ -23,7 +23,7 @@ public class AuthServiceImpl implements AuthService {
         final Authentication authenticate = authManager
             .authenticate(new UsernamePasswordAuthenticationToken(username, password));
         final User user = (User) authenticate.getPrincipal();
-        return userMapper.build(user);
+        return userBuilder.build(user);
     }    
     
 }

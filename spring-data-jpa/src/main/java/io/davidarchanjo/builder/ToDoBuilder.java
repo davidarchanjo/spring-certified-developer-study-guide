@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ToDoMapper {
+public class ToDoBuilder {
 
     private final ModelMapper modelMapper;
 
