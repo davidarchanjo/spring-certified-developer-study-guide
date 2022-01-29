@@ -1,4 +1,4 @@
-package io.davidarchanjo.mapper;
+package io.davidarchanjo.builder;
 
 import io.davidarchanjo.model.domain.Role;
 import io.davidarchanjo.service.RoleService;

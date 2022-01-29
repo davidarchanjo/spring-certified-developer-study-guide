@@ -1,4 +1,4 @@
-package io.davidarchanjo.mapper;
+package io.davidarchanjo.builder;
 
 import io.davidarchanjo.model.domain.ToDo;
 import io.davidarchanjo.model.dto.ToDoDTO;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ToDoMapper {
+public class ToDoBuilder {
 
     private final ModelMapper modelMapper;
 

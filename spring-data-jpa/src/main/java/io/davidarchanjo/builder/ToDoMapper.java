@@ -1,4 +1,4 @@
-package io.davidarchanjo.mapper;
+package io.davidarchanjo.builder;
 
 import io.davidarchanjo.model.domain.ToDo;
 import io.davidarchanjo.model.dto.ToDoDTO;

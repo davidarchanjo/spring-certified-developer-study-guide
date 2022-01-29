@@ -45,6 +45,12 @@
             <artifactId>modelmapper</artifactId>
             <version>2.3.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-random-core</artifactId>
+            <version>5.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

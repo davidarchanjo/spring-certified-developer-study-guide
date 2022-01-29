@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.mapper.UserMapper;
+import io.davidarchanjo.builder.UserMapper;
 import io.davidarchanjo.model.dto.UserDTO;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

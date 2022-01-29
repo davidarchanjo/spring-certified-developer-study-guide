@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
             // H2 Console must be publicly accessible
             .mvcMatchers("/").permitAll()            
-            .antMatchers("/greeting").permitAll()
+            .antMatchers("/api/greetings").permitAll()
             .antMatchers("/h2-console/**").permitAll()
             // public endpoints
             .mvcMatchers("/api/auth/login").permitAll()

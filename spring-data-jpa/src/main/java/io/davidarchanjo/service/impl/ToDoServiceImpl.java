@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.mapper.ToDoMapper;
+import io.davidarchanjo.builder.ToDoMapper;
 import io.davidarchanjo.model.dto.ToDoDTO;
 import io.davidarchanjo.repository.ToDoRepository;
 import io.davidarchanjo.service.ToDoService;

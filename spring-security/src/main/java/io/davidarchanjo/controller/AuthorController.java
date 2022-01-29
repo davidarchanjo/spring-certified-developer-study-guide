@@ -1,15 +1,13 @@
 package io.davidarchanjo.controller;
 
-import java.util.List;
-
-import javax.annotation.security.RolesAllowed;
-
+import io.davidarchanjo.enums.Roles;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.davidarchanjo.enums.Roles;
+import javax.annotation.security.RolesAllowed;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/authors")

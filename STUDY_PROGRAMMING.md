@@ -14,7 +14,11 @@
 * antMatcher
 * mvcMatcher
 
-# 4. SPRING BOOT TESTING (28)
+# 5. RESTTEMPLATE (28)
+
+# 5. SPRING EXPRESSION LANGUAGE (28)
+
+# 4. SPRING BOOT TESTING (29)
 * @contextconfiguration vs @springboottest
 
 # 6. SPRING MVC (29)

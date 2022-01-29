@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.mapper.ToDoMapper;
+import io.davidarchanjo.builder.ToDoBuilder;
 import io.davidarchanjo.model.dto.ToDoDTO;
 import io.davidarchanjo.repository.ToDoRepository;
 import io.davidarchanjo.service.ToDoService;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ToDoServiceImpl implements ToDoService {
 
-    private final ToDoMapper builder;
+    private final ToDoBuilder builder;
     private final ToDoRepository repository;
 
     @Override
@@ -35,14 +35,20 @@ public class ToDoServiceImpl implements ToDoService {
             .stream()
             .map(builder::build)
             .collect(Collectors.toList());
-
     }
 
     @Override
     public ToDoDTO findById(Long id) {
         return repository.findById(id)
+                .map(builder::build)
+                .orElseThrow(() -> new EntityNotFoundException("No such entity for id " + id));
+    }
+
+    @Override
+    public ToDoDTO findByTask(String task) {
+        return repository.findByTask(task)
             .map(builder::build)
-            .orElseThrow(() -> new EntityNotFoundException("No such entity for id " + id));
+            .orElseThrow(() -> new EntityNotFoundException("No such entity for task " + task));
     }
 
     @Override

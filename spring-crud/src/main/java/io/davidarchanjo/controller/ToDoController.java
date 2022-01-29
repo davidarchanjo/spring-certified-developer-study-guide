@@ -1,5 +1,7 @@
 package io.davidarchanjo.controller;
 
+import java.util.Objects;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpHeaders;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -41,8 +44,10 @@ public class ToDoController {
     }
 
     @GetMapping
-    public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok(service.findAll());
+    public ResponseEntity<?> find(@RequestParam(required = false) String task) {
+        return Objects.isNull(task)
+            ? ResponseEntity.ok(service.findAll())
+            : ResponseEntity.ok(service.findByTask(task));
     }
 
     @GetMapping("{id}")

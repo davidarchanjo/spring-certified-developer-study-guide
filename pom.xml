@@ -69,6 +69,7 @@
 		<module>spring-datasource</module>
 		<module>spring-expression-language</module>
 		<module>spring-jdbctemplate</module>
+		<module>spring-resttemplate</module>
 		<module>spring-security</module>		
 		<module>spring-transaction</module>
     </modules>
