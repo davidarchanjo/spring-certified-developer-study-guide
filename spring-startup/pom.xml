@@ -9,17 +9,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-expression-language</artifactId>
+    <artifactId>spring-startup</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>spring-expression-language</name>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>            
-        </dependency>
-    </dependencies>
+    <name>spring-startup</name>
 
     <build>
         <plugins>

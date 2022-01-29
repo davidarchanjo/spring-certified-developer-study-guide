@@ -1,6 +1,6 @@
 package io.davidarchanjo.service.impl;
 
-import io.davidarchanjo.builder.ToDoMapper;
+import io.davidarchanjo.builder.ToDoBuilder;
 import io.davidarchanjo.model.dto.ToDoDTO;
 import io.davidarchanjo.repository.ToDoRepository;
 import io.davidarchanjo.service.ToDoService;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ToDoServiceImpl implements ToDoService {
 
-    private final ToDoMapper builder;
+    private final ToDoBuilder builder;
     private final ToDoRepository repository;
 
     @Override

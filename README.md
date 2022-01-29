@@ -120,7 +120,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## KEY ANNOTATIONS
-[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced/returned object will be managed by the Spring container;
+[@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
 
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
@@ -153,6 +153,16 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 [@ConfigurationProperties](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html) - used to map resource files such as properties or YAML files to Java Bean object.
 
 [@EnableConfigurationProperties](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/EnableConfigurationProperties.html) - enables support for @ConfigurationProperties annotated classes in our application.
+
+## SPRING EXPRESSION LANGUAGE
+The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulating of object at runtime.
+
+SpEL expressions begin with the `#`, and are wrapped in braces, e.g. `#{expression}`. Properties can be referenced in a similar fashion, starting with a `$`, and wrapped in braces, e.g. `${property.name}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{${someProperty} + 2}`.
+
+## STARTUP INTERFACES
+Spring Boot provides two interfaces to run specific pieces of code as soon as the application starts: [CommandLineRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html) and [ApplicationRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html).
+
+When defined as beans on configuration class (@SpringBootApplication or @Configuration), beans of type ApplicationRunner execute before beans of type CommandLineRunner. That rule also applies when they are defined as components (@Component). However, this default execution priority order can be changed through the use of the [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation, when defined as components.
 </br></br>
 
 
