@@ -75,6 +75,7 @@
 		<module>spring-security</module>
 		<module>spring-spel</module>
 		<module>spring-startup</module>
+		<module>spring-testing</module>
 		<module>spring-transaction</module>
     </modules>
 

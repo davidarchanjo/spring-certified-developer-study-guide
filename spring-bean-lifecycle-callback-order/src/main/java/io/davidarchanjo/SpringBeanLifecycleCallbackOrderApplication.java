@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 public class SpringBeanLifecycleCallbackOrderApplication {
 
     @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
-    public TheBean demoBean() {
+    public TheBean theBean() {
         return new TheBean();
     }
 

@@ -109,6 +109,9 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 - https://knpcode.com/spring/spring-bean-lifecycle-callback-methods
 - https://www.baeldung.com/spring-core-annotations
 - https://www.baeldung.com/spring-expression-language
+- https://asyncstream.com/tutorials/spring-initmethod-or-initializingbean/
+- https://programmer.help/blogs/after-properties-set-and-init-method-postconstruct-of-spring-initializing-bean.html
+- https://www.dineshonjava.com/writing-beanpostprocessor-in-spring/
 
 ## OVERVIEW
 **Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
@@ -537,7 +540,7 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 
 [@SpringBootTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html) - used to bootstrap a complete application context for testing. @SpringBootTest by default starts searching in the current package of the annotated test class and then searches upwards through the package structure, looking for a class annotated with @SpringBootConfiguration from which it reads the configuration to create an application context. This class is usually the main application class since the @SpringBootApplication annotation includes the @SpringBootConfiguration annotation. It then creates an application context very similar to the one that would be started in a production environment.
 
-[@ContextConfiguration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/ContextConfiguration.html) - used to load <ins>component classes</ins><a href="#note1" id="note1ref"><sup>1</sup></a> in order to configure an ApplicationContext for integration test. It can load component configuration from XML resource or from config classes annotated with @Configuration. It can also load a component class annotated with @Component, @Service, @Repository etc.
+[@ContextConfiguration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/ContextConfiguration.html) - used to load <ins>component classes</ins><a href="#note1" id="note1ref"><sup>1</sup></a> in order to configure an ApplicationContext for integration test.
 
 [@WebMvcTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
 
@@ -545,11 +548,20 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 
 [@TestConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/TestConfiguration.html) - used to define additional beans or override existing beans in the Spring application context in order to add specialized configuration for testing. Configuration classes annotated with @TestConfiguration are excluded from component scanning. Configuration classes with bean definition annotated with @TestConfiguration can be imported by @Import or declared as static inner classes. It is required to set the property <code>spring.main.allow-bean-definition-overriding=true</code> in order to enable bean overriding feature during testing.
 
-[@MockBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html) - is part of the Spring Test Framework and used to create mocks for beans whenever running tests with the _Spring Test context_ (i.e. testing with @SpringBootTest, @WebMvcTest and so on).
+[@MockBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html) - part of the Spring Test Framework and used to create mocks for beans whenever running tests targeted to the _Spring Test context_ (i.e. testing with @SpringBootTest, @WebMvcTest, @DataJpaTest and so on).
 
-[@Mock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) - is part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for the marked field, just like if we would be calling <code>Mockito.mock()</code> manually.
+[@Mock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) - part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for a class or interface. It is a shorhand for the <code>Mockito.mock()</code>.
 
-[@InjectMock](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/InjectMocks.html) - is part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for the marked field and injects all dependencies annotated with @Mock into it.
+[@InjectMocks](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/InjectMocks.html) - part of the [Mockito Framework](https://site.mockito.org) and used to create a mock for the marked field and injects all dependencies annotated with @Mock into it.
+
+## NOTES
+### @SpringBootTest vs @ContextConfiguration
+- Even though both can be used to specify how to load a Application Context in integration test, @ContextConfiguration doesn’t take full advantage of Spring Boot features, like logging or additional property loading.
+
+### @MockBean vs @Mock
+- For any test that doesn’t need any dependencies from the Spring Boot container (application context), @Mock should be used as it is fast and favours the isolation of the tested component;
+- If a test needs to rely on the Spring Boot container (application context) and you want also to add or mock one of the container beans, @MockBean should be used;
+- As a thumb rule, @Mock should be used in testing services, i.e. business logic, and @MockBean should be used in testing controllers whereby the services called in the controllers need mocking
 </br></br>
 
 
