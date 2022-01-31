@@ -21,12 +21,12 @@ public class SpringTransactionApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(ApplicationContext context) {
+	CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 			try {
-				OrganizationService organizationService = context.getBean("organization-transactional-service", OrganizationService.class);
+				OrganizationService organizationService = ctx.getBean("organization-transactional-service", OrganizationService.class);
 
-				EmployeeService employeeService = context.getBean(EmployeeService.class);
+				EmployeeService employeeService = ctx.getBean(EmployeeService.class);
 
 				Employee employee = Employee.builder()
 					.empId("emp1")

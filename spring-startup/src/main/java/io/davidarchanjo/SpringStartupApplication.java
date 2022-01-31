@@ -18,21 +18,21 @@ public class SpringStartupApplication {
 
     @Bean
     CommandLineRunner commandLineRunner2() {
-        return args -> log.info("CommandLineRunner2: {}", String.join(",", args));
+        return args -> log.info("Bean CommandLineRunner2: {}", String.join(",", args));
     }
 
     @Bean
     CommandLineRunner commandLineRunner1() {
-        return args -> log.info("CommandLineRunner1: {}", String.join(",", args));
+        return args -> log.info("Bean CommandLineRunner1: {}", String.join(",", args));
     }
 
     @Bean
     ApplicationRunner applicationRunner2() {
-        return args -> log.info("ApplicationRunner2: {}", String.join(",", args.getSourceArgs()));
+        return args -> log.info("Bean ApplicationRunner2: {}", String.join(",", args.getSourceArgs()));
     }
 
     @Bean
     ApplicationRunner applicationRunner1() {
-        return args -> log.info("ApplicationRunner1: {}", String.join(",", args.getSourceArgs()));
+        return args -> log.info("Bean ApplicationRunner1: {}", String.join(",", args.getSourceArgs()));
     }
 }

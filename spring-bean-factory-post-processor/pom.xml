@@ -9,10 +9,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-bean</artifactId>
+    <artifactId>spring-bean-factory-post-processor</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>spring-bean</name>
+    <name>spring-bean-factory-post-processor</name>
 
     <build>
         <plugins>

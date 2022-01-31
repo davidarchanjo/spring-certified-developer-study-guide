@@ -9,10 +9,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-bean</artifactId>
+    <artifactId>spring-bean-lifecycle-callback-order</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>spring-bean</name>
+    <name>spring-bean-lifecycle-callback-order</name>
 
     <build>
         <plugins>

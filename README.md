@@ -119,6 +119,33 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
+## SPRING EXPRESSION LANGUAGE
+The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulating of object at runtime.
+
+SpEL expressions begin with the `#`, and are wrapped in braces, e.g. `#{expression}`. Properties can be referenced in a similar fashion, starting with a `$`, and wrapped in braces, e.g. `${property.name}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{${someProperty} + 2}`.
+
+## KEY INTERFACES
+### STARTUP
+Spring Boot provides two interfaces to run specific pieces of code as soon as the application starts: [CommandLineRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html) and [ApplicationRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html).
+
+By default, when defining multiple beans of both types ***in the same configuration class*** (@SpringBootApplication or @Configuration), beans of type ApplicationRunner will execute before beans of type CommandLineRunner. That rule also applies when they are defined individually as components (@Component). However, this default execution priority order can be changed through the use of [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation, when defined as components.
+
+### BEAN INITIALIZATION LIFECYCLE
+[BeanFactoryPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html) - used to modify the definition of any bean before it get created/instantiated by working on its configuration metadata phase, such as loading value for it from external property files.
+
+[BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - used to apply custom processing on bean _before_ and _after_ properties are set from initialization callbacks (like InitializingBean's afterPropertiesSet or custom @PostConstruct's init-method).
+
+[InitializingBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html) - 
+
+[DisposableBean]() - 
+
+[@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used to mark a bean class' method that must be executed after the dependency injection is done;
+
+[@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used to mark a bean class' method as a callback to signal that the instance is in the process of being removed by the container;
+
+#### CALLBACK ORDER EXECUTION
+Spring provides many lifecycle callbacks allowing specific operations to be performed after initialization and before destruction of beans. If all of them are used in conjuction, for initialization the callback sequence goes like this: Bean's Constructor > @PostConstruct > InitializingBean's afterPropertiesSet > init-method. And for destruction, the callback sequence goes like this: DisposableBean's destroy > destroy-method;
+
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
 
@@ -128,7 +155,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 
 [@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify by name which bean have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
 
-[@Primary](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Primary.html) - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to give higher preference to a bean when there are multiple beans of the same type.
+[@Primary](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Primary.html) - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to give higher preference to a bean when there are multiple beans of the same type;
 
 [@Lazy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Lazy.html) - used to indicate whether a bean is to be lazily initialized, i.e. if present on a @Component or @Bean definition and set to <code>true</code>, the bean or component will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked with @Autowired, like constructor parameters, method parameters etc;
 
@@ -153,16 +180,6 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 [@ConfigurationProperties](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html) - used to map resource files such as properties or YAML files to Java Bean object.
 
 [@EnableConfigurationProperties](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/EnableConfigurationProperties.html) - enables support for @ConfigurationProperties annotated classes in our application.
-
-## SPRING EXPRESSION LANGUAGE
-The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulating of object at runtime.
-
-SpEL expressions begin with the `#`, and are wrapped in braces, e.g. `#{expression}`. Properties can be referenced in a similar fashion, starting with a `$`, and wrapped in braces, e.g. `${property.name}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{${someProperty} + 2}`.
-
-## STARTUP INTERFACES
-Spring Boot provides two interfaces to run specific pieces of code as soon as the application starts: [CommandLineRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html) and [ApplicationRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html).
-
-When defined as beans on configuration class (@SpringBootApplication or @Configuration), beans of type ApplicationRunner execute before beans of type CommandLineRunner. That rule also applies when they are defined as components (@Component). However, this default execution priority order can be changed through the use of the [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation, when defined as components.
 </br></br>
 
 

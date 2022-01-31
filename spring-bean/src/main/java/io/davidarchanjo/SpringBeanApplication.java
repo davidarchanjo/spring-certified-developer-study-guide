@@ -29,9 +29,6 @@ public class SpringBeanApplication {
             log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
             log.info("{}", ctx.getBean("fooToDo", ToDo.class));
             log.info("{}", ctx.getBean("barToDo", ToDo.class));
-
-            TheClientBean theClientBean = ctx.getBean(TheClientBean.class);
-            log.info("{}", theClientBean.getTheBean().getName());
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
         }

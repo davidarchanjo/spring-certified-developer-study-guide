@@ -11,6 +11,6 @@ public class ApplicationRunner3 implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        log.info("ApplicationRunner3: {}", String.join(",", args.getSourceArgs()));
+        log.info("Component ApplicationRunner3: {}", String.join(",", args.getSourceArgs()));
     }
 }
