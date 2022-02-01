@@ -348,14 +348,14 @@ Spring Boot allows to configure DataSource in two ways: programmatically via a @
 
 [@GeneratedValue](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html) - used to specify the primary key generation strategy which by default is autoincrement;
 
-[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) - used to specify the database column details like name, constraint etc to which a property will be mapped. If no @Column annotation is specified, then the field name will be used for mapping;
+[@Column](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Column.html) - used to specify database column details like name, constraint etc to which a property will be mapped. If no @Column annotation is specified, then the field name will be used for mapping;
 
 [@Query](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Query.html) - used to declare custom queries on 
 repository methods to execute both JPQL or native SQL queries;
 
 [@Modifying](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Modifying.html) - used to indicate that a @Query annotated repository method executes a modifying JPQL or native SQL such as a INSERT, UPDATE, DELETE or DDL statement;
 
-[@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration classes to indicate to Spring where is located entity classes when they are not placed in the main application package or its sub-packages;
+[@EntityScan](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/domain/EntityScan.html) - used on @Configuration classes to indicate to Spring where is located entity classes when they are not placed under in the main application package or its sub-packages;
 
 [@EnableJpaRepositories](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html) - used on @Configuration classes to indicate to Spring where is located JPA repository classes when they are not placed in the same package of the main application class or under its sub-packages;
 </br></br>
