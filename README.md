@@ -138,13 +138,13 @@ By default, when defining multiple beans of both types ***in the same configurat
 
 [BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - used to apply custom processing on bean _before_ and _after_ properties are set from initialization callbacks (like InitializingBean's afterPropertiesSet or custom @PostConstruct's init-method).
 
-[InitializingBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html) - 
+[InitializingBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html) - used on beans to implement custom processing once all their properties have been set, e.g. to perform custom initialization, or merely to check that all mandatory properties have been set.
 
-[DisposableBean]() - 
+[DisposableBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html) - used on beans to implement custom actions upon bean's destruction lifecycle event, like release resources.
 
-[@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used to mark a bean class' method that must be executed after the dependency injection is done;
+[@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used on beans to mark a method that must be executed after the dependency injection is done.
 
-[@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used to mark a bean class' method as a callback to signal that the instance is in the process of being removed by the container;
+[@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal that the instance is in the process of being removed from the container;
 
 #### CALLBACK ORDER EXECUTION
 Spring provides many lifecycle callbacks allowing specific operations to be performed after initialization and before destruction of beans. If all of them are used in conjuction, for initialization the callback sequence goes like this: Bean's Constructor > @PostConstruct > InitializingBean's afterPropertiesSet > init-method. And for destruction, the callback sequence goes like this: DisposableBean's destroy > destroy-method;
