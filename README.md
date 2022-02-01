@@ -147,7 +147,7 @@ By default, when defining multiple beans of both types ***in the same configurat
 [@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal that the instance is in the process of being removed from the container;
 
 #### CALLBACK ORDER EXECUTION
-Spring provides many lifecycle callbacks allowing specific operations to be performed after initialization and before destruction of beans. If all of them are used in conjuction, for initialization the callback sequence goes like this: Bean's Constructor > @PostConstruct > InitializingBean's afterPropertiesSet > init-method. And for destruction, the callback sequence goes like this: DisposableBean's destroy > destroy-method;
+Spring provides many lifecycle callbacks allowing specific operations to be performed after initialization and before destruction of beans. If all of them are used in conjuction, for initialization the callback sequence goes like this: `Bean's Constructor > @PostConstruct > InitializingBean's afterPropertiesSet > init-method`. And for destruction, the callback sequence goes like this: `DisposableBean's destroy > destroy-method`;
 
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
