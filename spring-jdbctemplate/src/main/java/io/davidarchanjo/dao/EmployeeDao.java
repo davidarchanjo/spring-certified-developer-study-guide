@@ -14,7 +14,7 @@ public class EmployeeDao {
 	private final JdbcTemplate jdbcTemplate;
 
 	/**
-	 * NOTE: We could have leveraged of the mechanism of script-based
+	 * NOTE: We could have leveraged on the mechanism of script-based
 	 * initialization (via schema.sql) to create the table
 	 */
 	public void createTable() {
