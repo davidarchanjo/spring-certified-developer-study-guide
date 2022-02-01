@@ -569,8 +569,8 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 
 ### @MockBean vs @Mock
 - For any test that doesn’t need any dependencies from the Spring Boot container (application context), @Mock should be used as it is fast and favours the isolation of the tested component;
-- If a test needs to rely on the Spring Boot container (application context) and you want also to add or mock one of the container beans, @MockBean should be used;
-- As a rule of thumb, @Mock should be used in testing services, i.e. business logic, and @MockBean should be used in testing controllers whereby the services called in the controllers need mocking
+- If a test needs to rely on the Spring Boot container (application context) and it's also needed to add or mock one of the container beans, @MockBean should be used;
+- As a rule of thumb, @Mock should be used in testing services, i.e. business logic, and @MockBean should be used in testing controllers whereby the services called in the controllers need mocking.
 </br></br>
 
 
