@@ -200,7 +200,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 [@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath;
 
-[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – indicates to Spring for looking for other beans, components and configurations in the same package and sub-packages of the annotated class;
+[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – used to indicate to the Spring container for looking for other beans, components and configurations in the same package and sub-packages of the annotated class;
 
 [@SpringBootConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringBootConfiguration.html) - used to indicate that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically;
 
