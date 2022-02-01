@@ -123,7 +123,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## SPRING EXPRESSION LANGUAGE
-The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulating of object at runtime.
+The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulation of object at runtime.
 
 SpEL expressions begin with the `#`, and are wrapped in braces, e.g. `#{expression}`. Properties can be referenced in a similar fashion, starting with a `$`, and wrapped in braces, e.g. `${property.name}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{${someProperty} + 2}`.
 
