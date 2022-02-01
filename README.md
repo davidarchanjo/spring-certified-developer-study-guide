@@ -342,7 +342,7 @@ Spring Boot allows to configure DataSource in two ways: programmatically via a @
 ## KEY ANNOTATIONS
 [@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class maps a database entity. If we forget to mark a domain class that will map a database entity with @Entity annotation, we will get an IllegalArgumentException since Spring will not be able to invocate the init method in a not managed type;
 
-[@Table](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Table.html) - used to specify the table that will map the entity in the database;
+[@Table](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Table.html) - used to specify the table's details, like name, schema etc, that will map the entity in the database. It's not mandatory to use @Table on mapping an entity class, and in its absence, the table name will be taken from the class name;
 
 [@Id](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Id.html) - used to mark a property in a entity class as the primary key. If no @Column annotation is specified, the primary key column name is assumed to be the name of the property;
 
