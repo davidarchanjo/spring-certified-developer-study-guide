@@ -328,7 +328,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 - https://www.baeldung.com/spring-data-jpa-query
 
 ## OVERVIEW
-Spring Boot configures Hibernate as the default JPA provider, and auto-configures the DataSource bean if there's in-memory database dependency of type H2, HSQLDB or Derby present on the classpath. Spring Boot applications may be configured with mutiple databases of different types. For that it is necessary to create a @Configuration class containing bean definition for each database and mark one of them with the @Primary annotation so it can be autowired by default, avoiding a [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) exception to be thrown.
+Spring Boot configures Hibernate as the default JPA provider, and auto-configures a DataSource bean if there's in-memory database dependency of type H2, HSQLDB or Derby present on the classpath. Spring Boot applications may be configured with mutiple databases of different types. For that it is necessary to create a @Configuration class containing bean definition for each database and mark one of them with the @Primary annotation so it can be autowired by default, avoiding a [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) exception to be thrown.
 
 Spring Boot allows to configure DataSource in two ways: programmatically via a @Configuration class or from properties configuration file.
 
