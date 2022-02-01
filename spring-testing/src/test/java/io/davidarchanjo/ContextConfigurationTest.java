@@ -1,5 +1,6 @@
 package io.davidarchanjo;
 
+import io.davidarchanjo.config.AppConfig;
 import io.davidarchanjo.repository.impl.SimpleCoffeeRepository;
 import io.davidarchanjo.service.CoffeeService;
 import org.junit.jupiter.api.Test;

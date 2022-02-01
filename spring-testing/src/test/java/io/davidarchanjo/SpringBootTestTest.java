@@ -19,4 +19,10 @@ class SpringBootTestTest {
         String value = coffeeService.getCoffee("mocha");
         assertEquals("mocha", value);
     }
+
+    @Test
+    void getFooBarTest() {
+        String value = coffeeService.getFooBar();
+        assertEquals("foo", value);
+    }
 }

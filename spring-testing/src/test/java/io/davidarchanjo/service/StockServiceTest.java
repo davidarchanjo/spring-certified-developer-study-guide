@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class StockServiceTest {
+class StockServiceTest {
 
     @Mock
     private StockApiClient stockApiClient;
@@ -26,7 +26,7 @@ public class StockServiceTest {
         when(stockApiClient.getLatestStockPrice("AMZN"))
             .thenReturn(BigDecimal.ZERO);
 
-        BigDecimal result = stockApiClient.getLatestStockPrice("AMZN");
+        BigDecimal result = stockService.getLatestPrice("AMZN");
         assertEquals(BigDecimal.ZERO, result);
     }
 }

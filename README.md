@@ -170,7 +170,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 [@Service](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Service.html) - is a @Component stereotype annotation used to indicate that a class defines business logic;
 
-[@Configuration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) - used to mark a class as a source of bean definitions;
+[@Configuration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) - used to mark a class as a source of bean definitions. **NOTE**: Spring creates dynamic proxies for classes annotated with @Configuration and uses CGLIB to extend those class to create proxies. Hence, @Configuration classes must not be final, because final classes cannot be extended, i.e. cannot be subclassed;
 
 [@Import](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html) - used to indicate one or more component class to import — typically from @Configuration classes.
 
@@ -368,7 +368,16 @@ repository methods to execute both JPQL or native SQL queries;
 - https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
+## KEY INTERFACES
+[Model](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html) - used to supply attributes utilized for rendering views;
+
+[ModelMap](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/ModelMap.html) - used to pass values to render a view, with the advantage to pass a collection of values like a Map.
+
+[ModelAndView](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html) - used to pass all the information, i.e. model and view, required by Spring MVC for processing page rendering;
+
 ## KEY ANNOTATIONS
+[@ModelAttribute](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html) - used to bind method parameter or method return value to a named model attribute, exposed in a web view. 
+
 [@GetMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html) - used to map HTTP GET requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.GET)</code>;
 
 [@PostMapping](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html) - used to map HTTP POST requests onto specific handler method. It is a shortcut for <code>@RequestMapping(method = RequestMethod.POST)</code>;
