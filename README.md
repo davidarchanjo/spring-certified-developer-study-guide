@@ -65,10 +65,10 @@ REST API resources are manipulated by HTTP methods and the most-commonly-used HT
 The following summarises the use of those HTTP methods:
 | Method | Action |
 | :----- | :----- |
-| POST   | Create a REST API resource |
-| GET    | Retrieve information about a specific REST API resource or a collection |
-| PUT    | Update a REST API resource |
-| DELETE | Delete a REST API resource or related component |
+| POST   | Create a resource |
+| GET    | Retrieve information about a specific resource or a collection |
+| PUT    | Update a resource |
+| DELETE | Delete a resource or related component |
 
 ## HTTP STATUS
 In REST APIs, HTTP status codes are used to inform the consumer about the request's result. The status codes are divided into five categories:</br>
