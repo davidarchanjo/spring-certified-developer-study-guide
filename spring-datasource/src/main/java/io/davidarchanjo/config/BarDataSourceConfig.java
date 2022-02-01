@@ -59,7 +59,7 @@ public class BarDataSourceConfig {
             .persistenceUnit("bar")
             .build();
     }
-    @Bean(name = "barTransactionManager")
+    @Bean
     public PlatformTransactionManager barTransactionManager(
         @Qualifier("barEntityManagerFactory") EntityManagerFactory barEntityManagerFactory
     ) {
