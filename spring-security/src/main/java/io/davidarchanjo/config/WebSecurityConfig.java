@@ -64,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Set permissions on endpoints
         http.authorizeRequests()
             // H2 Console must be publicly accessible
-            .mvcMatchers("/").permitAll()            
+            .mvcMatchers("/").permitAll()
             .antMatchers("/api/greetings").permitAll()
             .antMatchers("/h2-console/**").permitAll()
             // public endpoints
@@ -72,8 +72,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.GET, "/api/authors/**").permitAll()
             .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
             // private endpoints
-            .mvcMatchers(HttpMethod.GET, "/api/public/**").permitAll()
-            // .mvcMatchers("/api/public/user").hasRole(Roles.AUTHOR_ADMIN)
+            .antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+            .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
             .anyRequest().authenticated();
 
         // Add JWT token filter

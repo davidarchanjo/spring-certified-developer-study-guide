@@ -22,7 +22,7 @@ public class PublicController {
         return "Hello All";
     }
 
-    @Secured({Roles.USER_ADMIN, Roles.AUTHOR_ADMIN})
+    // @Secured({Roles.USER_ADMIN, Roles.AUTHOR_ADMIN})
     // or @RolesAllowed({Roles.USER_ADMIN, Roles.AUTHOR_ADMIN})
     // or @PreAuthorize("hasRole('USER_ADMIN') or hasRole('AUTHOR_ADMIN')")
     @GetMapping("get")

@@ -1,6 +1,7 @@
 package io.davidarchanjo;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Properties;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,8 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootApplication
@@ -32,6 +35,24 @@ public class SpringSpELApplication {
     @Value("#{programmingLanguage.releaseYear[programmingLanguage.name[0]]}")
     private Float mostPopularProgrammingLanguageReleaseYear;
 
+    @Value("#{'${foo.bar}' + 'bar'}")
+    private String fooBar;
+
+    @Value("#{systemProperties['user.name']}")
+    private String userName;
+
+    @Value("#{systemProperties['user.language']}")
+    private String userLanguage;
+
+    @Value("#{systemEnvironment['JAVA_HOME']}")
+    private String javaHome;
+   
+    @Value("#{systemProperties}")
+    private Properties systemProperties;    
+   
+    @Value("#{systemEnvironment}")
+    private Properties systemEnvironment;
+
     @Bean
     CommandLineRunner commandLineRunner2() {
         return args -> {
@@ -39,6 +60,11 @@ public class SpringSpELApplication {
             log.info("STRING: {}", string);
             log.info("MOST_POPULAR_PROGRAMMING_LANGUAGE: {}", mostPopularProgrammingLanguage);
             log.info("RELEASE_YEAR: {}", mostPopularProgrammingLanguageReleaseYear);
+            log.info("USER_NAME: {}", userName);
+            log.info("USER_LANGUAGE: {}", userLanguage);
+            log.info("JAVA_HOME: {}", javaHome);
+            log.info("SYSTEM_PROPERTIES: {}", systemProperties);
+            log.info("SYSTEM_ENVIRONMENT: {}", systemEnvironment);
 
             ToDo toDo = ToDo.builder()
                 .task("Studying Java")

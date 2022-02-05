@@ -1,0 +1,10 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.formatOnSave": false,
+    "[java]": {
+        "editor.formatOnSave": false
+    },
+    "[xml]": {
+        "editor.formatOnSave": false
+    }
+}

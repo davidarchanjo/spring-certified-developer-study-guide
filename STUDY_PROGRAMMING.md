@@ -1,31 +1,83 @@
-# 1. SPRING TRANSACTION 
-* types of propagation
-* types of rollback
+# 1. SpEL
+how to access properties from spel
+systemProperties.data.limit 
+or
+systemProperties['dataLimit']
 
-# 2. SPRING JDBCTEMPLATE (21)
-* datasource
-* rowmapper
+# 2. ACTUATOR
+custom health indicator
+possíveis status??
+UP, DOWN??
+preciso criar tags para??
+o q é retornado no /info? posso customizar??
 
-# 3. SPRING DATA JPA (25)
-* overview
+# 3. JDBC
+ResultSet, RowMapper
+what types are mapped by resultset??
+long, int, etc
+generic map??
+jsonobject??
+domain objects??
 
-# 5. SECURITY (27)
-* most specific to least specific??
-* antMatcher
-* mvcMatcher
+# 4. TRANSACTIONS
+transactions in testing
+@Commit, @Rollback
 
-# 5. RESTTEMPLATE (28)
+# 5. SPRING MVC
+requestmapping
 
-# 5. SPRING EXPRESSION LANGUAGE (28)
+# 6. AUTOCONFIG
+-Dconfig.properties works application.properties??
 
-# 4. SPRING BOOT TESTING (29)
-* @contextconfiguration vs @springboottest
+# 7. TESTING
+@ContextConfiguration
+@MockMvc and @Mock are interchangeable??
 
-# 6. SPRING MVC (29)
-* Model View Controller (oldschool)
+# 8. SPRING SECURITY
+difference between * and **
+test hasRole from less specific to most using distinct roles
 
-# 7. SPRING ACTUATOR (30)
-* Health Indicator
-* Health Indicator statuses
+Caso #1
+- logado como: 
+	AUTHOR_ADMIN
+- config:
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+	.antMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
+- test:
+	/api/public     - 403
+	/api/public/get - 200
+
+Caso #2
+- logado como: 
+	AUTHOR_ADMIN
+- config:
+	.antMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)	
+- test:
+	/api/public     - 403
+	/api/public/get - 403
+	
+Caso #3
+- logado como: 
+	AUTHOR_ADMIN
+- config:
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+	.antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+- test:
+	/api/public     - 200
+	/api/public/get - 200
+	
+Caso #2
+- logado como: 
+	AUTHOR_ADMIN
+- config:
+	.antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)	
+- test:
+	/api/public     - 200
+	/api/public/get - 403
 
 # WRAP UP (30,31)
+
+# EXAM DATE
+14/Fev

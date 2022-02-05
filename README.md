@@ -89,11 +89,11 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 | Method | URL        | Operation |
 | :----- | :--------- | :-------- |
 | GET    | `/todos`   | Retrieves a list of all todos
-| GET    | `/todos/1` | Retrieves a specific todo
+| GET    | `/todos/{id}` | Retrieves todo referenced by `id`
 | POST   | `/todos`   | Creates a new todo
-| PUT    | `/todos/1` | Fully updates todo referenced by #1
-| PATCH  | `/todos/1` | Partially updates todo referenced by #1
-| DELETE | `/todos/1` | Deletes todo referenced by #1
+| PUT    | `/todos/{id}` | Fully updates todo referenced by `id`
+| PATCH  | `/todos/{id}` | Partially updates todo referenced by `id`
+| DELETE | `/todos/{id}` | Deletes todo referenced by `id`
 
 </br>
 
@@ -112,6 +112,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 - https://asyncstream.com/tutorials/spring-initmethod-or-initializingbean/
 - https://programmer.help/blogs/after-properties-set-and-init-method-postconstruct-of-spring-initializing-bean.html
 - https://www.dineshonjava.com/writing-beanpostprocessor-in-spring/
+- https://www.dev2qa.com/spring-expression-language-example-vs/
 
 ## OVERVIEW
 **Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
@@ -123,15 +124,19 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## SPRING EXPRESSION LANGUAGE
-The Spring Expression Language (SpEL for short) is an expression language that supports querying and manipulation of object at runtime.
+The Spring Expression Language (SpEL for short) is used to query property values from properties file or to manipulate java objects and its attributes at runtime. @Value annotation is the most used way to process SpEL.
 
-SpEL expressions begin with the `#`, and are wrapped in braces, e.g. `#{expression}`. Properties can be referenced in a similar fashion, starting with a `$`, and wrapped in braces, e.g. `${property.name}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{${someProperty} + 2}`.
+SpEL expressions begin with `#` and are enclosed by braces, like `#{expression}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, like `${property}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, like `#{'${property}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, it is mandatory to reference the property enclosed by single quotes**.
+
+SpEL provides two special built-in variables: `systemProperties` and `systemEnvironment`:
+- **systemProperties** – a java.util.Properties object retrieving properties from the runtime environment, like `os.name` or jvm args like `-Dxxx`;
+- **systemEnvironment** – a java.util.Properties object retrieving environment specific properties from the runtime environment, like env variables;
 
 ## KEY INTERFACES
 ### STARTUP
 Spring Boot provides two interfaces to run specific pieces of code as soon as the application starts: [CommandLineRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html) and [ApplicationRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html).
 
-By default, when defining multiple beans of both types ***in the same configuration class*** (@SpringBootApplication or @Configuration), beans of type ApplicationRunner will execute before beans of type CommandLineRunner. That rule also applies when they are defined individually as components (@Component). However, this default execution priority order can be changed through the use of [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation, when defined as components.
+By default, when defining multiple beans of both types ***in the same configuration class*** (@SpringBootApplication or @Configuration), beans of type ApplicationRunner will execute before beans of type CommandLineRunner. That rule also applies when they are defined individually as components (@Component). However when defined as components, that default execution order can be changed through the use of [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation.
 
 ### BEAN INITIALIZATION LIFECYCLE
 [BeanFactoryPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html) - used to modify the definition of any bean before it get created/instantiated by working on its configuration metadata phase, such as loading value for it from external property files.
@@ -574,4 +579,4 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 </br></br>
 
 
-<a id="note1" href="#note1ref"><sup>1</sup></a> <ins>component classes</ins> - is any class annotated with @Configuration or @Component (including any of its stereotype variants like @Service, @Repository etc) as well as any JSR-330 compliant class that is annotated with javax.inject annotations.
+<a id="note1" href="#note1ref"><sup>1</sup></a> <ins>component classes</ins> - is any class annotated with @Configuration or @Component (including any of its stereotype like @Service, @Repository etc) as well as any JSR-330 compliant class that is annotated with javax.inject annotations.
