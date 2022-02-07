@@ -29,6 +29,9 @@ public class SpringSpELApplication {
     @Value("#{'Foo' + ' Bal'.replace('l', 'r')}") // or .replace(\"l\", \"r\")
     private String string;
 
+    @Value("#{programmingLanguage.preferredLanguage}")
+    private String preferredLanguage;
+
     @Value("#{programmingLanguage.name[0]}")
     private String mostPopularProgrammingLanguage;
 
@@ -54,10 +57,11 @@ public class SpringSpELApplication {
     private Properties systemEnvironment;
 
     @Bean
-    CommandLineRunner commandLineRunner2() {
+    CommandLineRunner commandLineRunner() {
         return args -> {
             log.info("ARITHMETIC: {}", arithmetic);
             log.info("STRING: {}", string);
+            log.info("PREFERREDLANGUAGE: {}", preferredLanguage);
             log.info("MOST_POPULAR_PROGRAMMING_LANGUAGE: {}", mostPopularProgrammingLanguage);
             log.info("RELEASE_YEAR: {}", mostPopularProgrammingLanguageReleaseYear);
             log.info("USER_NAME: {}", userName);
