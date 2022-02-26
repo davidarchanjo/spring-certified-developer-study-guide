@@ -504,9 +504,9 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 Spring Boot Actuator provides resources so we can monitor and manage our application's health and availability. It is mainly used to expose operational information about the running application, such as health, metrics, info, dump, env, etc.
 
 ## BUILT-IN ENDPOINTS
-**NOTE:** By default, Spring Boot Actuator comes  with most built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both enabled and exposed. Spring Boot Actuator's endpoints are exposed over REST/Web API and JMX.
+By default, Spring Boot Actuator comes with all built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both _enabled_ and _exposed_. Spring Boot Actuator's endpoints are exposed over REST/Web API and JMX.
 
-| API                 | DESCRIPTION |
+| ENDPOINT            | DESCRIPTION |
 | :------------------ | :---------- |
 | `/auditevents`      | Returns audit event information for the current application |
 | `/beans`            | Returns a complete list of all Spring beans in the current application |
@@ -548,11 +548,11 @@ To get git and build details returned on `/info`, we have to add the following t
 ```
 
 ## HEALTH INDICATOR
-Spring Boot Actuator registers many health indicators out-of-the-box to indicate the status of a particular application's aspect, such as [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and  [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). On the other hand, some indicators are registered conditionally, if some dependencies are found on the classpath. For instance, 
+Spring Boot Actuator comes with some pre-packaged health indicators to report specific status about the application. Such built-in indicators are: [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). Some indicators are registered conditionally according to specific dependencies present on the classpath or when other conditions are met. For instance, [DataSourceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html) (if any relational database driver dependency is set) and [RedisHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html) (if the redis module dependency module is found on the classpath) and so on.
 
 The Liveness and Readiness HTTP probe statuses are returned by default on `/health` for applications running on Kubernetes. To enable them _manually_ to be exposed otherwise we have to configure the property `management.health.probes.enabled` to `true`.
 
-**NOTE:** By default `/health` does not return any detailed information about the available indicators. To get them exposed, we have to configure both properties `management.endpoint.health.show-components` and `management.endpoint.health.show-details` to `always`.
+**NOTE:** By default `/health` does not return detailed information about the available indicators. To get them exposed, we have to set both properties `management.endpoint.health.show-components` and `management.endpoint.health.show-details` to `always`.
 
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;
