@@ -7,7 +7,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 class ApplicationTests {
 
     @Autowired
@@ -19,3 +19,4 @@ class ApplicationTests {
     }
 
 }
+

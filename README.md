@@ -491,16 +491,21 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 
 # 11. SPRING BOOT ACTUATOR <a id="11-spring-boot-actuator-" href="#11"></a>
-## OVERVIEW
-Spring Boot Actuator provides us with resources so we can monitor and manage our application's health and availability. Such functionalities are: monitoring, metrics, tracing and auditing.
 
 ## REFERENCES
-- https://www.baeldung.com/spring-boot-actuators
+- https://www.baeldung.com/spring-actuators
+- https://www.baeldung.com/spring-boot-health-indicators
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#
-- https://lightrun.com/best-practices/getting-started-with-spring-boot-actuator
-- https://www.javadevjournal.com/spring-boot/spring-boot-actuator-custom-endpoint
+- https://lightrun.com/best-practices/getting-started-with-spring-actuator
+- https://www.javadevjournal.com/spring-boot/spring-actuator-custom-endpoint
+- https://dimitr.im/mastering-spring-boot-actuator
 
-## KEY ENDPOINTS
+## OVERVIEW
+Spring Boot Actuator provides resources so we can monitor and manage our application's health and availability. It is mainly used to expose operational information about the running application, such as health, metrics, info, dump, env, etc.
+
+## BUILT-IN ENDPOINTS
+**NOTE:** By default, Spring Boot Actuator comes  with most built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both enabled and exposed. Spring Boot Actuator's endpoints are exposed over REST/Web API and JMX.
+
 | API                 | DESCRIPTION |
 | :------------------ | :---------- |
 | `/auditevents`      | Returns audit event information for the current application |
@@ -521,6 +526,33 @@ Spring Boot Actuator provides us with resources so we can monitor and manage our
 | `/shutdown`         | Returns you to be able to disable your application. It is disabled by default |
 | `/startup`          | Returns the startup step data collected by ApplicationStartup |
 | `/threaddump`       | Performs a thread dump |
+
+## GIT & BUILD INFORMATION
+To get git and build details returned on `/info`, we have to add the following to the plugin section:
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>    
+    <executions>
+        <execution>
+            <goals>
+                <goal>build-info</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+<plugin>
+    <groupId>pl.project13.maven</groupId>
+    <artifactId>git-commit-id-plugin</artifactId>
+</plugin>
+```
+
+## HEALTH INDICATOR
+Spring Boot Actuator registers many health indicators out-of-the-box to indicate the status of a particular application's aspect, such as [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and  [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). On the other hand, some indicators are registered conditionally, if some dependencies are found on the classpath. For instance, 
+
+The Liveness and Readiness HTTP probe statuses are returned by default on `/health` for applications running on Kubernetes. To enable them _manually_ to be exposed otherwise we have to configure the property `management.health.probes.enabled` to `true`.
+
+**NOTE:** By default `/health` does not return any detailed information about the available indicators. To get them exposed, we have to configure both properties `management.endpoint.health.show-components` and `management.endpoint.health.show-details` to `always`.
 
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;

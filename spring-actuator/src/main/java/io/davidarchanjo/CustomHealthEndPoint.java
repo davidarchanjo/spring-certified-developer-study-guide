@@ -36,7 +36,7 @@ public class CustomHealthEndPoint {
     }
 
     @DeleteOperation
-    public void deleteOperation(@Selector String name){
+    public void deleteOperation(@Selector String name) {
         log.info("Delete Operation - {}", name);
     }
 }
