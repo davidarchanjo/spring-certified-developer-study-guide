@@ -38,7 +38,7 @@ public class SpringSpELApplication {
     @Value("#{programmingLanguage.releaseYear[programmingLanguage.name[0]]}")
     private Float mostPopularProgrammingLanguageReleaseYear;
 
-    @Value("#{'${foo.bar}' + 'bar'}")
+    @Value("#{'${foo}' + \"bar\".toUpperCase()}") //accessing property defined on application.properties
     private String fooBar;
 
     @Value("#{systemProperties['user.name']}")
@@ -64,6 +64,7 @@ public class SpringSpELApplication {
             log.info("PREFERREDLANGUAGE: {}", preferredLanguage);
             log.info("MOST_POPULAR_PROGRAMMING_LANGUAGE: {}", mostPopularProgrammingLanguage);
             log.info("RELEASE_YEAR: {}", mostPopularProgrammingLanguageReleaseYear);
+            log.info("FOOBAR: {}", fooBar);
             log.info("USER_NAME: {}", userName);
             log.info("USER_LANGUAGE: {}", userLanguage);
             log.info("JAVA_HOME: {}", javaHome);

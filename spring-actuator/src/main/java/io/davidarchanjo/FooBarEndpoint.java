@@ -13,18 +13,18 @@ import java.util.Map;
 
 @Slf4j
 @Component
-@Endpoint(id = "custom-health")
-public class CustomHealthEndPoint {
+@Endpoint(id = "foo-bar")
+public class FooBarEndpoint {
 
     @ReadOperation
-    public Map health() {
+    public Map status() {
         Map<String, Object> result = new LinkedHashMap<>();
         result.put("custom-status", "Everything looks healthy!");
         return result;
     }
 
     @ReadOperation
-    public Map customEndPointByName(@Selector String name) {
+    public Map customOperation(@Selector String name) {
         Map<String, Object> result = new LinkedHashMap<>();
         result.put("hello-world", name);
         return result;

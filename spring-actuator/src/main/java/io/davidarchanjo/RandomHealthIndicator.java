@@ -12,7 +12,7 @@ public class RandomHealthIndicator implements HealthIndicator {
     @Override
     public Health health() {
         double chance = ThreadLocalRandom.current().nextDouble();
-        Health.Builder status = (chance > 0.9) ? Health.down() : Health.up();
+        Health.Builder status = (chance > 0.9) ? Health.down() : Health.down();
         return status
             .withDetail("chance", chance)
             .withDetail("strategy", "thread-local")

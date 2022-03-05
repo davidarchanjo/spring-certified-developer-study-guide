@@ -203,7 +203,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 ## KEY ANNOTATIONS
 [@SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) - is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes;
 
-[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to indicate to the Spring container to automatically add beans based on the dependencies on the classpath;
+[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to enable the autoconfiguration of Spring ApplicationContext to automatically add beans based on the dependencies on the classpath;
 
 [@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – used to indicate to the Spring container for looking for other beans, components and configurations in the same package and sub-packages of the annotated class;
 
@@ -518,16 +518,20 @@ By default, Spring Boot Actuator comes with all built-in endpoints disabled, exc
 | `/httptrace`        | Returns HTTP trace informations (last 100 HTTP request-response exchanges by default) |
 | `/info`             | Returns arbitrary application information |
 | `/integrationgraph` | Returns the Spring integration graph. Requires a spring-integration-core dependency |
-| `/loggers`          | Returns and modifies the configuration of loggers in the application |
+| `/loggers`          | Returns the configuration of loggers in the application. Can be used to modify logging level of application's component |
 | `/metrics`          | Returns metrics information for the current app |
 | `/mappings`         | Returns a grouped list of all your application's APIs |
 | `/scheduledtasks`   | Returns the tasks scheduled in your application |
 | `/sessions`         | Returns retrieval and deletion of user sessions from a Spring Session supported session store. Requires a Servlet-based web application using Spring Session |
-| `/shutdown`         | Returns you to be able to disable your application. It is disabled by default |
+| `/shutdown`         | Disables the application. It is not enabled by default (To enable `management.endpoint.shutdown.enabled=true`)|
 | `/startup`          | Returns the startup step data collected by ApplicationStartup |
 | `/threaddump`       | Performs a thread dump |
 
-## GIT & BUILD INFORMATION
+
+## INFO ENDPOINT
+To expose through `/info` properties with names that start with `info.*` configured on `application.yml` or `application.properties`, it's required to set `management.info.env.enabled` to `true` because the Spring Actuator's `InfoContributor` is disabled by default.
+
+### GIT & BUILD INFORMATION
 To get git and build details returned on `/info`, we have to add the following to the plugin section:
 ```xml
 <plugin>
@@ -548,7 +552,7 @@ To get git and build details returned on `/info`, we have to add the following t
 ```
 
 ## HEALTH INDICATOR
-Health Indicators are used to report the healthiness and availability of dependent components or subsystems. Spring Boot Actuator comes with pre-defined health indicators to provide specific status about the application. Such built-in indicators are: [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). Some health indicators are registered/added automatically according to the existence of specific dependencies on the classpath or when other conditions are met. For instance, [DataSourceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html) (if any relational database driver dependency is set) and [RedisHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html) (if the redis module dependency module is found on the classpath) and so on.
+Health Indicators are used to report the healthiness and availability of third-party components or services. Spring Boot Actuator comes with predefined health indicators to provide specific status about the application. Such built-in indicators are: [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). Some health indicators are registered/added automatically according to the existence of specific dependencies on the classpath or when other conditions are met. For instance, [DataSourceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html) (if any relational database driver dependency is set) and [RedisHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html) (if the redis module dependency module is found on the classpath) and so on.
 
 The Liveness and Readiness HTTP probe statuses are returned by default on `/health` for applications running on Kubernetes. To enable them _manually_ to be exposed otherwise we have to set the property `management.health.probes.enabled` to `true`.
 
@@ -561,6 +565,13 @@ By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE`
 | DOWN           | 503        | The component or subsystem has suffered an unexpected failure |
 | OUT_OF_SERVICE | 503        | The component or subsystem has been taken out of service and should not be used |
 | UNKNOWN        | 200        | The component or subsystem is in an unknown state |
+
+The application's **overall status** is an aggregate of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is found in failure or unknown state, _the root status will be reported as DOWN_.
+
+### CUSTOM HEALTH INDICATORs
+To register a custom health indicator we need to create a @Component class which implements the [HealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) interface and overrides the `health()` method.
+
+To generate a composite health check indicator by combining other indicators is required to create a @Component class which implements the [CompositeHealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/CompositeHealthContributor.html) interface; mark each of the contributing health indicators with the [HealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthContributor.html) interface; and override the `iterator()` method in the CompositeHealthContributor implementation component class with the list of health contributors (component class that implements HealthContributor)
 
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;

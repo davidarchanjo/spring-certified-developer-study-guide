@@ -1,17 +1,19 @@
-# 1. SpEL OK
-how to access properties from spel
-systemProperties.data.limit 
-or
-systemProperties['dataLimit']
-
-# 2. ACTUATOR (26)
+# 2. ACTUATOR (05)
 custom health indicator
 possíveis status??
 UP, DOWN??
 preciso criar tags para??
 o q é retornado no /info? posso customizar??
 
-# 3. JDBC (27)
+# 1. SpEL OK (06)
+how to access properties from spel
+systemProperties.data.limit 
+or
+systemProperties['dataLimit']
+
+
+
+# 3. JDBC (06)
 ResultSet, RowMapper
 what types are mapped by resultset??
 long, int, etc
@@ -19,17 +21,17 @@ generic map??
 jsonobject??
 domain objects??
 
-# 4. TRANSACTIONS (28)
+# 4. TRANSACTIONS (07)
 transactions in testing
 @Commit, @Rollback
 
-# 5. SPRING MVC (01)
+# 5. SPRING MVC (08)
 requestmapping
 
-# 6. AUTOCONFIG (02)
+# 6. AUTOCONFIG (09)
 -Dconfig.properties works application.properties??
 
-# 7. TESTING (03)
+# 7. TESTING (10)
 @ContextConfiguration
 @MockMvc and @Mock are interchangeable??
 
@@ -77,7 +79,7 @@ Caso #2
 	/api/public     - 200
 	/api/public/get - 403
 
-# WRAP UP (30,31)
+# WRAP UP (11)
 
 # EXAM DATE
 18/Fev
