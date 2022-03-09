@@ -73,6 +73,7 @@
 		<module>spring-startup</module>
 		<module>spring-testing</module>
 		<module>spring-transaction</module>
+		<module>spring-transaction-2</module>
     </modules>
 
 </project>

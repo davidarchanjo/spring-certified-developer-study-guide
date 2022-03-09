@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringTransaction2Application",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringTransaction2Application",
+            "projectName": "spring-transaction-2"
+        },
+        {
+            "type": "java",
             "name": "spring-spel",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringSpELApplication",
