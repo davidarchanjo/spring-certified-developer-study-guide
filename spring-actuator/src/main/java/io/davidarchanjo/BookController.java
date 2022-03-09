@@ -31,9 +31,9 @@ public class BookController {
     @PostMapping
     public ResponseEntity<?> post() {
         log.info("Creating Book");
-        bookRepository.save(new Book(null, "Book-"+ThreadLocalRandom.current().nextInt()));
+        Book body = bookRepository.save(new Book(null, "Book-"+ThreadLocalRandom.current().nextInt()));
         createdBooksCounter.increment();
         return ResponseEntity.status(HttpStatus.CREATED)
-            .body("Created Book");
+            .body(body);
     }
 }

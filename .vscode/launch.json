@@ -2,155 +2,155 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch SpringSpELApplication",
+            "name": "spring-spel",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringSpELApplication",
             "projectName": "spring-spel",
-            "vmArgs": "-Duser.name=\"David Archanjo\""
+            "vmArgs": "-Dmy.name=\"David Archanjo\""
         },
         {
             "type": "java",
-            "name": "Launch SpringBeanLifecycleCallbackOrderApplication",
+            "name": "spring-bean-lifecycle-callback-order",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanLifecycleCallbackOrderApplication",
             "projectName": "spring-bean-lifecycle-callback-order"
         },
         {
             "type": "java",
-            "name": "Launch SpringBeanLifecycleEventsApplication",
+            "name": "spring-bean-lifecycle-events",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanLifecycleEventsApplication",
             "projectName": "spring-bean-lifecycle-events"
         },
         {
             "type": "java",
-            "name": "Launch SpringBeanApplication",
+            "name": "spring-bean",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanApplication",
             "projectName": "spring-bean"
         },
         {
             "type": "java",
-            "name": "Launch SpringCrudApplication",
+            "name": "spring-crud",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringCrudApplication",
             "projectName": "spring-crud"
         },
         {
             "type": "java",
-            "name": "Launch SpringRestTemplateApplication",
+            "name": "spring-resttemplate",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringRestTemplateApplication",
             "projectName": "spring-resttemplate"
         },
         {
             "type": "java",
-            "name": "Launch SpringSecurityApplication",
+            "name": "spring-security",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringSecurityApplication",
             "projectName": "spring-security"
         },
         {
             "type": "java",
-            "name": "Launch SpringAopApplication",
+            "name": "spring-aop",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringAopApplication",
             "projectName": "spring-aop"
         },
         {
             "type": "java",
-            "name": "Launch SpringExpressionLanguageApplication",
+            "name": "spring-expression-language",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringExpressionLanguageApplication",
             "projectName": "spring-expression-language"
         },
         {
             "type": "java",
-            "name": "Launch SpringDataSourceApplication",
+            "name": "spring-datasource",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringDataSourceApplication",
             "projectName": "spring-datasource"
         },
         {
             "type": "java",
-            "name": "Launch SpringActuatorApplication",
+            "name": "spring-actuator",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringActuatorApplication",
             "projectName": "spring-actuator"
         },
         {
             "type": "java",
-            "name": "Launch SpringDataJpaApplication",
+            "name": "spring-data-jpa",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringDataJpaApplication",
             "projectName": "spring-data-jpa"
         },
         {
             "type": "java",
-            "name": "Launch SpringJdbcTemplateApplication",
+            "name": "spring-jdbctemplate",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringJdbcTemplateApplication",
             "projectName": "spring-jdbctemplate"
         },
         {
             "type": "java",
-            "name": "Launch SpringTransactionApplication",
+            "name": "spring-transaction",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringTransactionApplication",
             "projectName": "spring-transaction"
         },
         {
             "type": "java",
-            "name": "Launch SpringJdbcApplication",
+            "name": "spring-jdbc",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringJdbcApplication",
             "projectName": "spring-jdbc"
         },
         {
             "type": "java",
-            "name": "Launch SpringJdbcApplication",
+            "name": "spring-jdbc",
             "request": "launch",
             "mainClass": "com.javainuse.SpringJdbcApplication",
             "projectName": "spring-jdbc"
         },
         {
             "type": "java",
-            "name": "Launch SpringBeansApplication",
+            "name": "spring-beans",
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringBeansApplication",
             "projectName": "spring-beans"
         },
         {
             "type": "java",
-            "name": "Launch SpringDataJpaApplication",
+            "name": "spring-data-jpa",
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringDataJpaApplication",
             "projectName": "spring-data-jpa"
         },
         {
             "type": "java",
-            "name": "Launch SpringActuatorApplication",
+            "name": "spring-actuator",
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringActuatorApplication",
             "projectName": "spring-actuator"
         },
         {
             "type": "java",
-            "name": "Launch SpringAopApplication",
+            "name": "spring-actuator",
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringAopApplication",
             "projectName": "spring-actuator"
         },
         {
             "type": "java",
-            "name": "Launch SpringExpressionLanguageApplication",
+            "name": "spring-expression-language",
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringExpressionLanguageApplication",
             "projectName": "spring-expression-language"
         },
         {
             "type": "java",
-            "name": "Launch SpringSecurityApplication",
+            "name": "spring-security",
             "request": "launch",
             "mainClass": "io.example.SpringSecurityApplication",
             "projectName": "spring-security"

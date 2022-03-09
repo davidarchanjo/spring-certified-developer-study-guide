@@ -47,6 +47,9 @@ public class SpringSpELApplication {
     @Value("#{systemProperties['user.language']}")
     private String userLanguage;
 
+    @Value("#{systemProperties['my.name']}")
+    private String myName;
+
     @Value("#{systemEnvironment['JAVA_HOME']}")
     private String javaHome;
    
@@ -65,6 +68,7 @@ public class SpringSpELApplication {
             log.info("MOST_POPULAR_PROGRAMMING_LANGUAGE: {}", mostPopularProgrammingLanguage);
             log.info("RELEASE_YEAR: {}", mostPopularProgrammingLanguageReleaseYear);
             log.info("FOOBAR: {}", fooBar);
+            log.info("MY_NAME: {}", myName);
             log.info("USER_NAME: {}", userName);
             log.info("USER_LANGUAGE: {}", userLanguage);
             log.info("JAVA_HOME: {}", javaHome);

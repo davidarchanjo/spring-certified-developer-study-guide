@@ -1,6 +1,8 @@
 package io.davidarchanjo;
 
-import lombok.RequiredArgsConstructor;
+import java.util.Map;
+import java.util.Objects;
+
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.core.ParameterizedTypeReference;
@@ -10,19 +12,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Map;
-import java.util.Objects;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
 public class GitHubAPIHealthIndicator implements HealthIndicator {
+
     private final RestTemplate restTemplate;
 
     @Override
     public Health health() {
         try {
             ParameterizedTypeReference<Map<String, String>> reference = new ParameterizedTypeReference<>() {};
-            ResponseEntity<Map<String, String>> result = restTemplate.exchange("https://api.github.com/", HttpMethod.GET, null, reference);
+            ResponseEntity<Map<String, String>> result = restTemplate.exchange("https://api.github.com/", HttpMethod.GET, null, reference);            
+
             return (result.getStatusCode().is2xxSuccessful() && Objects.nonNull(result.getBody()))
                 ? Health.up().withDetails(result.getBody()).build()
                 : Health.down().withDetail("status", result.getStatusCode()).build();
