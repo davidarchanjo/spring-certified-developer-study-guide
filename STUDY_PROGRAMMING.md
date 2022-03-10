@@ -15,7 +15,7 @@ systemProperties['dataLimit']
 transactions in testing
 @Commit, @Rollback
 
-# 3. JDBC (09)
+# 3. JDBC (10)
 ResultSet, RowMapper
 what types are mapped by resultset??
 long, int, etc
@@ -23,7 +23,7 @@ generic map??
 jsonobject??
 domain objects??
 
-# 5. SPRING MVC (09)
+# 5. SPRING MVC (10)
 requestmapping
 
 # 6. AUTOCONFIG (10)
