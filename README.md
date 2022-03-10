@@ -356,6 +356,12 @@ Spring Boot allows to configure DataSource in two ways: programmatically via a @
 
 [JpaRepository](http://static.springsource.org/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html) - extends from PagingAndSortingRepository and additionally provides JPA related methods such as flushing the persistence context and delete records in a batch
 
+
+## TESTING
+By default, transactions in tests are flagged for rollback when they start. However, if the method is annotated with @Commit or @Rollback(false), they start flagged for commit instead.
+
+By default @DataJpaTest autoconfigures an in-memory database like H2 to be used on testing, as long as one of that type is found in the classpath. To avoid stars an embedded database and use a real one like Postgres we must annotate the test class with `@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)`.
+
 ## KEY ANNOTATIONS
 [@Entity](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Entity.html) - used to specify that the annotated class maps a database entity. If we forget to mark a domain class that will map a database entity with @Entity annotation, we will get an IllegalArgumentException since Spring will not be able to invocate the init method in a not managed type;
 
@@ -621,7 +627,11 @@ To generate a composite health check indicator by combining other indicators is 
 
 [@WebMvcTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) - used to set up an application context with just enough components and configurations required to test the **Web MVC Controller Layer**. It disables full auto-configuration and instead apply only configuration relevant to MVC tests.
 
-[@DataJpaTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/orm/jpa/DataJpaTest.html) - used to set up an application context specificaly to test the **Persistence Layer**, by configuring entities, repositories as well as an embedded database.
+[@DataJpaTest](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/orm/jpa/DataJpaTest.html) - used to set up an application context specificaly to test the **Persistence Layer**, by configuring entities, repositories. @DataJpaTest by default autoconfigures an in-memory/embedded database like H2.
+
+[@Commit](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/annotation/Commit.html) - *test annotation* used to indicate that changes performed on database from a test method should be committed before it ends. When used at class-level, all test methods will commit changes to the database.
+
+[@Rollback](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/annotation/Rollback.html) - *test annotation* used to indicate that changes performed on database from a test method should be roll backed before it ends. When used at class-level, all test methods will behave in that way.
 
 [@TestConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/TestConfiguration.html) - used to define additional beans or override existing beans in the Spring application context in order to add specialized configuration for testing. Configuration classes annotated with @TestConfiguration are excluded from component scanning. Configuration classes with bean definition annotated with @TestConfiguration can be imported by @Import or declared as static inner classes. It is required to set the property <code>spring.main.allow-bean-definition-overriding=true</code> in order to enable bean overriding feature during testing.
 
