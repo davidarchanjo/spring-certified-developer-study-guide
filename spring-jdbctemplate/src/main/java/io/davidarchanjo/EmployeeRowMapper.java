@@ -1,6 +1,5 @@
-package io.davidarchanjo.dao;
+package io.davidarchanjo;
 
-import io.davidarchanjo.model.Employee;
 import lombok.Builder;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -15,7 +14,7 @@ public class EmployeeRowMapper implements RowMapper<Employee> {
         return Employee.builder()
             .id(rs.getInt("ID"))
             .name(rs.getString("NAME"))
-            .salary(rs.getFloat("SALARY"))
+            .salary(rs.getBigDecimal("SALARY"))
             .build();
     }
 

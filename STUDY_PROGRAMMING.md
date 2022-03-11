@@ -23,17 +23,17 @@ generic map??
 jsonobject??
 domain objects??
 
-# 5. SPRING MVC (10)
+# 5. SPRING MVC (11)
 requestmapping
 
-# 6. AUTOCONFIG (10)
+# 6. AUTOCONFIG (11)
 -Dconfig.properties works application.properties??
 
-# 7. TESTING (10)
+# 7. TESTING (11)
 @ContextConfiguration
 @MockMvc and @Mock are interchangeable??
 
-# 8. SPRING SECURITY (10)
+# 8. SPRING SECURITY (11)
 difference between * and **
 test hasRole from less specific to most using distinct roles
 
@@ -52,12 +52,22 @@ Caso #2
 	AUTHOR_ADMIN
 - config:
 	.antMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
-	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)	
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
 - result:
 	/api/public     - 403
 	/api/public/get - 403
-	
+
 Caso #3
+- logado como: 
+	AUTHOR_ADMIN
+- config:
+	.antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)	
+- result:
+	/api/public     - 200
+	/api/public/get - 403
+
+Caso #4
 - logado como: 
 	AUTHOR_ADMIN
 - config:
@@ -66,16 +76,8 @@ Caso #3
 - result:
 	/api/public     - 200
 	/api/public/get - 200
-	
-Caso #2
-- logado como: 
-	AUTHOR_ADMIN
-- config:
-	.antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
-	.antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)	
-- result:
-	/api/public     - 200
-	/api/public/get - 403
+
+# 9. SPRING CONDITIONAL ANNOTATIONS (11)
 
 # WRAP UP (11)
 

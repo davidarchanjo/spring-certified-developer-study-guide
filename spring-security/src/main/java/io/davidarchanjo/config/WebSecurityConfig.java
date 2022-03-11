@@ -1,9 +1,9 @@
 package io.davidarchanjo.config;
 
-import static java.lang.String.format;
-
-import javax.servlet.http.HttpServletResponse;
-
+import io.davidarchanjo.enums.Roles;
+import io.davidarchanjo.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,10 +21,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import io.davidarchanjo.enums.Roles;
-import io.davidarchanjo.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletResponse;
+
+import static java.lang.String.format;
 
 @Slf4j
 @EnableWebSecurity
@@ -53,24 +52,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and();
 
         // Set unauthorized requests exception handler
-        http = http
-                .exceptionHandling()
-                .authenticationEntryPoint((request, response, ex) -> {
-                    log.error("Unauthorized request - {}", ex.getMessage());
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
-                })
-                .and();
+        http = http.exceptionHandling()
+            .authenticationEntryPoint((request, response, ex) -> {
+                log.error("Unauthorized request - {}", ex.getMessage());
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
+            })
+            .and();
 
         // Set permissions on endpoints
         http.authorizeRequests()
-            // H2 Console must be publicly accessible
             .mvcMatchers("/").permitAll()
             .antMatchers("/api/greetings").permitAll()
+
+            // H2 Console must be publicly accessible
             .antMatchers("/h2-console/**").permitAll()
+
             // public endpoints
             .mvcMatchers("/api/auth/login").permitAll()
             .antMatchers(HttpMethod.GET, "/api/authors/**").permitAll()
             .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
+                
             // private endpoints
             .antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
             .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)

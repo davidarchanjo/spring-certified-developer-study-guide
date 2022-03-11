@@ -203,9 +203,9 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 ## KEY ANNOTATIONS
 [@SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) - is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes;
 
-[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to enable the autoconfiguration of Spring ApplicationContext to automatically add beans based on the dependencies on the classpath;
+[@EnableAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html) – used to indicates to ApplicationContext to add beans based on the dependencies on the classpath automatically;
 
-[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – used to indicate to the Spring container for looking for other beans, components and configurations in the same package and sub-packages of the annotated class;
+[@ComponentScan](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) – used to indicate to ApplicationContext to scan for other components, configurations and beans in the same package as the Application class and below;
 
 [@SpringBootConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringBootConfiguration.html) - used to indicate that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically;
 
@@ -358,7 +358,7 @@ Spring Boot allows to configure DataSource in two ways: programmatically via a @
 
 
 ## TESTING
-By default, transactions in tests are flagged for rollback when they start. However, if the method is annotated with @Commit or @Rollback(false), they start flagged for commit instead.
+By default, transactions in JUnit tests are flagged for rollback when they start. However, if the method is annotated with @Commit or @Rollback(false), they start flagged for commit instead.
 
 By default @DataJpaTest autoconfigures an in-memory database like H2 to be used on testing, as long as one of that type is found in the classpath. To avoid stars an embedded database and use a real one like Postgres we must annotate the test class with `@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)`.
 
@@ -392,7 +392,7 @@ repository methods to execute both JPQL or native SQL queries;
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY INTERFACES
-[Model](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html) - used to supply attributes utilized for rendering views;
+[Model](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html) - used to supply attributes, i.e. the data of our application, utilized for rendering views;
 
 [ModelMap](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/ModelMap.html) - used to pass values to render a view, with the advantage to pass a collection of values like a Map.
 
@@ -472,6 +472,23 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 * **Granted Authority** - refers to the permission of the authenticated user.
 
 * **Role** - refers to a group of permissions which the authenticated user have.
+
+## NOTES
+- Double wildcard pattern (`**`) will match **the current path segment (directory) and below**. For instance, the following rule will match `api/public`, `api/public/users`, `api/public/users/1` and so forth:
+  ```java
+  .mvcMatchers("/api/public/**")
+  ```
+
+- Single wildcard pattern (`*`) will match **path segments under the specified directory and below**. For instance, the following rule will match `api/public/users`, `api/public/users/1` and so forth:
+  ```java
+  .mvcMatchers("/api/public/**")
+  ```
+
+- URL pattern definitions with role access association should be defined from most to less specific. For instance, in the following definition the pattern `/api/public/get` should be put ideally before `/api/public/**`:
+  ```java
+  .mvcMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
+  .mvcMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+  ```
 
 ## KEY ANNOTATIONS
 [@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and overrides its methods for a more granular configuration;

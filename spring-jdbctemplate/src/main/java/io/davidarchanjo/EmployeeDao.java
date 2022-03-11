@@ -1,14 +1,19 @@
-package io.davidarchanjo.dao;
+package io.davidarchanjo;
 
-import io.davidarchanjo.model.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
+@Transactional(propagation = Propagation.MANDATORY)
 public class EmployeeDao {
 
 	private final JdbcTemplate jdbcTemplate;
@@ -22,14 +27,15 @@ public class EmployeeDao {
 		jdbcTemplate.execute(sql);
 	}
 
-	public int saveEmployee(Employee emp) {
+	public void saveEmployee(Employee emp) {
 		final String sql = "INSERT INTO employee VALUES (?, ?, ?)";
-		return jdbcTemplate.update(sql, emp.getId(), emp.getName(), emp.getSalary());
+		jdbcTemplate.update(sql, emp.getId(), emp.getName(), emp.getSalary());
+		throw new RuntimeException();
 	}
 
-	public int updateEmployee(Employee emp) {
+	public void updateEmployee(Employee emp) {
 		final String sql = "UPDATE employee SET name = ?, salary = ? WHERE id = ?";
-		return jdbcTemplate.update(sql, emp.getName(), emp.getSalary(), emp.getId());
+		jdbcTemplate.update(sql, emp.getName(), emp.getSalary(), emp.getId());
 	}
 
 	public int deleteEmployee(long id) {
@@ -45,6 +51,25 @@ public class EmployeeDao {
 	public List<Employee> queryEmployees() {
 		final String query = "SELECT * FROM employee";
 		return jdbcTemplate.query(query, EmployeeRowMapper.builder().build());
+	}
+
+	public Map<String, Object> queryEmployees2(int id) {
+		final String query = "SELECT DISTINCT * FROM employee WHERE id = ?";
+		return jdbcTemplate.queryForMap(query, id);
+	}
+
+	public List<Employee> queryEmployees3() {
+		final String sql = "SELECT * FROM employee";
+		List<Employee> employees = new ArrayList<>();
+		jdbcTemplate.queryForList(sql).forEach(row -> {
+			final Employee emp = Employee.builder()
+					.id(((BigDecimal) row.get("ID")).intValue())
+					.name((String) row.get("NAME"))
+					.salary((BigDecimal) row.get("SALARY"))
+					.build();
+			employees.add(emp);
+		});
+		return employees;
 	}
 
 }
