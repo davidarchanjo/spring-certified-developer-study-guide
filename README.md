@@ -483,7 +483,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 - Single wildcard pattern (`*`) will match **path segments under the specified directory and below**. For instance, the following rule will match `api/public/users`, `api/public/users/1` and so forth:
   ```java
-  .mvcMatchers("/api/public/**")
+  .mvcMatchers("/api/public/*")
   ```
 
 - URL pattern definitions with role access association should be defined from most to less specific. For instance, in the following definition the pattern `/api/public/get` should be put ideally before `/api/public/**`:
