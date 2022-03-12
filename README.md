@@ -297,7 +297,7 @@ A read-only transaction is **a transaction which does not modify any data**. If 
 
 - If we manually handle exceptions (including unchecked exceptions) via try-catch from a transactional context and an exception pops up, the rollback mechanism won't work and the current transaction will execute and commit normally.
 
-- To make transaction suspension works across nested method calls, the methods must be from different objects. That rule applies when the @Transaction's propagation is set to `REQUIRES_NEW` or `NOT_SUPPORTED`.
+- To make transaction suspension works across nested method calls, the methods must belong to different object instances. That rule applies when the @Transaction's propagation is set to `REQUIRES_NEW` or `NOT_SUPPORTED`.
 
 - The @Transactional annotation at the class level will be applied to all of its public method. However, if a method is annotated with @Transactional its settings will take precedence over the transactional settings defined at the class level.
 
