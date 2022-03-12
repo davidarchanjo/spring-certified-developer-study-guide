@@ -36,21 +36,21 @@ public class Triangle implements InitializingBean, DisposableBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("Bean initialization method - triangle, {}");
+        log.info("Bean initialization method - triangle");
     }
 
     @Override
     public void destroy() throws Exception {
-        log.info("Bean destruction method - triangle, {}");
+        log.info("Bean destruction method - triangle");
     }
 
     @PostConstruct
     public void customInit() {
-        log.info("@PostConstruct method - triangle, {}");
+        log.info("@PostConstruct method - triangle");
     }
 
     @PreDestroy
     public void customDestroy() {
-        log.info("@PreDestroy method - triangle, {}");
+        log.info("@PreDestroy method - triangle");
     }
 }
