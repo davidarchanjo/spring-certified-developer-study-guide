@@ -262,7 +262,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 [@Before](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Before.html) - used to mark a method to be executed before the matching joint point;
 
-[@After](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/After.html) - TODO
+[@After](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/After.html) - used to mark a method to be executed after the matching join point finishes, whether normally or throwing exception;
 
 [@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - used to mark a method to be executed after the matching joint point completes normally;
 
@@ -667,7 +667,7 @@ To generate a composite health check indicator by combining other indicators is 
 ### @MockBean vs @Mock
 - For any test that doesn’t need any dependencies from the Spring Boot container (application context), @Mock should be used as it is fast and favours the isolation of the tested component;
 - If a test relies on the Spring Boot container (application context) and it's also needed to add or mock one of the container beans, @MockBean should be used;
-- As a rule of thumb, @Mock should be used when testing services components where business logic are implemented, and @MockBean should be used when doing sliced context testing like on the controller (@@WebMvcTest) or repository (@DataJpaTest) layer, or when running backed Spring context tests (@SpringBootTest).
+- As a rule of thumb, @Mock should be used when testing services components where business logic are implemented, and @MockBean should be used when doing sliced context testing like on the controller (@WebMvcTest) or repository (@DataJpaTest) layer, or when running backed Spring context tests (@SpringBootTest).
 </br></br>
 
 
