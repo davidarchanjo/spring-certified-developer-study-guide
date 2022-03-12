@@ -541,7 +541,7 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 Spring Boot Actuator provides resources so we can monitor and manage our application's health and availability. It is mainly used to expose operational information about the running application, such as health, metrics, info, dump, env, etc.
 
 ## BUILT-IN ENDPOINTS
-By default, Spring Boot Actuator comes with all built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both _enabled_ and _exposed_. Spring Boot Actuator's endpoints are exposed over REST/Web API and JMX.
+By default, Spring Boot Actuator comes with all built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both _enabled_ and _exposed_. Spring Boot Actuator's endpoints are exposed over REST endpoints and JMX.
 
 | ENDPOINT            | DESCRIPTION |
 | :------------------ | :---------- |
