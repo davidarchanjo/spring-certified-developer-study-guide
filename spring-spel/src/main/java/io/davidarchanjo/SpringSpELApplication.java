@@ -26,7 +26,7 @@ public class SpringSpELApplication {
     @Value("#{(3 * 9) + 3}")
     private int arithmetic;
 
-    @Value("#{'Foo' + ' Bal'.replace('l', 'r')}") // or .replace(\"l\", \"r\")
+    @Value("#{'Foo' + ' Bal'.replace('l', 'r')}")
     private String string;
 
     @Value("#{programmingLanguage.preferredLanguage}")
@@ -47,7 +47,7 @@ public class SpringSpELApplication {
     @Value("#{systemProperties['user.language']}")
     private String userLanguage;
 
-    @Value("#{systemProperties['my.name']}")
+    @Value("#{'${my.name}'}")
     private String myName;
 
     @Value("#{systemEnvironment['JAVA_HOME']}")
@@ -72,8 +72,8 @@ public class SpringSpELApplication {
             log.info("USER_NAME: {}", userName);
             log.info("USER_LANGUAGE: {}", userLanguage);
             log.info("JAVA_HOME: {}", javaHome);
-            log.info("SYSTEM_PROPERTIES: {}", systemProperties);
-            log.info("SYSTEM_ENVIRONMENT: {}", systemEnvironment);
+            // log.info("SYSTEM_PROPERTIES: {}", systemProperties);
+            // log.info("SYSTEM_ENVIRONMENT: {}", systemEnvironment);
 
             ToDo toDo = ToDo.builder()
                 .task("Studying Java")

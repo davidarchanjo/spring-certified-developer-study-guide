@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
@@ -28,9 +29,11 @@ public class SpringJdbcTemplateApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(EmployeeDao dao, EasyRandom easyRandom) {
+	CommandLineRunner commandLineRunner(EmployeeDao dao, EasyRandom easyRandom, Environment env) {
 		return args -> {
 			try {
+				log.info("my.name: {}", env.getProperty("my.name"));
+
 				dao.createTable();
 
 				val emp = easyRandom.nextObject(Employee.class);

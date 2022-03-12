@@ -27,7 +27,8 @@ class CoffeeControllerTest {
     @Test
     @SneakyThrows
     void shouldReturnCoffee() {
-        when(coffeeService.getCoffee(any())).thenReturn("mocha");
+        when(coffeeService.getCoffee(any()))
+            .thenReturn("mocha");
         mockMvc.perform(get("/api/coffee"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$", is("mocha")));

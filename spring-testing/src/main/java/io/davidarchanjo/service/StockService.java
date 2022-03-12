@@ -12,10 +12,10 @@ import java.util.Set;
 public class StockService {
 
     private final StockApiClient stockApiClient;
-    private Set<String> techCompanies = Set.of("AAPL", "MSFT", "GOOG");
+    private final Set<String> TECH_COMPANIES = Set.of("AAPL", "MSFT", "GOOG");
 
     public BigDecimal getLatestPrice(String stockCode) {
-        if (techCompanies.contains(stockCode)) {
+        if (TECH_COMPANIES.contains(stockCode)) {
             return BigDecimal.valueOf(Double.MAX_VALUE);
         }
 

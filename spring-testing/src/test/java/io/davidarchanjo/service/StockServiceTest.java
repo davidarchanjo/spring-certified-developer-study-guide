@@ -15,11 +15,11 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class StockServiceTest {
 
-    @Mock
-    private StockApiClient stockApiClient;
-
     @InjectMocks
     private StockService stockService;
+
+    @Mock
+    private StockApiClient stockApiClient;
 
     @Test
     void shouldReturnDefaultPriceWhenClientThrowsException() {

@@ -2,10 +2,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch SpringTransaction2Application",
+            "name": "spring-transaction",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringTransaction2Application",
-            "projectName": "spring-transaction-2"
+            "projectName": "spring-transaction"
         },
         {
             "type": "java",
@@ -13,7 +13,7 @@
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringSpELApplication",
             "projectName": "spring-spel",
-            "vmArgs": "-Dmy.name=\"David Archanjo\""
+            "args": "--my.name='David Archanjo'"
         },
         {
             "type": "java",
