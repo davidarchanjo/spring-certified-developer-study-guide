@@ -9,10 +9,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-mvc</artifactId>
+    <artifactId>spring-conditional</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>spring-mvc</name>
+    <name>spring-conditional</name>
 
     <dependencies>
         <dependency>

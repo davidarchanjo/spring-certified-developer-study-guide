@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
 @Slf4j
 @Configuration
 @ComponentScan(basePackages = { "io.davidarchanjo" })
@@ -26,9 +24,10 @@ public class SpringBeanApplication {
 
     public static void main(String[] args) {        
         try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringBeanApplication.class)) {
-            log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
-            log.info("{}", ctx.getBean("fooToDo", ToDo.class));
-            log.info("{}", ctx.getBean("barToDo", ToDo.class));
+//            log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
+//            log.info("{}", ctx.getBean("fooToDo", ToDo.class));
+//            log.info("{}", ctx.getBean("barToDo", ToDo.class));
+            log.info("{}", ctx.getBean(Foo.class));
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
         }

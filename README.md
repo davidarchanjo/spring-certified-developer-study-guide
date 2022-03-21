@@ -18,7 +18,7 @@
 
 
 # 1. INTRODUCTION <a id="1-introduction-" href="#1"></a>
-This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide with the intention of consolidating my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
+This guide walks through technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide with the intention of consolidating my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
 
 I hope you find something useful. Good luck 🤞🍀!
 </br></br>

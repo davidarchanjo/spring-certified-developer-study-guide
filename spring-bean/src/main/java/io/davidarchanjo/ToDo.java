@@ -9,11 +9,11 @@ interface ToDoable {
 }
 
 @Component
-class Foo implements ToDoable {
+class F0o implements ToDoable {
 }
 
 @Component
-class Bar implements ToDoable {
+class B0r implements ToDoable {
 }
 
 @ToString
