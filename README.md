@@ -18,14 +18,14 @@
 
 
 # 1. INTRODUCTION <a id="1-introduction-" href="#1"></a>
-This guide walks through technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide with the intention of consolidating my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
+This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide in order to consolidate my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
 
 I hope you find something useful. Good luck 🤞🍀!
 </br></br>
 
 
 # 2. EXAM OVERVIEW <a id="2-exam-overview-" href="#2"></a>
-The **Spring Certified Professional** certification is a 50-multiple-choice exam, with a passing score of 76% correctness (i.e. at least 38 out of 50 questions must be answered correctly). This Spring professional certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot frameworks as follows:
+The **Spring Certified Professional** certification offered by VMWare is an exam scaled on a range from 100-500, with the determined raw cut score scaled to a value of 300. The exam may contain unscored questions in addition to the scored questions, this is a standard testing practice used by VMWare. We can't know which questions are unscored and the final result will reflect the scored questions only. This certification exam is designed to test and validate the overall understanding and familiarity with core aspects of Spring and Spring Boot frameworks as follows:
  - Container, Dependency, and IoC
  - Aspect-Oriented Programming (AOC)
  - Data Management: JDBC, Transactions
@@ -42,8 +42,8 @@ The **Spring Certified Professional** certification is a 50-multiple-choice exam
 ## EXAM INFO
 **Duration:** 90 Minutes </br>
 **Number of Questions:** 50 Questions </br>
-**Passing Score:** 76% </br>
-**Format:** Multiple Choice
+**Passing Score:** 300 </br>
+**Format:** Multiple Choice, Multiple Choice Multiple Selection, Drag and Drop, Matching
 </br></br>
 
 
@@ -98,6 +98,14 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 </br>
 
 # 4. SPRING CORE CONCEPTS <a id="4-spring-core-concepts-" href="#4"></a>
+## SAMPLE PROJECTS
+- [spring-bean](./spring-bean/)
+- [spring-bean-factory-post-processor](./spring-bean-factory-post-processor/)
+- [spring-bean-lifecycle-callback-order](./spring-bean-lifecycle-callback-order/)
+- [spring-bean-post-processor](./spring-bean-post-processor/)
+- [spring-spel](./spring-spel/)
+- [spring-startup](./spring-startup/)
+
 ## REFERENCES
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 - https://knpcode.com/spring/spring-ioc-container-types-applicationcontext-and-beanfactory
@@ -119,17 +127,17 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 
 **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 
-**Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. The object delegates the job of construction its dependencies to the IoC container.
+**Inversion of Control (IoC)** is a process in which an object defines its dependencies without creating them explicitly. The object delegates the construction/instantiation job of its dependencies to the IoC container.
 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## SPRING EXPRESSION LANGUAGE
 The Spring Expression Language (SpEL for short) is used to query property values from properties file or to manipulate java objects and its attributes at runtime. @Value annotation is the most used way to process SpEL.
 
-SpEL expressions begin with `#` and are enclosed by braces, like `#{expression}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, like `${property}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, like `#{'${property}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, it is mandatory to reference the property enclosed by single quotes**.
+SpEL expressions begin with `#` and are enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{'${foo.bar}' + 2}`. **From this example, notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
 
 SpEL provides two special built-in variables: `systemProperties` and `systemEnvironment`:
-- **systemProperties** – a java.util.Properties object retrieving properties from the runtime environment, like `os.name` or jvm args like `-Dxxx`;
+- **systemProperties** – a java.util.Properties object that provides runtime environment properties, like `os.name`, or JVM argument like `-Dxxx`;
 - **systemEnvironment** – a java.util.Properties object retrieving environment specific properties from the runtime environment, like env variables;
 
 ## KEY INTERFACES
@@ -192,6 +200,9 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 
 # 5. SPRING BOOT BASICS AND AUTO-CONFIGURATION <a id="5-spring-boot-basics-and-auto-configuration-" href="#5"></a>
+## SAMPLE PROJECTS
+- [spring-conditional](./spring-conditional/)
+
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
@@ -214,6 +225,9 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 
 # 6. ASPECT-ORIENTED PROGRAMMING <a id="6-aspect-oriented-programming-" href="#6"></a>
+## SAMPLE PROJECTS
+- [spring-aop](./spring-aop/)
+
 ## REFERENCES
 - https://www.javatpoint.com/spring-aop-tutorial
 - https://docs.spring.io/spring-framework/docs/3.0.x/reference/aop.html
@@ -273,6 +287,11 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 
 # 7. DATA MANAGEMENT: JDBC, TRANSACTIONS <a id="7-data-management-jdbc-transactions-" href="#7"></a>
+## SAMPLE PROJECTS
+- [spring-datasource](./spring-datasource/)
+- [spring-jdbctemplate](./spring-jdbctemplate/)
+- [spring-transaction](./spring-transaction/)
+
 ## REFERENCES
 - https://www.javainuse.com/spring/boot-transaction
 - https://www.baeldung.com/spring-transactional-propagation-isolation
@@ -340,6 +359,9 @@ A read-only transaction is **a transaction which does not modify any data**. If 
 
 
 # 8. SPRING DATA JPA <a id="8-spring-data-jpa-" href="#8"></a>
+## SAMPLE PROJECTS
+- [spring-data-jpa](./spring-data-jpa/)
+
 ## REFERENCES
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://knpcode.com/spring/spring-data-tutorial/
@@ -387,6 +409,10 @@ repository methods to execute both JPQL or native SQL queries;
 
 
 # 9. SPRING MVC <a id="9-spring-mvc-" href="#9"></a>
+## SAMPLE PROJECTS
+- [spring-crud](./spring-crud/)
+- [spring-mvc](./spring-mvc/)
+
 ## REFERENCES
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content

@@ -60,8 +60,9 @@
         <module>spring-aop</module>
 		<module>spring-bean</module>
 		<module>spring-bean-factory-post-processor</module>
-		<module>spring-bean-post-processor</module>
 		<module>spring-bean-lifecycle-callback-order</module>
+		<module>spring-bean-post-processor</module>
+		<module>spring-conditional</module>
 		<module>spring-crud</module>
 		<module>spring-data-jpa</module>
 		<module>spring-datasource</module>
