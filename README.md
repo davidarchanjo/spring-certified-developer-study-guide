@@ -18,7 +18,7 @@
 
 
 # 1. INTRODUCTION <a id="1-introduction-" href="#1"></a>
-This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide in order to consolidate my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that it alone can enable someone to take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations and tutorials, and offers a structured and concise study planning to help on your preparation.
+This guide walks through some technical notes and references about the Spring Framework, with focus on the Spring Boot Framework, serving as a _supporting material_ for whoever is preparing to take the [Spring Certified Professional](https://www.vmware.com/education-services/certification/vcp-spring-exam.html) exam. I came up with this guide in order to consolidate my knowledge throughout my studies, hence all the content presented here are by no means definitive and exhaustive so that someone only based on what I present here can take the exam fully prepared. Ultimately this guide contains many sources for relevant technical documentations, tutorials and notes, and also offers a structured and concise study planning to help on your preparation.
 
 I hope you find something useful. Good luck 🤞🍀!
 </br></br>
@@ -134,7 +134,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 ## SPRING EXPRESSION LANGUAGE
 The Spring Expression Language (SpEL for short) is used to query property values from properties file or to manipulate java objects and its attributes at runtime. @Value annotation is the most used way to process SpEL.
 
-SpEL expressions begin with `#` and are enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can contain property references, e.g. `#{'${foo.bar}' + 2}`. **From this example, notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
+A SpEL expression begins with `#` and is enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can, e.g. `#{'${foo.bar}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
 
 SpEL provides two special built-in variables: `systemProperties` and `systemEnvironment`:
 - **systemProperties** – a java.util.Properties object that provides runtime environment properties, like `os.name`, or JVM argument like `-Dxxx`;
@@ -206,10 +206,53 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 ## REFERENCES
 - https://www.baeldung.com/spring-boot-annotations
 - https://www.baeldung.com/spring-conditional-annotations
+- https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/using-boot-auto-configuration.html
 - https://www.marcobehler.com/guides/spring-boot
 - https://www.baeldung.com/spring-component-scanning
 - https://reflectoring.io/spring-boot-conditionals
 - https://zetcode.com/springboot/conditionalbeans
+
+## AUTO-CONFIGURATION
+Auto-configuration is a mechanism in which Spring attempts to automatically configures an application based on the dependencies found on its classpath.
+
+When every Spring Boot application boots up, it tries to read in .properties from 17 hard-coded locations and as well as, and mainly, it reads the `spring.factories` file. This file comes from the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency and is located under the META-INF folder of the spring-boot-autoconfigure.jar.
+
+To make the auto-configuration mechanism work, Spring makes use of a predefined @Conditional-based annotation set. We can apply @Conditional-based annotation to any bean-component declared with the @Component, @Service, @Repository, or @Controller annotations.
+
+[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a given component is only eligible for registration based on a defined condition;
+
+[@ConditionalOnBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnBean.html) - used to condition the registration of the annotated component when beans of all classes specified are contained in the BeanFactory;
+
+[@ConditionalOnMissingBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.html) - used to condition the registration of the annotated component when none of the bean class specified is contained in the BeanFactory;
+
+[@ConditionalOnClass](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnClass.html) used to condition the registration of the annotated component only if the specified classes are on the classpath;
+
+[@ConditionalOnMissingClass](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingClass.html) - used to condition the registration of the annotated component only if none of the specified classes are on the classpath;
+
+[@ConditionalOnExpression](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnExpression.html) - used to condition the registration of the annotated component only if the specified SpEL expression returns true;
+
+[@ConditionalOnProperty](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html) - used to condition the registration of the annotated component only if the specified property is set;
+
+[@ConditionalOnResource](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnResource.html) - used to condition the registration of the annotated component only if the specified resources exist;
+
+[@ConditionalOnJava](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnJava.html) - used to condition the registration of the annotated component only if the application is running on the specified JVM version. By default returns true if the running JVM version is equal to or greater than the specified version;
+
+[@ConditionalOnJndi](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnJndi.html) - used to condition the registration of the annotated component only if the specified JNDI context exists;
+
+[@ConditionalOnWebApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnWebApplication.html) - used to condition the registration of the annotated component only if the application is a web application (SERVLET or REACTIVE);
+
+[@ConditionalOnNotWebApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnNotWebApplication.html) - used to condition the registration of the annotated component only if the application is not a web application;
+
+[@ConditionalOnWarDeployment](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnWarDeployment.html) - used to condition the registration of the annotated component only if the application is a traditional WAR deployment. For applications with embedded servers, this condition will always return `false`.
+
+[@ConditionalOnSingleCandidate](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnSingleCandidate.html) - used to condition the registration of the annotated component only if a bean of the specified class is already contained in the BeanFactory and only a single candidate can be determined;
+
+[@ConditionalOnCloudPlatform](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnCloudPlatform.html) - used to condition the registration of the annotated component only if the specified cloud platform is active;
+
+### CUSTOM CONDITIONS
+We can define custom logic to be used as criteria for registering a component. To do so we create a custom condition by implementing the [Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html) interface and specifing it as parameter for the @Conditional annotation.
+
+</br>
 
 ## KEY ANNOTATIONS
 [@SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) - is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes;
@@ -220,9 +263,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 [@SpringBootConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringBootConfiguration.html) - used to indicate that a class provides Spring Boot application @Configuration. Can be used as an alternative to @Configuration annotation so that configuration can be found automatically;
 
-[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a component is only eligible for registration when all specified conditions match;
 </br></br>
-
 
 # 6. ASPECT-ORIENTED PROGRAMMING <a id="6-aspect-oriented-programming-" href="#6"></a>
 ## SAMPLE PROJECTS

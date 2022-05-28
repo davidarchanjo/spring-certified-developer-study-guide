@@ -2,10 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch SpringConditionalApplication",
+            "name": "spring-conditional",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringConditionalApplication",
-            "projectName": "spring-conditional"
+            "projectName": "spring-conditional",
+            // "vmArgs": "-DENVIRONMENT=prd"
         },
         {
             "type": "java",
