@@ -213,7 +213,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 - https://zetcode.com/springboot/conditionalbeans
 
 ## AUTO-CONFIGURATION
-Auto-configuration is a mechanism in which Spring attempts to automatically configures an application based on the dependencies found on its classpath.
+Auto-configuration is a mechanism in which Spring automatically configures an application based on the dependencies found on its classpath.
 
 When every Spring Boot application boots up, it tries to read in .properties from 17 hard-coded locations and as well as, and mainly, it reads the `spring.factories` file. This file comes from the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency and is located under the META-INF folder of the spring-boot-autoconfigure.jar.
 
@@ -249,8 +249,38 @@ To make the auto-configuration mechanism work, Spring makes use of a predefined 
 
 [@ConditionalOnCloudPlatform](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnCloudPlatform.html) - used to condition the registration of the annotated component only if the specified cloud platform is active;
 
-### CUSTOM CONDITIONS
-We can define custom logic to be used as criteria for registering a component. To do so we create a custom condition by implementing the [Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html) interface and specifing it as parameter for the @Conditional annotation.
+### CUSTOM CONDITION
+We can define a custom logic to be used as criteria for registering a component. To do so we should create a class that implements the [Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html) interface, overriding its [matches](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html#matches-org.springframework.context.annotation.ConditionContext-org.springframework.core.type.AnnotatedTypeMetadata-) method with our custom logic, and then specify our class as parameter for the @Conditional annotation.
+
+### COMBINE CONDITIONS
+We can make use of combined @Conditional annotations along with custom condition in order to apply complex OR or AND logical operation.
+
+To apply the OR operator, we only have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class. I implemented the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition class and apply it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L37)
+
+## External Application Properties
+By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
+
+> When talking about a Spring Boot application, the classpath is the resource folder location of the project
+
+> If we have .properties and .yml configuration files in the same location, what is defined from .properties will take precedence over .yml if the same property is defined in both files.
+
+> Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from .properties or .yml files.
+
+1. From command-line and OS environment:
+   - OS environment variable, e.g. `export server.port=9090`;
+   - JVM argument, e.g. `-Dserver.port=9090`;
+   - command-line argument, e.g. `--server-port=9090`;
+
+2. From the classpath:
+   - The classpath root, e.g. from `/resources` folder by default;
+   - The classpath `/config` package, i.e. from `/resources/config` folder;
+
+3. From the current directory:
+   - The current directory;
+   - The `/config` subdirectory in the current directory;
+   - Immediate child directories of the `/config` subdirectory, according to system default folder ordering;
+
+With that in mind, if a property is defined in `/resources/application.properties` and there is a definition for the same property in `/resources/config/application.properties` with a different value, the value from the latter location will take precedence over the former.
 
 </br>
 

@@ -19,9 +19,7 @@ public class SpringConditionalApplication {
     @Bean
     CommandLineRunner commandLineRunner(ApplicationContext ctx, Environment env) {
         return args -> {
-            // String[] beans = ctx.getBeanDefinitionNames();
-            // Arrays.sort(beans);
-            // boolean contains = Arrays.stream(beans).anyMatch("module"::equalsIgnoreCase);
+            System.out.println(System.getProperty("os.name"));
             Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println);
             // System.out.println(ctx.containsBeanDefinition("conditionalOnExpression")
             //     ? ctx.getBean("conditionalOnExpression", Clazz.class) : "conditionalOnExpression bean not loaded");
