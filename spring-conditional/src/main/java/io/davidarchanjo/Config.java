@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnNotWebApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnResource;
 import org.springframework.boot.system.JavaVersion;
@@ -37,6 +38,13 @@ public class Config {
     @Conditional({HmlOrPrdEnvironmentCondition.class})
     public String conditionalOnIsHmlOrPrdEnvironment() {
         return "ConditionalOnIsHmlOrPrdEnvironment";
+    }
+
+    @Bean
+    @ConditionalOnNotWebApplication
+    @Conditional({LinuxCondition.class, PrdEnvironmentCondition.class})
+    public String conditionalOnIsLinuxAndPrdEnvironment() {
+        return "ConditionalOnIsLinuxAndPrdEnvironment";
     }
 
     @Bean    

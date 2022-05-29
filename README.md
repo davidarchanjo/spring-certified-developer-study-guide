@@ -255,7 +255,9 @@ We can define a custom logic to be used as criteria for registering a component.
 ### COMBINE CONDITIONS
 We can make use of combined @Conditional annotations along with custom condition in order to apply complex OR or AND logical operation.
 
-To apply the OR operator, we only have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class. I implemented the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition class and apply it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L37)
+To apply the OR operator, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class and then simply uses it as argument in the @Conditional annotation. I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L37).
+
+To apply the AND operator, we can simply group the conditions in the @Conditional annotation and add to the component additional @Conditional-based annotations. I demonstrate that operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
 
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
