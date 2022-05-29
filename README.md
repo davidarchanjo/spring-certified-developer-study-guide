@@ -253,11 +253,11 @@ To make the auto-configuration mechanism work, Spring makes use of a predefined 
 We can define a custom logic to be used as criteria for registering a component. To do so we should create a class that implements the [Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html) interface, overriding its [matches](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html#matches-org.springframework.context.annotation.ConditionContext-org.springframework.core.type.AnnotatedTypeMetadata-) method with our custom logic, and then specify our class as parameter for the @Conditional annotation.
 
 ### COMBINE CONDITIONS
-We can make use of combined @Conditional annotations along with custom condition in order to apply complex OR or AND logical operation.
+We can make use of combined @Conditional-based annotations along with custom condition in order to implement complex OR or AND logical operation.
 
-To apply the OR operator, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class and then simply uses it as argument in the @Conditional annotation. I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L37).
+To apply OR operation, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class and then simply uses it as argument in the @Conditional annotation. For that purpose I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L39).
 
-To apply the AND operator, we can simply group the conditions in the @Conditional annotation and add to the component additional @Conditional-based annotations. I demonstrate that operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
+To apply AND operation, we can simply group the conditions in the @Conditional annotation and additionally set others @Conditional-based annotations. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
 
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
