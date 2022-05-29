@@ -262,7 +262,7 @@ To apply AND operation, we can group custom conditions in the @Conditional and a
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
 
-> **OBS.:** Spring Boot applications have in its classpath the `src/main/resource` folder location by default.
+> **OBS.:** Spring applications have in its classpath the `src/main/resource` folder location by default.
 
 > **OBS.:** If we have .properties and .yml configuration files in the same location, what is defined from .properties will take precedence over .yml if the same property is defined in both files.
 
