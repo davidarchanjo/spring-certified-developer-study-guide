@@ -257,7 +257,7 @@ We can make use of combined @Conditional-based annotations along with custom con
 
 To apply OR operation, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class and then simply uses it as argument in the @Conditional annotation. For that purpose I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L39).
 
-To apply AND operation, we can simply group the conditions in the @Conditional annotation and additionally set others @Conditional-based annotations. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
+To apply AND operation, we can simply group custom conditions in the @Conditional and additionally set others @Conditional-based annotations. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
 
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
