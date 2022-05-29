@@ -30,8 +30,14 @@ public class Config {
 
     @Bean
     @Conditional({PrdEnvironmentCondition.class})
-    public String conditionalOnIsProductionEnvironment() {
-        return "ConditionalOnIsProductionEnvironment";
+    public String conditionalOnIsPrdEnvironmentCondition() {
+        return "ConditionalOnIsPrdEnvironmentCondition";
+    }
+    
+    @Bean
+    @Conditional({HmlEnvironmentCondition.class})
+    public String conditionalOnIsHmlEnvironmentCondition() {
+        return "ConditionalOnIsHmlEnvironmentCondition";
     }
 
     @Bean

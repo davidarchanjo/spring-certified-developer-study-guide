@@ -255,18 +255,18 @@ We can define a custom logic to be used as criteria for registering a component.
 ### COMBINE CONDITIONS
 We can combine @Conditional-based annotations along with custom conditions in order to implement complex OR or AND logical operation.
 
-To apply OR operation, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class, then uses it as argument in the @Conditional annotation. For that purpose I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L39).
+To apply OR operation, we have to create a custom condition extending the [AnyNestedCondition](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/AnyNestedCondition.html) class, then uses it as argument in the @Conditional annotation. For that purpose I created the [HmlOrPrdEnvironmentCondition](/spring-conditional/src/main/java/io/davidarchanjo/HmlOrPrdEnvironmentCondition.java) custom condition and applied it [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L44).
 
-To apply AND operation, we can group custom conditions in the @Conditional and additionally set others @Conditional-based annotations to the component. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L46).
+To apply AND operation, we can group custom conditions in the @Conditional and additionally set others @Conditional-based annotations to the component. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L51).
 
 ## External Application Properties
-By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
+By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of this list is ordered by precedence with values from lower items overriding earlier ones**:
 
 > **OBS.:** Spring applications have in its classpath the `src/main/resource` folder location by default.
 
 > **OBS.:** If we have both application.properties and application.yml files in the same location and a given property is defined in both, the value from the application.properties will take precedence over the value set at application.yml.
 
-> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from .properties or .yml files.
+> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml files.
 
 1. From command-line and OS environment:
    - OS environment variable, e.g. `export server.port=9090`;
