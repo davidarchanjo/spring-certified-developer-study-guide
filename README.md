@@ -262,11 +262,11 @@ To apply AND operation, we can group custom conditions in the @Conditional and a
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of that this list is ordered by precedence with values from lower items overriding earlier ones**:
 
-> When talking about a Spring Boot application, the classpath is the resource folder location of the project
+> **OBS.:** When talking about a Spring Boot application, the classpath is the resource folder location of the project
 
-> If we have .properties and .yml configuration files in the same location, what is defined from .properties will take precedence over .yml if the same property is defined in both files.
+> **OBS.:** If we have .properties and .yml configuration files in the same location, what is defined from .properties will take precedence over .yml if the same property is defined in both files.
 
-> Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from .properties or .yml files.
+> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from .properties or .yml files.
 
 1. From command-line and OS environment:
    - OS environment variable, e.g. `export server.port=9090`;
