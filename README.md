@@ -266,7 +266,7 @@ By default, Spring Boot will find and load `application.[properties|yml]` files 
 
 > **OBS.:** If we have both application.properties and application.yml files in the same location and a given property is defined in both, the value from the application.properties will take precedence over the value at application.yml.
 
-> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml files.
+> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml.
 
 1. From command-line and OS environment:
    - OS environment variable, e.g. `export server.port=9090`;
