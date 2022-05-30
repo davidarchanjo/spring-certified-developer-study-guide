@@ -1,7 +1,5 @@
 package io.davidarchanjo;
 
-import javax.sql.DataSource;
-
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
