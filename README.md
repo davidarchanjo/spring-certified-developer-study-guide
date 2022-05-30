@@ -211,13 +211,14 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 - https://www.baeldung.com/spring-component-scanning
 - https://reflectoring.io/spring-boot-conditionals
 - https://zetcode.com/springboot/conditionalbeans
+- https://www.baeldung.com/spring-boot-custom-starter
 
 ## AUTO-CONFIGURATION
 Auto-configuration is a mechanism in which Spring automatically configures an application based on the dependencies found on its classpath.
 
-When every Spring application boots up, Spring tries to read in properties from 17 locations in addition to the `spring.factories` file.
+When every Spring application boots up, Spring tries to read in properties from 17 locations in addition to the `spring.factories` file in the classpath.
 
-In a nutshell, `spring.factories` file is **the file** that Spring automatically loads when booting up. It contains reference to many configuration classes and is located in `META-INF` of the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency.
+`spring.factories` file is a special file that Spring automatically loads when booting up. It contains reference to a lot of @Configuration class mappings which Spring will try to run. The `spring.factories` file is located in `META-INF` of the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency.
 
 @Conditional-based annotations are one of the key pieces that makes Spring auto-configuartion mechanism work. We can apply @Conditional-based annotations to the commons Spring component, @Bean, @Component, @Service, @Repository and @Controller.
 
