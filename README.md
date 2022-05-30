@@ -215,9 +215,11 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 ## AUTO-CONFIGURATION
 Auto-configuration is a mechanism in which Spring automatically configures an application based on the dependencies found on its classpath.
 
-When every Spring Boot application boots up, it tries to read in .properties from 17 hard-coded locations and as well as, and mainly, it reads the `spring.factories` file. This file comes from the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency and is located under the META-INF folder of the spring-boot-autoconfigure.jar.
+When every Spring application boots up, Spring tries to read in properties from 17 locations in addition to the `spring.factories` file.
 
-To make the auto-configuration mechanism work, Spring makes use of a predefined @Conditional-based annotation set. We can apply @Conditional-based annotation to any bean-component declared with the @Component, @Service, @Repository, or @Controller annotations.
+In a nutshell, `spring.factories` file is **the file** that Spring automatically loads when booting up. It contains reference to many configuration classes and is located in `META-INF` of the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency.
+
+@Conditional-based annotations are one of the key pieces that makes Spring auto-configuartion mechanism work. We can apply @Conditional-based annotations to the commons Spring component, @Bean, @Component, @Service, @Repository and @Controller.
 
 [@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a given component is only eligible for registration based on a defined condition;
 
