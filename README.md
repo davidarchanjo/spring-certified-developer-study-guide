@@ -123,7 +123,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 - https://www.dev2qa.com/spring-expression-language-example-vs/
 
 ## OVERVIEW
-**Bean** is an object that is instantiated, assembled, and managed by the **Spring IoC Container**.
+**Bean** is an object that is instantiated and managed from creation to destruction by the **Spring IoC Container**.
 
 **Spring IoC Container** is responsible for instantiating beans, wiring dependencies and managing the bean lifecycle from its instantiation till destruction. Spring have two IoC container implementations: [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html) and [ApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html).
 
