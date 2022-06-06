@@ -1,5 +1,10 @@
 package io.davidarchanjo;
 
-public interface Foo {
-    void fuu();
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class Foo {
+    private Bar bar;    
 }

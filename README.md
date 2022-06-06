@@ -137,7 +137,7 @@ The Spring Expression Language (SpEL for short) is used to query property values
 A SpEL expression begins with `#` and is enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can, e.g. `#{'${foo.bar}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
 
 SpEL provides two special built-in variables: `systemProperties` and `systemEnvironment`:
-- **systemProperties** – a java.util.Properties object that provides runtime environment properties, like `os.name`, or JVM argument like `-Dxxx`;
+- **systemProperties** – a java.util.Properties object that provides runtime environment properties, like `os.name`, or JVM argument;
 - **systemEnvironment** – a java.util.Properties object retrieving environment specific properties from the runtime environment, like env variables;
 
 ## KEY INTERFACES
@@ -146,7 +146,7 @@ Spring Boot provides two interfaces to run specific pieces of code as soon as th
 
 By default, when defining multiple beans of both types ***in the same configuration class*** (@SpringBootApplication or @Configuration), beans of type ApplicationRunner will execute before beans of type CommandLineRunner. That rule also applies when they are defined individually as components (@Component). However when defined as components, that default execution order can be changed through the use of [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation.
 
-### BEAN INITIALIZATION LIFECYCLE
+### BEAN STATE ANNOTATION
 [BeanFactoryPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html) - used to modify the definition of any bean before it get created/instantiated by working on its configuration metadata phase, such as loading value for it from external property files.
 
 [BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - used to apply custom processing on bean _before_ and _after_ properties are set from initialization callbacks (like InitializingBean's afterPropertiesSet or custom @PostConstruct's init-method).
@@ -168,8 +168,13 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
 [@Autowired](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html) - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
+> @Autowired can not be used to inject primitive and string values. It only works with reference objects.
 
-[@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify by name which bean have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
+> @Autowired, when processing field injection, first looks for a bean which *name* is equal to the field name. If none is found, then it looks for a bean which *type* is the same as the field to be injected
+
+> When the injection of a field/parameter marked to be autowired is going to be via its type and there are many available bean instances for the given type, an [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) will be thrown. To solve this, we can either add @Primary to one of the bean definition or add @Qualifier to the field/parameter specifying the name from one of the matching beans
+
+[@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify the id of the bean that have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
 
 [@Primary](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Primary.html) - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to set higher preference for a given bean when there are multiple ones of the same type;
 
@@ -220,9 +225,9 @@ When every Spring application boots up, Spring tries to read in properties from 
 
 `spring.factories` file is a special file that Spring automatically loads when booting up. It contains reference to a lot of @Configuration class mappings which Spring will try to run. The `spring.factories` file is located in `META-INF` of the [org.springframework.boot:spring-boot-autoconfigure](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure) dependency.
 
-@Conditional-based annotations are one of the key pieces that makes Spring auto-configuartion mechanism work. We can apply @Conditional-based annotations to the commons Spring component, @Bean, @Component, @Service, @Repository and @Controller.
+@Conditional-based annotations are one of the key pieces that makes Spring auto-configuartion mechanism work. We can apply @Conditional-based annotations to common Spring components, like @Bean, @Component, @Service, @Repository and @Controller.
 
-[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a given component is only eligible for registration based on a defined condition;
+[@Conditional](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html) - used to indicate that a given component is only eligible for registration when all specified condition match;
 
 [@ConditionalOnBean](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnBean.html) - used to condition the registration of the annotated component when beans of all classes specified are contained in the BeanFactory;
 
