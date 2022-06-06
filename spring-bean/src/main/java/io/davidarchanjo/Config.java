@@ -11,10 +11,10 @@ public class Config {
         return new Bar();
     }
 
-    // @Bean
-    // public Bar bar2() {
-    //     return new Bar();
-    // }
+    @Bean
+    public Bar bar2() {
+        return new Bar();
+    }
 
     @Bean
     public Foo foo1() {
