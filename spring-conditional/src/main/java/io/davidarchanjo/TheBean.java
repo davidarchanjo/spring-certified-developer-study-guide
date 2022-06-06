@@ -5,6 +5,6 @@ import lombok.ToString;
 
 @ToString
 @AllArgsConstructor
-public class Clazz {
+public class TheBean {
     private String name;
 }

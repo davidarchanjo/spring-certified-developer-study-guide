@@ -66,7 +66,7 @@ public class Config {
 
     // @ConditionalOnBean(DataSource.class)
 
-    @ConditionalOnClass({Clazz.class})
+    @ConditionalOnClass({TheBean.class})
     public String conditionalOnClass() {
         return "ConditionalOnClass";
     }

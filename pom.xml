@@ -59,6 +59,7 @@
 		<module>spring-actuator</module>
         <module>spring-aop</module>
 		<module>spring-bean</module>
+		<module>spring-bean-callback-order</module>
 		<module>spring-bean-factory-post-processor</module>
 		<module>spring-bean-lifecycle-callback-order</module>
 		<module>spring-bean-post-processor</module>

@@ -149,18 +149,27 @@ By default, when defining multiple beans of both types ***in the same configurat
 ### BEAN STATE ANNOTATION
 [BeanFactoryPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html) - used to modify the definition of any bean before it get created/instantiated by working on its configuration metadata phase, such as loading value for it from external property files.
 
-[BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - used to apply custom processing on bean _before_ and _after_ properties are set from initialization callbacks (like InitializingBean's afterPropertiesSet or custom @PostConstruct's init-method).
+[BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - Factory hook interface that allows for custom modification of new bean instances _before_ and _after_ properties are set from initialization callbacks.
 
-[InitializingBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html) - used on beans to implement custom processing once all their properties have been set, e.g. to perform custom initialization, or merely to check that all mandatory properties have been set.
+[InitializingBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html) - interface to be implemented by beans that need to react once all their properties have been set by overriding the [afterPropertiesSet](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html#afterPropertiesSet--) method.
 
-[DisposableBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html) - used on beans to implement custom actions upon bean's destruction lifecycle event, like release resources.
+[DisposableBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html) - interface to be implemented by beans that want to release resources upon their destruction by overriding the [destroy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html#destroy--) method.
 
-[@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used on beans to mark a method that must be executed after the dependency injection is done.
+[@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used on beans to mark a method to be executed, like a callback, after the dependency injection is done.
 
-[@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal that the instance is in the process of being removed from the container;
+[@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal the instance is in the process of being removed from the container;
 
 #### CALLBACK ORDER EXECUTION
-Spring provides many lifecycle callbacks allowing specific operations to be performed after initialization and before destruction of beans. If all of them are used in conjuction, for initialization the callback sequence goes like this: `Bean's Constructor > @PostConstruct > InitializingBean's afterPropertiesSet > init-method`. And for destruction, the callback sequence goes like this: `DisposableBean's destroy > destroy-method`;
+If all lifecycle callbacks, annotations and BeanPostProcessor are used in conjuction, the sequence goes like this: <br>
+➡️ `Bean's constructor`<br>
+➡️ `BeanPostProcessor's postProcessBeforeInitialization`<br>
+➡️ `@PostConstruct`<br>
+➡️ `InitializingBean's afterPropertiesSet`<br>
+➡️ `Bean's initMethod`<br>
+➡️ `BeanPostProcessor's postProcessAfterInitialization`<br>
+➡️ `@PreDestroy`<br>
+➡️ `DisposableBean's destroy`<br>
+➡️ `Bean's destroyMethod`
 
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
@@ -194,7 +203,7 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 
 [@ImportAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/ImportAutoConfiguration.html) - used to disable the default autoconfiguration flow performed by @EnableAutoConfiguration, importing only the configuration classes provided in the annotation.
 
-[@Value](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html) - used at field or method/constructor parameter level to inject property value into beans;
+[@Value](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html) - used at field or method/constructor parameter level to inject value from properties located at .properties/.yml files, SpEL, classpath's resources etc;
 
 [@PropertySource](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html) - used to load values from property files — the values can be accessed from [Environment](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html) or injected by the @Value annotation;
 

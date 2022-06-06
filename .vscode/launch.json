@@ -2,11 +2,24 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringBeanCallbackOrderApplication",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringBeanCallbackOrderApplication",
+            "projectName": "spring-bean-callback-order"
+        },
+        {
+            "type": "java",
+            "name": "Launch SpringBeanFactoryPostProcessorApplication",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringBeanFactoryPostProcessorApplication",
+            "projectName": "spring-bean-factory-post-processor"
+        },
+        {
+            "type": "java",
             "name": "spring-conditional",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringConditionalApplication",
-            "projectName": "spring-conditional",
-            // "vmArgs": "-DENVIRONMENT=prd"
+            "projectName": "spring-conditional"
         },
         {
             "type": "java",

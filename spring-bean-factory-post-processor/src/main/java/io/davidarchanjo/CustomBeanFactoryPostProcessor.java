@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+    
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         PropertySourcesPlaceholderConfigurer cfg = new PropertySourcesPlaceholderConfigurer();

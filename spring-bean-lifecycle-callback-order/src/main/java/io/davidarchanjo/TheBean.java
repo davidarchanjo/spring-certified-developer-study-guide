@@ -1,15 +1,23 @@
 package io.davidarchanjo;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
+import java.util.Objects;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
+@Data
 public class TheBean implements InitializingBean, DisposableBean {
 
-    public TheBean() {
+    private String name;
+
+    public TheBean(String name) {
+        this.name = name;
         log.info("constructor");
     }
 
@@ -28,7 +36,11 @@ public class TheBean implements InitializingBean, DisposableBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("initializingBean's afterPropertiesSet method");
+        log.info("initializingBean's afterPropertiesSet method");        
+        log.info("name is null: {}, value: {}", Objects.isNull(this.name), this.name);
+
+        this.name = "FooBar";
+        log.info("name new value: {}", this.name);
     }
 
     @Override

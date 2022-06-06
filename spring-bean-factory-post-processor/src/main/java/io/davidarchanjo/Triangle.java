@@ -1,31 +1,28 @@
 package io.davidarchanjo;
 
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Setter
 @Component
 public class Triangle implements InitializingBean, DisposableBean {
     
-    @Autowired
-    @Qualifier("pointA")
-    private Point pointA;
+    @Autowired    
+    private Point pointA; // no need to use @Qualifier because the field has the same name of an existing bean for the Point type
 
     @Autowired
-    @Qualifier("pointB")
     private Point pointB;
 
     @Autowired
-    @Qualifier("pointC")
     private Point pointC;
 
     public void draw() {
@@ -35,12 +32,12 @@ public class Triangle implements InitializingBean, DisposableBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         log.info("Bean initialization method - triangle");
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         log.info("Bean destruction method - triangle");
     }
 
