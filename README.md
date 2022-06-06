@@ -168,11 +168,11 @@ Spring provides many lifecycle callbacks allowing specific operations to be perf
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 
 [@Autowired](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html) - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
-> @Autowired can not be used to inject primitive and string values. It only works with reference objects.
+> 📌 @Autowired can not be used to inject primitive and string values. It only works with reference objects.
 
-> @Autowired, when processing field injection, first looks for a bean which *name* is equal to the field name. If none is found, then it looks for a bean which *type* is the same as the field to be injected
+> 📌 @Autowired, when processing field injection, first looks for a bean which *name* is equal to the field name. If none is found, then it looks for a bean which *type* is the same as the field to be injected
 
-> When the injection of a field/parameter marked to be autowired is going to be via its type and there are many available bean instances for the given type, an [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) will be thrown. To solve this, we can either add @Primary to one of the bean definition or add @Qualifier to the field/parameter specifying the name from one of the matching beans
+> 📌 When the injection of a field/parameter marked to be autowired is going to be via its type and there are many available bean instances for the given type, an [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) will be thrown. To solve this, we can either add @Primary to one of the bean definition or add @Qualifier to the field/parameter specifying the name from one of the matching beans
 
 [@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify the id of the bean that have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
 
@@ -270,11 +270,11 @@ To apply AND operation, we can group custom conditions in the @Conditional and a
 ## External Application Properties
 By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of this list is ordered by precedence with values from lower items overriding earlier ones**:
 
-> **OBS.:** Spring applications have in its classpath the `src/main/resource` folder location by default.
+> 📌 Spring applications have in its classpath the `src/main/resource` folder location by default.
 
-> **OBS.:** If we have both application.properties and application.yml files in the same location and a given property is defined in both, the value from the application.properties will take precedence over the value at application.yml.
+> 📌 If we have both application.properties and application.yml files in the same location and a given property is defined in both, the value from the application.properties will take precedence over the value at application.yml.
 
-> **OBS.:** Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml.
+> 📌 Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml.
 
 1. From command-line and OS environment:
    - OS environment variable, e.g. `export server.port=9090`;

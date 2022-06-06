@@ -20,7 +20,6 @@ public class SpringBeanApplication {
         SpringApplication.run(SpringBeanApplication.class, args);
     }
 
-    // @Autowired tries to inject by looking up 
     @Autowired
     Bar bar;
 
@@ -33,7 +32,7 @@ public class SpringBeanApplication {
         return args -> {
             Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println);
             // Bar bar = ctx.getBean("bar", Bar.class);
-            Foo foo = ctx.getBean("foo1", Foo.class);
+            // Foo foo = ctx.getBean("foo1", Foo.class);
             // Foo foo2 = ctx.getBean("foo2", Foo.class);
             // log.info("{}", List.of(ctx.getBeanNamesForType(ToDo.class)));
             // log.info("{}", ctx.getBean("bar", Bar.class));
