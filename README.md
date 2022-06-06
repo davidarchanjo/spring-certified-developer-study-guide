@@ -160,7 +160,7 @@ By default, when defining multiple beans of both types ***in the same configurat
 [@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal the instance is in the process of being removed from the container;
 
 #### CALLBACK ORDER EXECUTION
-If all lifecycle callbacks, annotations and BeanPostProcessor are used in conjuction, the sequence goes like this: <br>
+If all lifecycle callbacks, annotations and a BeanPostProcessor implementation are used in conjuction, the execution sequence goes like this: <br>
 ➡️ **Bean's constructor**<br>
 ➡️ **BeanPostProcessor's postProcessBeforeInitialization**<br>
 ➡️ **@PostConstruct method**<br>
