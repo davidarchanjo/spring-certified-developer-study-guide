@@ -338,7 +338,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 * **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**; 
 
-* **Pointcut** - is an expression language of AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
+* **Pointcut** - is an expression language from AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
 
 * **Introduction** - is a means to declare additional methods and fields for a type, allowing to introduce new interface to any advised object;
 
