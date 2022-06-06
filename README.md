@@ -162,14 +162,14 @@ By default, when defining multiple beans of both types ***in the same configurat
 #### CALLBACK ORDER EXECUTION
 If all lifecycle callbacks, annotations and BeanPostProcessor are used in conjuction, the sequence goes like this: <br>
 ➡️ **Bean's constructor**<br>
-➡️ BeanPostProcessor's postProcessBeforeInitialization<br>
-➡️ @PostConstruct<br>
-➡️ InitializingBean's afterPropertiesSet<br>
-➡️ Bean's initMethod<br>
-➡️ BeanPostProcessor's postProcessAfterInitialization<br>
-➡️ @PreDestroy<br>
-➡️ DisposableBean's destroy<br>
-➡️ Bean's destroyMethod
+➡️ **BeanPostProcessor's postProcessBeforeInitialization**<br>
+➡️ **@PostConstruct method**<br>
+➡️ **InitializingBean's afterPropertiesSet**<br>
+➡️ **Bean's init-method**<br>
+➡️ **BeanPostProcessor's postProcessAfterInitialization**<br>
+➡️ **@PreDestroy method**<br>
+➡️ **DisposableBean's destroy**<br>
+➡️ **Bean's destroy-method**
 
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
