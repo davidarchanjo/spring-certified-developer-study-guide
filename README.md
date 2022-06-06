@@ -334,7 +334,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 ### CORE CONCEPTS
 * **Cross-Cutting Concerns** - are common functions that span on multiple points of an application, such as logging, transaction management, data validation, etc;
 
-* **Join Point** - is any point during the execution of a program, such as the execution of a method, the handling of an exception or a field access. In Spring AOP, a join point always represents a method execution;
+* **Join Point** - is any point during the execution of a program, such as a method execution, an exception handling or a field access. In Spring AOP, a join point always represents a method execution;
 
 * **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**; 
 
