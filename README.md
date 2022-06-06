@@ -161,7 +161,7 @@ By default, when defining multiple beans of both types ***in the same configurat
 
 #### CALLBACK ORDER EXECUTION
 If all lifecycle callbacks, annotations and BeanPostProcessor are used in conjuction, the sequence goes like this: <br>
-➡️ Bean's constructor<br>
+➡️ **Bean's constructor**<br>
 ➡️ BeanPostProcessor's postProcessBeforeInitialization<br>
 ➡️ @PostConstruct<br>
 ➡️ InitializingBean's afterPropertiesSet<br>
