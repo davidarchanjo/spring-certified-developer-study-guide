@@ -368,7 +368,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 [@AfterReturning](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.html) - used to mark a method to be executed after (only if) the matching joint point completes normally without throwing exception;
 
-[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - used to mark a method to be executed after (only if) the matching join point exits by throwing an exception;
+[@AfterThrowing](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.html) - used to mark a method to be executed after (only if) the matching join point exits due to an exception;
 
 [@Around](https://www.eclipse.org/aspectj/doc/next/aspectj5rt-api/org/aspectj/lang/annotation/Around.html) - used to mark a method to be executed before and after a Joint Point.
 </br></br>
