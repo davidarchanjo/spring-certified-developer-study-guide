@@ -1,14 +1,11 @@
 package io.davidarchanjo;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 public class DemoComponent {
 
     public void doSomething() {
-        log.info("Doing something important!");
     }
 
     @LogAccess
@@ -17,6 +14,6 @@ public class DemoComponent {
     }
 
     public String doThrowException(String value) {
-        throw new RuntimeException("I'm an runtime exception!");
+        throw new RuntimeException("I'm an exception!");
     }
 }

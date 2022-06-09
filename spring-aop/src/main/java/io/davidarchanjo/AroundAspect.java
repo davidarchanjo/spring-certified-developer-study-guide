@@ -1,29 +1,28 @@
 package io.davidarchanjo;
 
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
-//@Aspect
+@Aspect
 @Component
 public class AroundAspect {
 
     @Pointcut("@annotation(io.davidarchanjo.LogAccess)")
     public void methodsAnnotatedWithLogAccess() {}
 
-    @Around(value = "methodsAnnotatedWithLogAccess() && args(name)", argNames = "name")
+    @Around(value = "execution(* io.davidarchanjo.DemoComponent.do*(..)) && args(name)", argNames = "name")
     public Object advice(ProceedingJoinPoint proceedingJoinPoint, String name) throws Throwable {
         Object value = null;
 
         try {
             log.info("@Around Advice - args: {}", name /* or proceedingJoinPoint.getArgs() */);
             value = proceedingJoinPoint.proceed();
-        } catch (Throwable throwable) {
-            throw throwable;
         } finally {
             log.info("@Around Advice after proceeding and before return - output: {}", value);
             value += "@ Around Advice";
