@@ -14,6 +14,6 @@ public class HelloController {
     public String hello(@RequestParam String name, Model model) {
         User user = new User(name);
         model.addAttribute("user", user);
-        return "hello";
+        return "greeting";
     }
 }
