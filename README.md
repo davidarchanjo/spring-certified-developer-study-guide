@@ -173,6 +173,7 @@ If all lifecycle callbacks, annotations and a BeanPostProcessor implementation a
 
 ## KEY ANNOTATIONS
 [@Bean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html) - used on factory methods to indicate that the produced object will be managed by the Spring container;
+> 📌 If from a bean definition method another bean definition method is invoked, both within the same configuration class, and the called method is set to have SINGLETON scope then the returned object will always be the same, regardless of the number of invocations; i.e. even on direct calls, the scope defined for the bean determines whether the return object have to be reused or a new one have to be created.
 
 [@Scope](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Scope.html) - used to indicate the scope for instances of the annotated bean;
 

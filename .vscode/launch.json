@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringMvcArticleApplication",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringMvcArticleApplication",
+            "projectName": "spring-mvc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SpringMVCApplication",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringMVCApplication",
+            "projectName": "spring-mvc"
+        },
+        {
+            "type": "java",
             "name": "Launch SpringBeanCallbackOrderApplication",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanCallbackOrderApplication",
