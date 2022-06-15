@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("hello")
-public class RegistrationController {
+public class HelloController {
 
     @GetMapping
     public String hello(@RequestParam String name, Model model) {
