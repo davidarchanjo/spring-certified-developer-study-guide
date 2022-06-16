@@ -2,28 +2,28 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch SpringMvcArticleApplication",
+            "name": "spring-rest",
             "request": "launch",
-            "mainClass": "io.davidarchanjo.SpringMvcArticleApplication",
+            "mainClass": "io.davidarchanjo.SpringRestApplication",
+            "projectName": "spring-rest"
+        },
+        {
+            "type": "java",
+            "name": "spring-mvc",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringMvcApplication",
             "projectName": "spring-mvc"
         },
         {
             "type": "java",
-            "name": "Launch SpringMVCApplication",
-            "request": "launch",
-            "mainClass": "io.davidarchanjo.SpringMVCApplication",
-            "projectName": "spring-mvc"
-        },
-        {
-            "type": "java",
-            "name": "Launch SpringBeanCallbackOrderApplication",
+            "name": "spring-bean-callback-order",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanCallbackOrderApplication",
             "projectName": "spring-bean-callback-order"
         },
         {
             "type": "java",
-            "name": "Launch SpringBeanFactoryPostProcessorApplication",
+            "name": "spring-bean-factory-post-processor",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringBeanFactoryPostProcessorApplication",
             "projectName": "spring-bean-factory-post-processor"

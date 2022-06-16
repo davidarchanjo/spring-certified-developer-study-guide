@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api")
 public class DemoController {
 
-    @GetMapping("{id:[\\d]+}")
-    public String get() {
-        return "get";
+    @GetMapping("{name}/{id}")
+    public String get(User user) {
+        return "get " + user;
     }
 
     @GetMapping(params = "name")
     public String getx(User user) {
-        return user.toString();
+        return "get " + user;
     }
 
     @PostMapping

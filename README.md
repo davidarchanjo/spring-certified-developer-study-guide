@@ -501,8 +501,10 @@ repository methods to execute both JPQL or native SQL queries;
 ## SAMPLE PROJECTS
 - [spring-crud](./spring-crud/)
 - [spring-mvc](./spring-mvc/)
+- [spring-rest](./spring-rest/)
 
 ## REFERENCES
+- https://www.marcobehler.com/guides/spring-mvc
 - https://www.baeldung.com/spring-mvc-tutorial
 - https://spring.io/guides/gs/serving-web-content
 - https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
@@ -550,6 +552,11 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 [@Controller](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html) - is a @Component stereotype annotation used to mark a class as a source of request method handlers;
 
 [@RestController](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html) - combines the @Controller and @ResponseBody annotations, making all request handler methods in the annotated class assumes @ResponseBody by default;
+
+> 📌 We can assign URI template variables or query parameters directly to objects without having to specify the @PathVariable and @RequetParam annotations, respectively; as long as the given object has matching getters/setters
+
+> 📌 @RequestParam's `headers` and `params` attributes are used to narrow requests that contain specific headers or query parameters, respectively
+ 
 </br></br>
 
 
