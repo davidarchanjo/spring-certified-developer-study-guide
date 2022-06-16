@@ -511,11 +511,11 @@ repository methods to execute both JPQL or native SQL queries;
 - https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example
 
 ## KEY INTERFACES
-[Model](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html) - used to supply attributes, i.e. the data of our application, utilized for rendering views;
+[Model](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html) - used to pass values required for rendering views;
 
 [ModelMap](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/ModelMap.html) - used to pass values to render a view, with the advantage to pass a collection of values like a Map.
 
-[ModelAndView](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html) - used to pass all the information, i.e. model and view, required by Spring MVC for processing page rendering;
+[ModelAndView](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html) - used to pass all the information, i.e. model and view, required to process page rendering;
 
 ## KEY ANNOTATIONS
 [@ModelAttribute](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html) - used to bind method parameter or method return value to a named model attribute, exposed in a web view. 

@@ -3,12 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Spring MVC - Hello World</title>
+    <title th:text="${title}"></title>
+    <style>
+        p {
+            right: 50%;
+            bottom: 50%;
+            transform: translate(50%,50%);
+            position: absolute;
+            font-size: 50px;
+        }
+    </style>
 </head>
 
-<body>
-    <p style="right: 50%; bottom: 50%; transform: translate(50%,50%); position: absolute; font-size: 50px;" 
-       th:text="'Hello ' + ${user.name} + '!'"></p>
+<body th:style="'background:' + ${bkg} + ';'">
+    <p th:text="'Hello ' + ${user.name} + '!'"></p>
 </body>
 
 </html>
