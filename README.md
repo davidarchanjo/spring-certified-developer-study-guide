@@ -686,7 +686,8 @@ By default, Spring Boot Actuator comes with all built-in endpoints disabled, exc
 
 
 ## INFO ENDPOINT
-To expose custom informations on `/info` we should set them as property entries starting with `info.*` at `application.yml` or `application.properties`. Also, it's required to set `management.info.env.enabled` to `true` because the Spring Actuator's `InfoContributor` is disabled by default.
+To expose custom information on `/info` we should set them as property entries starting with `info.*` at `application.yml` or `application.properties`. Also, it's required to set `management.info.env.enabled` to `true` because the Spring Actuator's `InfoContributor` is disabled by default.
+> 📌 The `/info` endpoint comes disable by default. To enable it we have to set the property `management.endpoints.web.exposure.include` including it as entry.
 
 ### GIT & BUILD INFORMATION
 To get git and build details returned on `/info`, we have to add the following to the plugin section:
