@@ -13,4 +13,8 @@ public class ToDo {
         this.task = task;
         this.completed = completed;
     }
+
+    public static String getHello() {
+		return "david";
+	}
 }

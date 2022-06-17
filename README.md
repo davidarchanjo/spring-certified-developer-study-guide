@@ -135,8 +135,8 @@ The Spring Expression Language (SpEL for short) is used to query property values
 A SpEL expression begins with `#` and is enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can, e.g. `#{'${foo.bar}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
 
 SpEL provides two special built-in variables: `systemProperties` and `systemEnvironment`:
-- **systemProperties** – a java.util.Properties object that provides runtime environment properties, like `os.name`, or JVM argument;
-- **systemEnvironment** – a java.util.Properties object retrieving environment specific properties from the runtime environment, like env variables;
+- **systemProperties** – a java.util.Properties object which provides runtime environment properties, like `os.name`, or JVM argument;
+- **systemEnvironment** – a java.util.Properties object which provides access to environment variables;
 
 ## KEY INTERFACES
 ### STARTUP
@@ -335,15 +335,15 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 * **Join Point** - is any point during the execution of a program, such as a method execution, an exception handling or a field access. In Spring AOP, a join point always represents a method execution;
 
+* **Pointcut** - is an expression language from AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
+
 * **Advice** - is an action(s) taken by an **Aspect** at a particular **Join Point**; 
 
-* **Pointcut** - is an expression language from AOP that matches **Joint Point**. Spring uses the AspectJ pointcut expression language by default;
+* **Aspect** - is a class that contains Advices, Join Points etc;
 
 * **Introduction** - is a means to declare additional methods and fields for a type, allowing to introduce new interface to any advised object;
 
 * **Target Object** - is the object being advised by one or more **Aspects**, i.e. the object on which advices are applied. It is known as proxied objects in Spring;
-
-* **Aspect** - is a class that contains Advices, Join Points etc;
 
 * **Interceptor** - is an Aspect that contains only one advice;
 
@@ -726,9 +726,9 @@ By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE`
 The application's **overall status** is an aggregate of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is found in failure or unknown state, _the root status will be reported as DOWN_.
 
 ### CUSTOM HEALTH INDICATORs
-To register a custom health indicator we need to create a @Component class which implements the [HealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) interface and overrides the `health()` method.
+To register a custom health indicator we have to create a @Component class that implements the [HealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) interface and overrides the `health()` method.
 
-To generate a composite health check indicator by combining other indicators is required to create a @Component class which implements the [CompositeHealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/CompositeHealthContributor.html) interface; mark each of the contributing health indicators with the [HealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthContributor.html) interface; and override the `iterator()` method in the CompositeHealthContributor implementation component class with the list of health contributors (component class that implements HealthContributor)
+To generate a composite health check indicator in order to combine many indicators we have to create a @Component class that implements the [CompositeHealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/CompositeHealthContributor.html) interface; mark each of the contributing health indicators with the [HealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthContributor.html) interface; and override the `iterator()` method in the CompositeHealthContributor implementation component class with the list of health contributors (component class that implements HealthContributor)
 
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;

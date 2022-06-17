@@ -13,10 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class AroundAspect {
 
-    @Pointcut("@annotation(io.davidarchanjo.LogAccess)")
-    public void methodsAnnotatedWithLogAccess() {}
+    @Pointcut("execution(* io.davidarchanjo.DemoComponent.do*(..))")
+    public void matchingMethod() {
+    }
 
-    @Around(value = "execution(* io.davidarchanjo.DemoComponent.do*(..)) && args(name)", argNames = "name")
+    @Around(value = "matchingMethod() && args(name)", argNames = "name")
     public Object advice(ProceedingJoinPoint proceedingJoinPoint, String name) throws Throwable {
         Object value = null;
 

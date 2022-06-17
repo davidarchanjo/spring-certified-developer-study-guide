@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Component
+@Component("githubapi")
 public class GitHubAPIHealthIndicator implements HealthIndicator {
 
     private final RestTemplate restTemplate;

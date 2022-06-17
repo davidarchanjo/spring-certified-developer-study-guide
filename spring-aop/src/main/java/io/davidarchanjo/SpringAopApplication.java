@@ -15,9 +15,9 @@ public class SpringAopApplication {
     public static void main(String... args) {
         ApplicationContext ctx = SpringApplication.run(SpringAopApplication.class, args);
         DemoComponent component = ctx.getBean(DemoComponent.class);
-        // component.doSomething();
-        // String value = component.doReturnValue("David Archanjo");
-        // log.info("@Around Advice after return - changed output: {}", value);
+        component.doSomething();
+        String value = component.doReturnValue("David Archanjo");
+        log.info("@Around Advice after return - changed output: {}", value);
         component.doThrowException("");
     }
 

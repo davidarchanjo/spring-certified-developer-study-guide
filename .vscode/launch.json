@@ -101,13 +101,6 @@
         },
         {
             "type": "java",
-            "name": "spring-expression-language",
-            "request": "launch",
-            "mainClass": "io.davidarchanjo.SpringExpressionLanguageApplication",
-            "projectName": "spring-expression-language"
-        },
-        {
-            "type": "java",
             "name": "spring-datasource",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringDataSourceApplication",
@@ -182,13 +175,6 @@
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringAopApplication",
             "projectName": "spring-actuator"
-        },
-        {
-            "type": "java",
-            "name": "spring-expression-language",
-            "request": "launch",
-            "mainClass": "io.davidarchanjo.code.SpringExpressionLanguageApplication",
-            "projectName": "spring-expression-language"
         },
         {
             "type": "java",
