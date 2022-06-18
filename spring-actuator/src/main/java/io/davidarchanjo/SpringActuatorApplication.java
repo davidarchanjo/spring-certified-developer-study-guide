@@ -1,8 +1,12 @@
 package io.davidarchanjo;
 
+import io.davidarchanjo.model.Book;
+import io.davidarchanjo.repository.BookRepository;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +14,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+@Slf4j
 @SpringBootApplication
 public class SpringActuatorApplication {
 
@@ -23,7 +28,7 @@ public class SpringActuatorApplication {
             bookRepository.save(new Book(null, "Java"));
             bookRepository.save(new Book(null, "Node"));
             bookRepository.save(new Book(null, "Python"));
-            bookRepository.findAll().forEach(System.out::println);
+            bookRepository.findAll().forEach(o -> log.info("{}", o));
         };
     }
 
@@ -33,7 +38,7 @@ public class SpringActuatorApplication {
     }
 
     @Bean
-    Counter createdBooksCounter(MeterRegistry registry) {
+    Counter createdBookCounter(MeterRegistry registry) {
         return Counter
             .builder("api.books.created")
             .description("Amount of books created")
@@ -41,7 +46,7 @@ public class SpringActuatorApplication {
     }
 
     @Bean
-    Gauge createdBooksGauge(MeterRegistry registry, BookRepository bookRepository) {
+    Gauge createdBookGauge(MeterRegistry registry, BookRepository bookRepository) {
         return Gauge
             .builder("api.books.count", bookRepository::count)
             .description("Amount of existing books")
@@ -49,5 +54,3 @@ public class SpringActuatorApplication {
     }
 
 }
-
-// docker run --name spring-jdbc-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 --rm -it postgres:14.1-alpine

@@ -1,4 +1,4 @@
-package io.davidarchanjo;
+package io.davidarchanjo.actuator.endpoint;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;

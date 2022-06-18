@@ -1,4 +1,4 @@
-package io.davidarchanjo;
+package io.davidarchanjo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

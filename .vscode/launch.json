@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GitHubApiServiceHealthIndicator",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.GitHubApiServiceHealthIndicator",
+            "projectName": "spring-actuator"
+        },
+        {
+            "type": "java",
             "name": "spring-rest",
             "request": "launch",
             "mainClass": "io.davidarchanjo.SpringRestApplication",

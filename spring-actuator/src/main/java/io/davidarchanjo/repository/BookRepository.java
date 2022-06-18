@@ -1,6 +1,8 @@
-package io.davidarchanjo;
+package io.davidarchanjo.repository;
 
 import org.springframework.data.repository.CrudRepository;
+
+import io.davidarchanjo.model.Book;
 
 import java.util.List;
 

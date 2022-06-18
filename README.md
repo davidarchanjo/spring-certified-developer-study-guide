@@ -276,7 +276,7 @@ To apply OR operation, we have to create a custom condition extending the [AnyNe
 To apply AND operation, we can group custom conditions in the @Conditional and additionally set others @Conditional-based annotations to the component. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L51).
 
 ## External Application Properties
-By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Be aware of this list is ordered by precedence with values from lower items overriding earlier ones**:
+By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Bear in mind that this list is ordered by precedence with values from lower items overriding earlier ones**:
 
 > 📌 Spring applications have in its classpath the `src/main/resource` folder location by default.
 
@@ -649,6 +649,13 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 # 11. SPRING BOOT ACTUATOR <a id="11-spring-boot-actuator-" href="#11"></a>
 
+## SAMPLE PROJECTS
+- [spring-actuator](./spring-actuator/)
+### REQUIRIMENT TO USE THE SAMPLE PROJECTS
+- Postgres
+> 📌 To spin up a PostgreSQL instance by Docker, you can use the following command: <br> 
+`docker run --name postgres-14.1 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 --rm -it postgres:14.1-alpine`
+
 ## REFERENCES
 - https://www.baeldung.com/spring-actuators
 - https://www.baeldung.com/spring-boot-health-indicators
@@ -709,8 +716,32 @@ To get git and build details returned on `/info`, we have to add the following t
 </plugin>
 ```
 
-## HEALTH INDICATOR
-Health Indicators are used to report the healthiness and availability of inner components and services. Spring Boot Actuator comes with predefined health indicators to provide specific status about the application. Such built-in indicators are: [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). Some health indicators are registered/added automatically according to the existence of specific dependencies on the classpath or when other conditions are met. For instance, [DataSourceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html) (if any relational database driver dependency is set) and [RedisHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html) (if the Redis dependency module is found on the classpath) and so on.
+## HEALTH ENDPOINT
+### HEALTH INDICATOR
+Health indicators can used to report the healthiness and availability of inner components as well as third-party services required for the application to function as a whole. Spring Boot Actuator comes with predefined health indicators to provide specific status. Such built-in indicators are: [DiskSpaceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [PingHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/PingHealthIndicator.html), [LivenessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.html) and [ReadinessStateHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.html). Some health indicators are registered and added automatically according to the existence of specific dependencies on the classpath or when other conditions are satisfied. For instance, [DataSourceHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html will be available if any relational database driver dependency is set, and [RedisHealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html) will be available if the Redis dependency module is found on the classpath.
+
+Table of Health Indicators provided out of the box:
+| HEALTH INDICATOR                 | ENDPOINT |
+| :------------------------------- | :------- |
+| CassandraHealthIndicator         | `/actuator/health/cassandra` |
+| CouchbaseHealthIndicator         | `/actuator/health/couchbase` |
+| DataSourceHealthIndicator        | `/actuator/health/db` |
+| DiskSpaceHealthIndicator         | `/actuator/health/diskSpace` |
+| ElasticsearchRestHealthIndicator | `/actuator/health/elasticsearch` |
+| HazelcastHealthIndicator         | `/actuator/health/hazelcast` |
+| InfluxDbHealthIndicator          | `/actuator/health/influx` |
+| JmsHealthIndicator               | `/actuator/health/jms` |
+| LdapHealthIndicator              | `/actuator/health/ldap` |
+| LivenessStateHealthIndicator     | `/actuator/health/liveliness` |
+| MailHealthIndicator              | `/actuator/health/mail` |
+| MongoHealthIndicator             | `/actuator/health/mongo` |
+| Neo4jHealthIndicator             | `/actuator/health/neo4j` |
+| PingHealthIndicator              | `/actuator/health/ping` |
+| RabbitHealthIndicator            | `/actuator/health/rabbit` |
+| ReadinessStateHealthIndicator    | `/actuator/health/readiness` |
+| RedisHealthIndicator             | `/actuator/health/readiness` |
+| SolrHealthIndicator              | `/actuator/health/solr` |
+
 
 The Liveness and Readiness HTTP probe statuses are returned by default on `/health` for applications running on Kubernetes. To enable them to be exposed otherwise we have to set the property `management.health.probes.enabled` to `true`.
 
@@ -718,18 +749,53 @@ By default `/health` does not return detailed informations about the available i
 
 By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE` and `UNKNOWN`, and for each there is a corresponding HTTP code associated.
 | STATUS         | HTTP_CODE  | MEANING |
-| :--------------| :--------: | :------ |
+| :------------- | :--------: | :------ |
 | UP             | 200        | The component or subsystem is functioning as expected |
 | DOWN           | 503        | The component or subsystem has suffered an unexpected failure |
 | OUT_OF_SERVICE | 503        | The component or subsystem has been taken out of service and should not be used |
 | UNKNOWN        | 200        | The component or subsystem is in an unknown state |
 
-The application's **overall status** is an aggregate of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is found in failure or unknown state, _the root status will be reported as DOWN_.
+The application's **overall status** is an aggregation of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is found in failure or unknown state, _the root status will be reported as DOWN_.
 
-### CUSTOM HEALTH INDICATORs
+### CUSTOM HEALTH INDICATORS
 To register a custom health indicator we have to create a @Component class that implements the [HealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) interface and overrides the `health()` method.
 
 To generate a composite health check indicator in order to combine many indicators we have to create a @Component class that implements the [CompositeHealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/CompositeHealthContributor.html) interface; mark each of the contributing health indicators with the [HealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthContributor.html) interface; and override the `iterator()` method in the CompositeHealthContributor implementation component class with the list of health contributors (component class that implements HealthContributor)
+
+## METRICS
+The Spring Actuator exposes the `/actuator/metrics` endpoint which returns performance and operational measurements. To collect those metrics, Spring uses under the hood the [Micrometer](https://micrometer.io/) framework, which acts as a facade – an intermediate layer – between the application and some of the more popular monitoring tools, like Prometheus, Elastic, DataDog, Dynatrace etc.
+
+### CUSTOM METRICS
+#### COUNTERS
+A [Counter](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Counter.html) represents a value that will always get incremented. It is applicable to measure a number of events or actions that only increases, and never decreases.
+
+#### GAUGES
+A [Gauge](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Gauge.html) represents a value that may go up or down, and that have fixed upper bounds.
+
+#### TIMERS
+A [Timer](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Timer.html) is used to track how long certain method, action or request takes to execute.
+
+
+
+## LOGGER ENDPOINT
+Spring Actuator provides the `/actuator/loggers` endpoint which returns all the loggers and theirs configured log levels existing in the application. To check details for an individual logger we access the endpoint http://localhost:8080/actuator/loggers/{logger.name}, where `{logger.name}` should be the name of the desired logger. For instance, http://localhost:8080/actuator/loggers/io.davidarchanjo would return the following output:
+```shell
+$ curl localhost:8081/actuator/loggers/io.davidarchanjo
+
+{
+  "configuredLevel": "TRACE",
+  "effectiveLevel": "TRACE"
+}
+```
+
+### CHANGING LOGGING LEVEL
+Spring Actuator also provides a way to change the current log level at run time. To change we issue a POST request specificing the logger with the desired new log level. For instance, to set the log level to `TRACE` of the package `io.davidarchanjo` we would do the following:
+```shell
+$ curl -X POST \
+  localhost:8081/actuator/loggers/io.davidarchanjo \
+  -H 'content-type: application/json' \
+  -d '{"configuredLevel":"TRACE"}'
+```
 
 ## KEY ANNOTATIONS
 [@Endpoint](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/endpoint/annotation/Endpoint.html) - used to indicate a type as being an actuator endpoint that provides information about the running application;

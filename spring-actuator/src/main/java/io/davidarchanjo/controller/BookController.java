@@ -1,5 +1,7 @@
-package io.davidarchanjo;
+package io.davidarchanjo.controller;
 
+import io.davidarchanjo.model.Book;
+import io.davidarchanjo.repository.BookRepository;
 import io.micrometer.core.instrument.Counter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +20,8 @@ import java.util.concurrent.ThreadLocalRandom;
 @RequestMapping("api/books")
 public class BookController {
 
-    private final Counter createdBooksCounter;
-    private final BookRepository bookRepository;
+    private final Counter counter;
+    private final BookRepository repository;
 
     @GetMapping
     public ResponseEntity<?> get() {
@@ -31,8 +33,8 @@ public class BookController {
     @PostMapping
     public ResponseEntity<?> post() {
         log.info("Creating Book");
-        Book body = bookRepository.save(new Book(null, "Book-"+ThreadLocalRandom.current().nextInt()));
-        createdBooksCounter.increment();
+        Book body = repository.save(new Book(null, "Book-"+ThreadLocalRandom.current().nextInt()));
+        counter.increment();
         return ResponseEntity.status(HttpStatus.CREATED)
             .body(body);
     }
