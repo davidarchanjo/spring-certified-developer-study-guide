@@ -777,10 +777,8 @@ A [Timer](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/microme
 
 
 ## LOGGER ENDPOINT
-Spring Actuator provides the `/actuator/loggers` endpoint which returns all the loggers and theirs configured log levels existing in the application. To check details for an individual logger we access the endpoint http://localhost:8080/actuator/loggers/{logger.name}, where `{logger.name}` should be the name of the desired logger. For instance, http://localhost:8080/actuator/loggers/io.davidarchanjo would return the following output:
-```shell
-$ curl localhost:8081/actuator/loggers/io.davidarchanjo
-
+Spring Actuator provides the `/actuator/loggers` endpoint which returns all the loggers and theirs configured log levels existing in the application. To check details for an individual logger we access the endpoint http://localhost:8081/actuator/loggers/{logger.name}, where `{logger.name}` should be the name of the desired logger. For instance, http://localhost:8081/actuator/loggers/io.davidarchanjo would output the following:
+```json
 {
   "configuredLevel": "null",
   "effectiveLevel": "INFO"
@@ -788,7 +786,7 @@ $ curl localhost:8081/actuator/loggers/io.davidarchanjo
 ```
 
 ### CHANGING LOGGING LEVEL
-Spring Actuator also provides a way to change the current log level at run time. To change we issue a POST request specificing the logger with the desired new log level. For instance, to set the log level to `TRACE` of the package `io.davidarchanjo` we would do the following:
+Spring Actuator also provides a way to change the current log level at run time. To change we issue a POST request specificing the logger with the desired new log level. For instance, to set the log level to `TRACE` of the package `io.davidarchanjo` the request goes as below:
 ```shell
 $ curl -X POST \
   localhost:8081/actuator/loggers/io.davidarchanjo \
