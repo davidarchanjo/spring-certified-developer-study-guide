@@ -782,8 +782,8 @@ Spring Actuator provides the `/actuator/loggers` endpoint which returns all the 
 $ curl localhost:8081/actuator/loggers/io.davidarchanjo
 
 {
-  "configuredLevel": "TRACE",
-  "effectiveLevel": "TRACE"
+  "configuredLevel": "null",
+  "effectiveLevel": "INFO"
 }
 ```
 
