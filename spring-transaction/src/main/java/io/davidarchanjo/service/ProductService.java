@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @Service
 @AllArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class ProductService {
 
     private final OrderService orderService;

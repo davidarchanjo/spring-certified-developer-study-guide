@@ -9,12 +9,12 @@ import io.davidarchanjo.service.ProductService;
 
 @SpringBootApplication
 public class SpringTransactionApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringTransactionApplication.class, args);
 	}
 
-	@Bean
+	// @Bean
 	CommandLineRunner commandLineRunner(ProductService productService) {
 		return args -> productService.createProduct1();
 	}
