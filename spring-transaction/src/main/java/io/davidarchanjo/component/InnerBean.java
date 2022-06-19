@@ -1,4 +1,4 @@
-package io.davidarchanjo.config;
+package io.davidarchanjo.component;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
