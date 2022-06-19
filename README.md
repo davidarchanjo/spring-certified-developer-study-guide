@@ -180,13 +180,13 @@ If all lifecycle callbacks, annotations and a BeanPostProcessor implementation a
 
 > 📌 @Autowired, when processing field injection, first looks for a bean which *name* is equal to the field name. If none is found, then it looks for a bean which *type* is the same as the field to be injected
 
-> 📌 When the injection of a field/parameter marked to be autowired is going to be via its type and there are many available bean instances for the given type, an [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) will be thrown. To solve this, we can either add @Primary to one of the bean definition or add @Qualifier to the field/parameter specifying the name from one of the matching beans
-
 [@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify the id of the bean that have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
 
 [@Primary](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Primary.html) - used to indicate that a bean must be given preference when multiple candidates are qualified to autowire a single-valued dependency, i.e. is used to set higher preference for a given bean when there are multiple ones of the same type;
 
-[@Lazy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Lazy.html) - used to indicate whether a bean is to be lazily initialized, i.e. if present on a @Component or @Bean definition and set to <code>true</code>, the bean or component will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked with @Autowired, like constructor parameters, method parameters etc;
+> 📌 When the injection of a field/parameter marked to be autowired is going to be via its type and there are many candidate instances for the given type, an [NoUniqueBeanDefinitionException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/NoUniqueBeanDefinitionException.html) will be thrown. To solve, we can either add @Primary to one of the bean definition or add @Qualifier to the field/parameter specifying the name from one of the matching candidate beans
+
+[@Lazy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Lazy.html) - used to indicate whether a bean is to be lazily initialized, i.e. if present on a @Component or @Bean definition and set to `true`, the bean or component will not be initialized until referenced by another bean or explicitly retrieved from the enclosing [BeanFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html). This annotation may also be placed on injection points marked with @Autowired, like constructor parameters, method parameters etc;
 
 [@Profile](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html) - used to indicate that a component class or bean is eligiable for registration when the specified profile(s) are active;
 
@@ -196,7 +196,9 @@ If all lifecycle callbacks, annotations and a BeanPostProcessor implementation a
 
 [@Service](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Service.html) - is a @Component stereotype annotation used to indicate that a class defines business logic;
 
-[@Configuration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) - used to mark a class as a source of bean definitions. **NOTE**: Spring creates dynamic proxies for classes annotated with @Configuration and uses CGLIB to extend those class to create proxies. Hence, @Configuration classes must not be final, because final classes cannot be extended, i.e. cannot be subclassed;
+[@Configuration](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html) - used to mark a class as a source of bean definitions. 
+
+> 📌 Spring creates dynamic proxies for classes annotated with @Configuration and uses CGLIB to extend those class to create proxies. Hence, @Configuration classes must not be final, because final classes cannot be extended, i.e. cannot be subclassed;
 
 [@Import](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html) - used to indicate one or more component class to import — typically from @Configuration classes.
 
@@ -276,11 +278,11 @@ To apply OR operation, we have to create a custom condition extending the [AnyNe
 To apply AND operation, we can group custom conditions in the @Conditional and additionally set others @Conditional-based annotations to the component. I demonstrate this operation [here](/spring-conditional/src/main/java/io/davidarchanjo/Config.java#L51).
 
 ## External Application Properties
-By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **Bear in mind that this list is ordered by precedence with values from lower items overriding earlier ones**:
+By default, Spring Boot will find and load `application.[properties|yml]` files from the following locations when your application boots up. **This list is ordered by precedence with values from lower items overriding earlier ones**:
 
 > 📌 Spring applications have in its classpath the `src/main/resource` folder location by default.
 
-> 📌 If we have both application.properties and application.yml files in the same location and a given property is defined in both, the value from the application.properties will take precedence over the value at application.yml.
+> 📌 If we have the `application.properties` and `application.yml` files in the same location and a given property is defined in both, the value from _application.properties_ will take precedence over the value at application.yml.
 
 > 📌 Command line properties, JVM arguments and OS environment variables will always take precedence over (same) properties defined from application.properties or application.yml.
 
@@ -290,8 +292,8 @@ By default, Spring Boot will find and load `application.[properties|yml]` files 
    - command-line argument, e.g. `--server-port=9090`;
 
 2. From the classpath:
-   - The classpath root, e.g. from `/resources` folder by default;
-   - The classpath `/config` package, i.e. from `/resources/config` folder;
+   - The classpath root, e.g. `/resources` folder by default;
+   - The classpath `/config` folder, i.e. `/resources/config`;
 
 3. From the current directory:
    - The current directory;
@@ -388,7 +390,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 ## TRANSACTIONS
 <p>
-  <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the content of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. <i>By default, Spring will only roll back on <b>unchecked exceptions</b> (RuntimeException and its subclasses)</i>. To make a transaction roll back on checked exception we have to specify it on the @Transaction's <code>rollbakFor</code> parameter.
+  <b>Transaction</b> is a single logical unit of work which could be composed by one or many actions that potentially modify the content of a database, i.e. a sequence of actions that are considered as a single logical unit by the application. For an application, if any action running into a transactional context fails then all other actions gets rolled back. In Spring, database transaction is by default <code>auto-commit</code>, i.e. every SQL statement runs in its own transaction and will commit after execution. <i>With @Transactional in place, by default Spring will only rolls back on <b>unchecked exceptions</b> (RuntimeException and its subclasses)</i>. To make a transaction rolls back on checked exception we have to specify it on the @Transaction's <code>rollbakFor</code> parameter.
 </p>
 
 <p>
