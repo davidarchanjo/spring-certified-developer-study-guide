@@ -397,17 +397,18 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
   <b>Transaction Propagation</b> is a mechanism used to indicate if a given action will or will not participate in a transactional context as well as how it will behave when called from a context which already has or not a transaction in place.
 </p>
 
+> 📌 The default transaction propagation type is `REQUIRED`
+
 ### READ-ONLY TRANSACTIONS
 A read-only transaction is **a transaction which does not modify any data**. If we use the @Transactional's `readOnly` attribute set to `true` on a method which is performing create or update operation then we will not have any created or updated record into the database but rather an exception.
 
-### NOTES
-- If we have many @Transaction methods in the same class defined with different propagation types and if they are called sequentially, in practice only the propagation configuration of the first method in the flow will be considered. That is because Spring creates a proxy upon detecting the @Transactional annotation when we are calling any internal method, it will bypass the proxy.
+> 📌 If we have many @Transaction methods in the same class defined with different propagation types and if they are called sequentially, in practice only the propagation configuration of the first method in the flow will be considered. That is because Spring creates a proxy upon detecting the @Transactional annotation when we are calling any internal method, it will bypass the proxy
 
-- If we manually handle exceptions (including unchecked exceptions) via try-catch from a transactional context and an exception pops up, the rollback mechanism won't work and the current transaction will execute and commit normally.
+> 📌 If we manually handle exceptions (including unchecked exceptions) via try-catch from a transactional context and an exception pops up, the rollback mechanism won't work and the current transaction will execute and commit normally
 
-- To make transaction suspension works across nested method calls, the methods must belong to different object instances. That rule applies when the @Transaction's propagation is set to `REQUIRES_NEW` or `NOT_SUPPORTED`.
+> 📌 To make transaction suspension works across nested method calls, the methods must belong to different object instances
 
-- The @Transactional annotation at the class level will be applied to all of its public method. However, if a method is annotated with @Transactional its settings will take precedence over the transactional settings defined at the class level.
+> 📌 The @Transactional annotation at the class level will be applied to all of its public method. However, if a method is annotated with @Transactional its settings will overwrite the transactional settings defined at the class level
 
 ### TYPES OF TRANSACTION PROPAGATION
 
