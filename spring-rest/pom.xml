@@ -6,7 +6,7 @@
         <groupId>io.davidarchanjo</groupId>
         <artifactId>spring-certified-developer-study-guide</artifactId>
         <version>0.0.1</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>spring-rest</artifactId>

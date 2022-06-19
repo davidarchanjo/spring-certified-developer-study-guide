@@ -14,6 +14,7 @@
 10. <a href="#10-spring-security-" id="10">SPRING SECURITY</a>
 11. <a href="#11-spring-boot-actuator-" id="11">SPRING BOOT ACTUATOR</a>
 12. <a href="#12-spring-boot-testing-" id="12">SPRING BOOT TESTING</a>
+13. <a href="#13-build-test-" id="13">BUILD & TEST</a>
 </br></br>
 
 
@@ -861,6 +862,54 @@ $ curl -X POST \
 - For any test that doesn’t need any dependencies from the Spring Boot container (application context), @Mock should be used as it is fast and favours the isolation of the tested component;
 - If a test relies on the Spring Boot container (application context) and it's also needed to add or mock one of the container beans, @MockBean should be used;
 - As a rule of thumb, @Mock should be used when testing services components where business logic are implemented, and @MockBean should be used when doing sliced context testing like on the controller (@WebMvcTest) or repository (@DataJpaTest) layer, or when running backed Spring context tests (@SpringBootTest).
+</br></br>
+
+
+# 13. BUILD & TEST <a id="13-build-test-" href="#13"></a>
+### CLEAN & BUILD ALL PROJECTS
+```shell
+$ ./mvnw package
+```
+
+### CLEAN & BUILD ALL PROJECTS SKIPPING TEST
+```shell
+$ ./mvnw package -DskipTests
+```
+
+### CLEAN & BUILD INDIVIDUAL PROJECT
+```shell
+$ ./mvnw package -pl spring-crud
+```
+
+### CLEAN & BUILD INDIVIDUAL PROJECT SKIPPING TEST
+```shell
+$ ./mvnw package -DskipTests -pl spring-crud
+```
+
+### RUN INDIVIDUAL PROJECT
+```shell
+$ ./mvnw spring-boot:run -pl spring-crud
+```
+
+### RUN ALL PROJECTS TEST
+```shell
+$ ./mvnw test
+```
+
+### RUN INDIVIDUAL PROJECT TEST
+```shell
+$ ./mvnw test -pl spring-crud
+```
+
+### RUN SINGLE TEST CLASS FROM INDIVIDUAL PROJECT
+```shell
+$ ./mvnw test -pl spring-crud -Dtest=io.davidarchanjo.controller.ToDoControllerTest
+```
+
+### RUN SINGLE TEST METHOD FROM A TEST CLASS OF AN INDIVIDUAL PROJECT
+```shell
+$ ./mvnw test -pl spring-crud -Dtest=io.davidarchanjo.controller.ToDoControllerTest#shouldCreateNewToDo_WithSuccess
+```
 </br></br>
 
 

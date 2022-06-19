@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import io.davidarchanjo.model.dto.ToDoDTO;
 import io.davidarchanjo.service.ToDoService;
@@ -18,6 +19,7 @@ public class SpringCrudApplication {
 		SpringApplication.run(SpringCrudApplication.class, args);
 	}	
 
+	@Profile("!test")
 	@Bean
 	CommandLineRunner commandLineRunner(EasyRandom easyRandom, ToDoService toDoService) {
 		return args -> {

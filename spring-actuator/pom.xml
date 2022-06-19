@@ -6,7 +6,7 @@
         <groupId>io.davidarchanjo</groupId>
         <artifactId>spring-certified-developer-study-guide</artifactId>
         <version>0.0.1</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>spring-actuator</artifactId>
@@ -32,11 +32,6 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-core</artifactId>
-            <version>1.9.1</version>
-        </dependency> -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
