@@ -665,11 +665,12 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 - https://dimitr.im/mastering-spring-boot-actuator
 
 ## OVERVIEW
-Spring Boot Actuator provides resources so we can monitor and manage our application's health and availability. It is mainly used to expose operational information about the running application, such as health, metrics, info, dump, env, etc.
+Spring Boot Actuator provides resources so we can monitor and manage our application's health and availability. It is mainly used to expose operational information about the running application, such as health, metrics, info, dump, environment, loggers etc.
 
 ## BUILT-IN ENDPOINTS
-By default, Spring Boot Actuator comes with all built-in endpoints disabled, except `/health`. An endpoint is considered _available_ when it is both _enabled_ and _exposed_. Spring Boot Actuator's endpoints are exposed over REST endpoints and JMX.
+By default, Spring Boot Actuator comes with all built-in endpoints disabled, except `/health`. A given endpoint is considered _available_ when it is both _enabled_ and _exposed_. Spring Boot Actuator's endpoints are exposed over REST endpoints and JMX.
 
+Table of built-in endpoints provided out of the box:
 | ENDPOINT            | DESCRIPTION |
 | :------------------ | :---------- |
 | `/auditevents`      | Returns audit event information for the current application |
@@ -682,7 +683,7 @@ By default, Spring Boot Actuator comes with all built-in endpoints disabled, exc
 | `/httptrace`        | Returns HTTP trace informations (last 100 HTTP request-response exchanges by default) |
 | `/info`             | Returns arbitrary application information |
 | `/integrationgraph` | Returns the Spring integration graph. Requires a spring-integration-core dependency |
-| `/loggers`          | Returns the configuration of loggers in the application. Can be used to modify logging level of application's component |
+| `/loggers`          | Returns the configuration of all loggers in the application. Can be used to modify at run time a logger level |
 | `/metrics`          | Returns metrics information for the current app |
 | `/mappings`         | Returns a grouped list of all your application's APIs |
 | `/scheduledtasks`   | Returns the tasks scheduled in your application |
@@ -747,7 +748,7 @@ The Liveness and Readiness HTTP probe statuses are returned by default on `/actu
 
 By default `/actuator/health` does not return detailed informations about the available indicators. To get them exposed, we have to set both properties `management.endpoint.health.show-components` and `management.endpoint.health.show-details` to `always`.
 
-By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE` and `UNKNOWN`, and for each there is a corresponding HTTP code associated.
+By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE` and `UNKNOWN`, and for each there is a corresponding associated HTTP code.
 | STATUS         | HTTP_CODE  | MEANING |
 | :------------- | :--------: | :------ |
 | UP             | 200        | The component or subsystem is functioning as expected |
@@ -755,7 +756,7 @@ By default there are four types of health status: `UP`, `DOWN`, `OUT_OF_SERVICE`
 | OUT_OF_SERVICE | 503        | The component or subsystem has been taken out of service and should not be used |
 | UNKNOWN        | 200        | The component or subsystem is in an unknown state |
 
-The application's **overall status** is an aggregation of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is found in failure or unknown state, _the root status will be reported as DOWN_.
+The application's **overall status** is an aggregation of all health indicators statuses, i.e. from all built-in (db, diskSpace, ping, livenessState, readiness etc) and custom health indicators. If one of them is in failure or unknown state, _the root status will be reported as DOWN_.
 
 ### CUSTOM HEALTH INDICATORS
 To register a custom health indicator we have to create a @Component class that implements the [HealthIndicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) interface and overrides the `health()` method.
@@ -763,11 +764,11 @@ To register a custom health indicator we have to create a @Component class that 
 To generate a composite health check indicator in order to combine many indicators we have to create a @Component class that implements the [CompositeHealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/CompositeHealthContributor.html) interface; mark each of the contributing health indicators with the [HealthContributor](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthContributor.html) interface; and override the `iterator()` method in the CompositeHealthContributor implementation component class with the list of health contributors (component class that implements HealthContributor)
 
 ## METRICS
-The Spring Actuator exposes the `/actuator/metrics` endpoint which returns performance and operational measurements. To collect those metrics, Spring uses under the hood the [Micrometer](https://micrometer.io/) framework, which acts as a facade – an intermediate layer – between the application and some of the more popular monitoring tools, like Prometheus, Elastic, DataDog, Dynatrace etc.
+The Spring Actuator exposes the `/actuator/metrics` endpoint which returns performance and operational measurements. To collect and gather metrics Spring Actuator relies on the [Micrometer](https://micrometer.io/) framework, which acts as a facade – an intermediate layer – between the application and some of the more popular monitoring tools, like Prometheus, Elastic, DataDog, Dynatrace etc.
 
-### CUSTOM METRICS
+### METRIC TYPES
 #### COUNTERS
-A [Counter](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Counter.html) represents a value that will always get incremented. It is applicable to measure a number of events or actions that only increases, and never decreases.
+A [Counter](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Counter.html) represents a value that will always get incremented. It is applicable to measure a number of events or actions that is supposed to only increases, and never decreases.
 
 #### GAUGES
 A [Gauge](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Gauge.html) represents a value that may go up or down, and that have fixed upper bounds.
@@ -777,7 +778,7 @@ A [Timer](https://javadoc.io/doc/io.micrometer/micrometer-core/latest/io/microme
 
 
 ## LOGGER ENDPOINT
-Spring Actuator provides the `/actuator/loggers` endpoint which returns all the loggers and theirs configured log levels existing in the application. To check details for an individual logger we access the endpoint http://localhost:8081/actuator/loggers/{logger.name}, where `{logger.name}` should be the name of the desired logger. For instance, http://localhost:8081/actuator/loggers/io.davidarchanjo would output the following:
+Spring Actuator provides the `/actuator/loggers` endpoint which returns all the loggers, and their configured log levels, existing in the application. To check details for an individual logger we access the endpoint http://localhost:8081/actuator/loggers/{logger.name}, where `{logger.name}` should be the name of the desired logger. For instance, http://localhost:8081/actuator/loggers/io.davidarchanjo would output the following:
 ```json
 {
   "configuredLevel": "null",
