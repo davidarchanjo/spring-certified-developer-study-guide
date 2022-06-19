@@ -428,15 +428,17 @@ A read-only transaction is **a transaction which does not modify any data**. If 
   <b>Transaction Isolation</b> is a mechanism used to indicate how changes made to data by one transaction affect other concurrent transactions as well as how and when changed data becomes available to other concurrent transactions, i.e. how changes applied on data by concurrent transactions are visible to each other.
 </p>
 
-- Types of Transaction Isolation:
+### TYPES OF TRANSACTION ISOLATION
 
   | Isolation        | Behaviour |
   | :--------------- | :-------- |
-  | DEFAULT          | Indicates that for any transaction the default isolation level of the underlying RDBMS will be used |
-  | READ_COMMITTED   | Indicates that a transaction can only read data that is committed by concurrent transactions |
-  | READ_UNCOMMITTED | Indicates that a transaction may read data that is still uncommitted by concurrent transactions |
-  | REPEATABLE_READ  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
-  | SERIALIZABLE     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
+  | [DEFAULT](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html#DEFAULT) | Indicates that for any transaction the default isolation level of the underlying RDBMS will be used |
+  | [READ_COMMITTED](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html#READ_COMMITTED) | Indicates that a transaction can only read data that is committed by concurrent transactions |
+  | [READ_UNCOMMITTED](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html#READ_UNCOMMITTED) | Indicates that a transaction **may** read data that is still uncommitted by concurrent transactions |
+  | [REPEATABLE_READ](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html#REPEATABLE_READ)  | Indicates that if a transaction reads one record from the database multiple times the result of all reading must always be the same |
+  | [SERIALIZABLE](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html#SERIALIZABLE)     | Indicates that transactions must be executed with locking at all levels (read, range and write locking) so that they behave as if they were executed in a serialized way, i.e. concurrent execution of a group of transactions should have the same result as if they are executed sequentially |
+
+> 📌 In Spring with JPA if we try to use an isolation level that is different from the DEFAULT isolation type which the transaction manager implementation does not support, we will get an [InvalidIsolationLevelException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/InvalidIsolationLevelException.html) exception with the following message: `Standard JPA does not support custom isolation levels - use a special JpaDialect for your JPA implementation`. One way to solve this problem is implement a custom JPA dialect.
 
 ## KEY INTERFACES
 [ResultSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html) - is used to access data produced by the execution of database queries. It provides getter methods (getBoolean, getLong, and so on) for retrieving column values (by name or column's index) from the current row.
