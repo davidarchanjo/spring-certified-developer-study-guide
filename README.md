@@ -866,29 +866,34 @@ $ curl -X POST \
 
 
 # 13. BUILD & TEST <a id="13-build-test-" href="#13"></a>
-### CLEAN & BUILD ALL PROJECTS
+### BUILD ALL PROJECTS
 ```shell
 $ ./mvnw package
 ```
 
-### CLEAN & BUILD ALL PROJECTS SKIPPING TEST
+### BUILD ALL PROJECTS SKIPPING TEST
 ```shell
 $ ./mvnw package -DskipTests
 ```
 
-### CLEAN & BUILD INDIVIDUAL PROJECT
+### BUILD INDIVIDUAL PROJECT
 ```shell
 $ ./mvnw package -pl spring-crud
 ```
 
-### CLEAN & BUILD INDIVIDUAL PROJECT SKIPPING TEST
+### BUILD INDIVIDUAL PROJECT SKIPPING TEST
 ```shell
 $ ./mvnw package -DskipTests -pl spring-crud
 ```
 
 ### RUN INDIVIDUAL PROJECT
+- Option 1:
 ```shell
 $ ./mvnw spring-boot:run -pl spring-crud
+```
+- Option 2:
+```shell
+$ java -jar spring-crud/target/spring-crud-0.0.1.jar
 ```
 
 ### RUN ALL PROJECTS TEST

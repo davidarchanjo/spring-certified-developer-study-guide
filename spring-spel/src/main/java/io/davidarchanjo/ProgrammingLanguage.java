@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Data
-// @Component
+@Component("programmingLanguageComp")
 public class ProgrammingLanguage {
     private String preferredLanguage;
     private List<String> name = new LinkedList<>();
