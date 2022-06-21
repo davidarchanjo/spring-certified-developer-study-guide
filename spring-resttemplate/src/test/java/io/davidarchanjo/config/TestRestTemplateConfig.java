@@ -5,7 +5,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 
 @TestConfiguration
-public class RestClientConfig {
+public class TestRestTemplateConfig {
 
     @Bean
     public TestRestTemplate testRestTemplate() {

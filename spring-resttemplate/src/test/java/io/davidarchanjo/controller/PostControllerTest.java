@@ -1,6 +1,6 @@
 package io.davidarchanjo.controller;
 
-import io.davidarchanjo.config.RestClientConfig;
+import io.davidarchanjo.config.TestRestTemplateConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@ContextConfiguration(classes = RestClientConfig.class) //or @Import(RestClientConfig.class)
+@ContextConfiguration(classes = TestRestTemplateConfig.class) //or @Import(TestRestTemplateConfig.class)
 class PostControllerTest {
 
     @LocalServerPort
