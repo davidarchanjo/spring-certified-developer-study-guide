@@ -507,7 +507,7 @@ repository methods to execute both JPQL or native SQL queries;
 ## SAMPLE PROJECTS
 - [spring-crud](./spring-crud/)
 - [spring-mvc](./spring-mvc/)
-- [spring-rest](./spring-rest/)
+- [spring-web](./spring-web/)
 
 ## REFERENCES
 - https://www.marcobehler.com/guides/spring-mvc
@@ -561,8 +561,14 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 
 > 📌 We can assign URI template variables or query parameters directly to objects without having to specify the @PathVariable and @RequetParam annotations, respectively; as long as the given object has matching getters/setters
 
-> 📌 @RequestParam's `headers` and `params` attributes are used to narrow requests that contain specific headers or query parameters, respectively
- 
+> 📌 @RequestMapping's `headers` and `params` attributes are used to narrow requests that contain specific headers or query parameters, respectively
+
+> 📌 @RequestMapping methods mapped to "GET" are also implicitly mapped to "HEAD", i.e. there is no need to have "HEAD" explicitly declared. An HTTP HEAD request is processed as if it were an HTTP GET except instead of writing the body only the number of bytes are counted and the "Content-Length" header set.
+
+> 📌 @RequestMapping methods have built-in support for HTTP OPTIONS. By default an HTTP OPTIONS request is handled by setting the "Allow" response header to the HTTP methods explicitly declared on all @RequestMapping methods with matching URL patterns. When no HTTP methods are explicitly declared the "Allow" header is set to "GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS"
+
+> 📌 If @RequestMapping is used along with any of its variant annotations in a handler method definition, its configuration will take precedence over the descendant annotation, i.e. only the @RequestMapping settings (e.g. [method](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#method--), [path](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#path--), [query parameters](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#params--), [headers](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#headers--)) will be taken into account.
+
 </br></br>
 
 

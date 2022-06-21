@@ -1,9 +1,7 @@
 package io.davidarchanjo.controller;
 
-import java.util.Objects;
-
-import javax.servlet.http.HttpServletResponse;
-
+import io.davidarchanjo.model.Todo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -16,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import io.davidarchanjo.model.dto.TodoDTO;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("api/todos")
@@ -32,18 +30,18 @@ public class TodoController {
     @GetMapping
     public Object find(@RequestParam(required = false) String task) {
         return Objects.nonNull(task)
-            ? restTemplate.getForEntity(todoUrl + "?task={task}", TodoDTO.class, task)
-            : restTemplate.getForObject(todoUrl, TodoDTO[].class);
+            ? restTemplate.getForEntity(todoUrl + "?task={task}", Todo.class, task)
+            : restTemplate.getForObject(todoUrl, Todo[].class);
     }
 
     @GetMapping("{id}")
     public Object find(@PathVariable Long id) {
-        return restTemplate.getForEntity(todoUrl + "/{id}", TodoDTO.class, id);
+        return restTemplate.getForEntity(todoUrl + "/{id}", Todo.class, id);
     }
 
     @PostMapping
-    public void create(@RequestBody TodoDTO dto, HttpServletResponse response) {
-        HttpEntity<TodoDTO> request = new HttpEntity<>(dto);
+    public void create(@RequestBody Todo dto, HttpServletResponse response) {
+        HttpEntity<Todo> request = new HttpEntity<>(dto);
         restTemplate.postForObject(todoUrl, request, Void.class);
         response.setStatus(HttpStatus.CREATED.value());
     }

@@ -1,4 +1,4 @@
-package io.davidarchanjo;
+package io.davidarchanjo.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -11,6 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+class User {
+    private String name;
+    private Integer id;
+}
 
 @RestController
 @RequestMapping("api")
@@ -42,7 +51,7 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/foos", headers = { "key1=val1", "key2=val2" }, method = GET)
-    public String getFoosWithHeader() {
+    public String getFoosWithHeader(@RequestParam String val) {
         return "Get some Foos with Header";
     }
 

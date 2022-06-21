@@ -2,17 +2,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringWebApplication",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringWebApplication",
+            "projectName": "spring-web"
+        },
+        {
+            "type": "java",
             "name": "Launch GitHubApiServiceHealthIndicator",
             "request": "launch",
             "mainClass": "io.davidarchanjo.GitHubApiServiceHealthIndicator",
             "projectName": "spring-actuator"
-        },
-        {
-            "type": "java",
-            "name": "spring-rest",
-            "request": "launch",
-            "mainClass": "io.davidarchanjo.SpringRestApplication",
-            "projectName": "spring-rest"
         },
         {
             "type": "java",
@@ -203,6 +203,13 @@
             "request": "launch",
             "mainClass": "io.davidarchanjo.code.SpringSecurityApplication",
             "projectName": "spring-security"
+        },
+        {
+            "type": "java",
+            "name": "spring-web",
+            "request": "launch",
+            "mainClass": "io.davidarchanjo.SpringWebApplication",
+            "projectName": "spring-web"
         }
     ]
 }
