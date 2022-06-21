@@ -1,54 +1,38 @@
 package io.davidarchanjo.controller;
 
+import io.davidarchanjo.config.RestClientConfig;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.context.ContextConfiguration;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@ContextConfiguration(classes = RestClientConfig.class) //or @Import(RestClientConfig.class)
 class PostControllerTest {
+
+    @LocalServerPort
+    int serverPort;
+
+    @MockBean
+    TodoController todoController;
+
+    @Autowired
+    TestRestTemplate testRestTemplate;
 
     @Test
     void testGetForObject() {
+        var url = "http://localhost:{port}/api/posts/getForObject";
+        var respEntity = testRestTemplate.getForEntity(url, String.class, serverPort);
+        assertThat(respEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertNotNull(respEntity.getBody());
     }
 
-    @Test
-    void testGetForObjectWithUrlParameters() {
-    }
-
-    @Test
-    void testGetForEntity() {
-    }
-
-    @Test
-    void testExchangeWithCustomHeaders() {
-    }
-
-    @Test
-    void testPostForEntity() {
-    }
-
-    @Test
-    void testPostForObject() {
-    }
-
-    @Test
-    void testPut() {
-    }
-
-    @Test
-    void testExchangePut() {
-    }
-
-    @Test
-    void testDeletePost() {
-    }
-
-    @Test
-    void testRetrieveHeaders() {
-    }
-
-    @Test
-    void testAllowedOperations() {
-    }
-
-    @Test
-    void testNotFoundRequest() {
-    }
 }
