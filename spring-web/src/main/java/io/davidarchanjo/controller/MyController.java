@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
     
-    @RequestMapping(value = "test", method = RequestMethod.POST, headers = "foo=bar")
+    // @RequestMapping(value = "test", method = RequestMethod.POST, headers = "foo=bar")
     @GetMapping("test")
     public HttpEntity<String> handleTestRequest() {
         var headers = new HttpHeaders();
