@@ -610,12 +610,12 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 * **Role** - refers to a group of permissions which the authenticated user have.
 
 ## NOTES
-- Double wildcard pattern (`**`) will match **the current path segment (directory) and below**. For instance, the following rule will match `api/public`, `api/public/users`, `api/public/users/1` and so forth:
+- Double wildcard pattern (`**`) will match **the current path (directory) and below**. For instance, the following rule will match `api/public`, `api/public/users`, `api/public/users/1` and so forth:
   ```java
   .mvcMatchers("/api/public/**")
   ```
 
-- Single wildcard pattern (`*`) will match **path segments under the specified directory and below**. For instance, the following rule will match `api/public/users`, `api/public/users/1` and so forth:
+- Single wildcard pattern (`*`) will match **the path under the specified directory and below**. For instance, the following rule will match `api/public/users`, `api/public/users/1` and so forth:
   ```java
   .mvcMatchers("/api/public/*")
   ```
@@ -625,6 +625,56 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
   .mvcMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
   .mvcMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
   ```
+### PATTERN DEFINITION SCENARIOS
+- Scenario #1<br>
+  **Logged as**: AUTHOR_ADMIN<br>
+  **Pattern:**
+  ```java
+  .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+  .antMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
+  ```
+  | Path              | Status |
+  | :---------------- | :----: |
+  | `/api/public`     | 403 |
+  | `/api/public/get` | 200 | 
+
+- Scenario #2<br>
+  **Logged as**: AUTHOR_ADMIN<br>
+  **Pattern:**
+  ```java
+  .antMatchers("/api/public/**").hasRole(Roles.USER_ADMIN)
+  .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+  ```
+  | Path              | Status |
+  | :---------------- | :----: |
+  | `/api/public`     | 403 |
+  | `/api/public/get` | 403 |
+
+- Scenario #3<br>
+  **Logged as**: AUTHOR_ADMIN<br>
+  **Pattern:**
+  ```java
+  .antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+  .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+  ```
+  | Path              | Status |
+  | :---------------- | :----: |
+  | `/api/public`     | 200 |
+  | `/api/public/get` | 403 |
+
+- Scenario #4<br>
+  **Logged as**: AUTHOR_ADMIN<br>
+  **Pattern:**
+  ```java
+  .antMatchers("/api/public/get").hasRole(Roles.AUTHOR_ADMIN)
+  .antMatchers("/api/public/*").hasRole(Roles.USER_ADMIN)
+  ```
+  | Path              | Status |
+  | :---------------- | :----: |
+  | `/api/public`     | 200 |
+  | `/api/public/get` | 200 |
+
+<br>
 
 ## KEY ANNOTATIONS
 [@EnableWebSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html) - marks a @Configuration class as a source of web access security configuration. Usually such class extends the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and overrides its methods for a more granular configuration;
