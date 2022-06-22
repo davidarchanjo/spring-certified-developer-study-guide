@@ -579,11 +579,8 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 - https://www.marcobehler.com/guides/spring-security
 - https://www.baeldung.com/spring-security-expressions
 - https://www.section.io/engineering-education/springboot-antmatchers
-- https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
-- https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
-- https://rieckpil.de/guide-to-springboottest-for-spring-boot-integration-tests/
-- https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
-- https://rieckpil.de/fix-no-qualifying-spring-bean-error-for-spring-boot-tests/
+- https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
+- https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
 - https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
 ## OVERVIEW
@@ -882,12 +879,14 @@ $ curl -X POST \
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
 - https://howtodoinjava.com/spring-boot2/testing/junit5-with-spring-boot2/
-- https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
-- https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
 - https://newbedev.com/unit-test-or-integration-test-in-spring-boot
 - https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html
-- https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
 - https://reflectoring.io/spring-boot-test/
+- https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
+- https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
+- https://rieckpil.de/guide-to-springboottest-for-spring-boot-integration-tests/
+- https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
+- https://rieckpil.de/fix-no-qualifying-spring-bean-error-for-spring-boot-tests/
 
 ## KEY ANNOTATIONS
 [@ExtendWith](https://junit.org/junit5/docs/5.0.3/api/org/junit/jupiter/api/extension/ExtendWith.html) - JUnit annotation that is used to register extensions for the annotated test class or test method. [Prior to Spring 2.1 release](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1-Release-Notes#junit-5), `@ExtendWith(SpringExtension.class)` was necessary to be specified at the test class-level in order to enable Spring support, but as of then is no longer needed because it is included as a meta annotation in the Spring Boot test annotations like @DataJpaTest, @WebMvcTest, and @SpringBootTest.
