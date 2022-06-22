@@ -579,9 +579,11 @@ If a class is annotated with @ResponseBody, all of its request handler methods w
 - https://www.marcobehler.com/guides/spring-security
 - https://www.baeldung.com/spring-security-expressions
 - https://www.section.io/engineering-education/springboot-antmatchers
-- https://medium.com/rapaduratech/criando-um-token-jwt-para-autentica%C3%A7%C3%A3o-em-spring-boot-371ccb54a093
-- https://levelup.gitconnected.com/learn-how-to-build-a-token-based-authentication-server-using-spring-boot-and-spring-security-14a82d186f88
-- https://medium.com/wolox/securing-applications-with-jwt-spring-boot-da24d3d98f83
+- https://rieckpil.de/spring-boot-unit-and-integration-testing-overview/
+- https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
+- https://rieckpil.de/guide-to-springboottest-for-spring-boot-integration-tests/
+- https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
+- https://rieckpil.de/fix-no-qualifying-spring-bean-error-for-spring-boot-tests/
 - https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
 ## OVERVIEW
