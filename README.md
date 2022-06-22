@@ -400,7 +400,7 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 > 📌 The default transaction propagation type is `REQUIRED`
 
-> 📌 Read-only transaction is **a transaction which does not modify any data**. If we use the @Transactional's `readOnly` attribute set to `true` on a method which is performing create or update operation then we will not have any created or updated record into the database but rather an exception.
+> 📌 Read-only transaction is **a transaction which does not modify any data**. If we use the @Transactional's `readOnly` attribute set to `true` on a method which is performing create or update operation then we will not have any created or updated record into the database but rather an exception
 
 > 📌 If we have many @Transaction methods in the same class defined with different propagation types and if they are called sequentially, in practice only the propagation configuration of the first method in the flow will be considered. That is because Spring creates a proxy upon detecting the @Transactional annotation when we are calling any internal method, it will bypass the proxy
 
