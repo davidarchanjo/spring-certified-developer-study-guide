@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import lombok.SneakyThrows;
 
 @WebMvcTest(controllers = PostController.class)
-class PostControllerTestV1 {
+class PostControllerV1Test {
 
     @Autowired
     private MockMvc mockMvc;
