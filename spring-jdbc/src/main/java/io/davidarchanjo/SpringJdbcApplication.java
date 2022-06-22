@@ -9,17 +9,19 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootApplication
-public class SpringJdbcTemplateApplication {
+public class SpringJdbcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJdbcTemplateApplication.class, args);
+		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
 
+	@Profile("!test")
 	@Bean
 	EasyRandom easyRandom() {
 		var easyRandomParameters = new EasyRandomParameters();
@@ -27,6 +29,7 @@ public class SpringJdbcTemplateApplication {
 		return new EasyRandom(easyRandomParameters);
 	}
 
+	@Profile("!test")
 	@Bean
 	CommandLineRunner commandLineRunner(EmployeeDao dao, EasyRandom easyRandom) {
 		return args -> {
