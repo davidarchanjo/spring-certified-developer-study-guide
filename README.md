@@ -874,6 +874,8 @@ $ curl -X POST \
 
 
 # 12. SPRING BOOT TESTING <a id="12-spring-boot-testing-" href="#12"></a>
+## SAMPLE PROJECTS
+- [spring-testing](./spring-testing/)
 ## REFERENCES
 - https://spring.io/guides/gs/testing-web/
 - https://howtodoinjava.com/spring-boot2/testing/springboot-test-configuration/
