@@ -131,7 +131,7 @@ Follows some common examples of mapping correspondence between the HTTP method, 
 **Dependency Injection** is a pattern used to implement IoC, where the control being inverted is the setting and injection of object's dependencies.
 
 ## SPRING EXPRESSION LANGUAGE
-The Spring Expression Language (SpEL for short) is used to query property values from properties file or to manipulate java objects and its attributes at runtime. @Value annotation is the most used way to process SpEL.
+The Spring Expression Language (SpEL for short) is used to query property values from properties file or to manipulate Java objects and its attributes at runtime. @Value annotation is the most used way to process SpEL.
 
 A SpEL expression begins with `#` and is enclosed by braces, e.g. `#{2 + 2}`. Properties can be referenced in a similar fashion with `$`, and are enclosed by braces too, e.g. `${foo.bar}`. Property placeholders cannot contain SpEL expressions, but expressions can, e.g. `#{'${foo.bar}' + 2}`. **Notice that to access the property contained in the properties file from SpEL, is mandatory to reference the property enclosed by single quotes**.
 
@@ -139,13 +139,12 @@ SpEL provides two special built-in variables: `systemProperties` and `systemEnvi
 - **systemProperties** – a java.util.Properties object which provides runtime environment properties, like `os.name`, or JVM argument;
 - **systemEnvironment** – a java.util.Properties object which provides access to environment variables;
 
-## KEY INTERFACES
-### STARTUP
+## STARTUP INTERFACES
 Spring Boot provides two interfaces to run specific pieces of code as soon as the application starts: [CommandLineRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html) and [ApplicationRunner](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html).
 
 > 📌 When defining multiple beans of both types ***in the same configuration class*** (@SpringBootApplication or @Configuration), beans of ApplicationRunner type will be executed before beans of CommandLineRunner type. That rule also applies when they are defined individually as components (@Component). However when defined as components, that default execution order can be changed through the use of [@Order](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html) annotation.
 
-### BEAN STATE ANNOTATION
+## FACTORY HOOK INTERFACES
 [BeanFactoryPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html) - used to modify the definition of any bean before it get created/instantiated by working on its configuration metadata phase, such as loading value from external property files.
 
 [BeanPostProcessor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html) - Factory hook interface that allows for custom modification of new bean instances _before_ and _after_ properties are set from initialization callbacks.
@@ -154,11 +153,12 @@ Spring Boot provides two interfaces to run specific pieces of code as soon as th
 
 [DisposableBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html) - interface to be implemented by beans that want to release resources upon their destruction by overriding the [destroy](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html#destroy--) method.
 
+### BEAN STATE ANNOTATIONS
 [@PostConstruct](https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html) - used on beans to mark a method to be executed, like a callback, after the dependency injection is done.
 
 [@PreDestroy](https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html) - used on beans to mark a method as a callback to signal the instance is in the process of being removed from the container;
 
-#### CALLBACK ORDER EXECUTION
+### CALLBACK ORDER EXECUTION
 If all lifecycle callbacks, annotations and a BeanPostProcessor implementation are used in conjuction, the execution sequence goes like this: <br>
 ➡️ **Bean's constructor**<br>
 ➡️ **BeanPostProcessor's postProcessBeforeInitialization**<br>
