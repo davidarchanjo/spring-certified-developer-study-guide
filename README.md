@@ -179,7 +179,7 @@ If all lifecycle callbacks, annotations and a BeanPostProcessor implementation a
 [@Autowired](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html) - used at constructors, methods and fields to indicate that the injection (i.e. instantiation) will be managed by the Spring container dinamically;
 > 📌 @Autowired can not be used to inject primitive and string values. It only works with reference objects.
 
-> 📌 @Autowired, when processing field injection, first looks for a bean which *name* is equal to the field name. If none is found, then it looks for a bean which *type* is the same as the field to be injected
+> 📌 @Autowired, when processing field injection, first looks for a bean which type is the same as the field to be injected. If multiple beans of the same type are found, then it may require further qualifications like the bean name or @Qualifier to determine the correct bean to be injected.
 
 [@Qualifier](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html) - used to specify the id of the bean that have to be used for injection when more than one type is eligible, i.e. when there are multiple beans resulting in ambiguity;
 
